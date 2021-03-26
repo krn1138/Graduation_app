@@ -40,18 +40,18 @@
 * 本人確認メール	
 
 # カタログ設計
-https://docs.google.com/spreadsheets/d/1Tc0FE-ffoBvK5L20tNceU-WdeQINK9RC0-crG0NmXUs/edit#gid=0
+https://docs.google.com/spreadsheets/d/1Tc0FE-ffoBvK5L20tNceU-WdeQINK9RC0-crG0NmXUs/edit?usp=sharing
 
 # テーブル設計
-ER図：https://cacoo.com/diagrams/n6fyPFohq5aakEym/9E725?reload_rt=1616757404904_0
+ER図：https://cacoo.com/diagrams/n6fyPFohq5aakEym/9E725
 
-テーブル：https://docs.google.com/spreadsheets/d/1Tc0FE-ffoBvK5L20tNceU-WdeQINK9RC0-crG0NmXUs/edit#gid=1447470511
+テーブル：https://docs.google.com/spreadsheets/d/1Tc0FE-ffoBvK5L20tNceU-WdeQINK9RC0-crG0NmXUs/edit?usp=sharing
 
 # 画面遷移図
 https://drive.google.com/file/d/1yR6hU4f5owGPaUjgQ6YOoEE12zoBrxgX/view?usp=sharing
 
 # 画面ワイヤーフレーム
-https://cacoo.com/diagrams/n6fyPFohq5aakEym/F59BB?reload_rt=1616757404904_0
+https://cacoo.com/diagrams/n6fyPFohq5aakEym/F59BB
 
 # 使用予定Gem/技術
 * devise
