@@ -2,7 +2,7 @@
 
 # 概要
 **海外旅行をした際の宿泊先で日本人宿を探す際に、**
-**ネットで検索をかけなくてもアプリが位置情報を特定して日本人宿を探してくれる。**
+**ネットで検索をかけなくても、このアプリだけで近くの日本人宿を探すことができる。**
 **海外旅行に行く人全般むけのアプリだが、どちらかというとバックパッカー向け**
 
 日本人宿：「世界各地に点在している、日本人が経営する安宿」のことで
@@ -18,26 +18,26 @@
 * Postgresql 13.1
 
 # 機能一覧(優先度’高’のみ実装)
-* ユーザー登録（画像含む）	
+* ユーザー登録（guest/host選択）	
 * ログイン、ログアウト機能	
-* ゲストログイン	
+* 未登録者ログイン	
 * 位置情報特定機能	
 * 宿検索機能	
 * 宿先詳細ページ	
 * 宿予約管理画面CRUD機能	
 * コミュニティー画面	
 * コメント機能	
-* いいね機能	
 * 泊まった宿のレビュー	
 * 個人情報登録	
 * 過去に泊まったところ一覧	
 * 管理者機能	
-* 宿登録（宿主用のログイン機能）	
+* 宿登録	
 * 決済機能	
 * スマホ対応	
 * メッセージ機能	
 * 予約完了後、予約者へ確定メール	
-* 本人確認メール	
+* 本人確認メール
+* guest登録,host登録
 
 # カタログ設計
 https://docs.google.com/spreadsheets/d/1Tc0FE-ffoBvK5L20tNceU-WdeQINK9RC0-crG0NmXUs/edit?usp=sharing
@@ -48,7 +48,7 @@ ER図：https://cacoo.com/diagrams/n6fyPFohq5aakEym/9E725
 テーブル：https://docs.google.com/spreadsheets/d/1Tc0FE-ffoBvK5L20tNceU-WdeQINK9RC0-crG0NmXUs/edit?usp=sharing
 
 # 画面遷移図
-https://drive.google.com/file/d/14wDbbFTp54rTgikw7chSimElWe6eXUO-/view?usp=sharing
+https://drive.google.com/file/d/1nKYybuHoxqMXSkH2XhsqiT_H31zOjh7h/view?usp=sharing
 
 # 画面ワイヤーフレーム
 https://cacoo.com/diagrams/n6fyPFohq5aakEym/F59BB
@@ -70,14 +70,14 @@ https://cacoo.com/diagrams/n6fyPFohq5aakEym/F59BB
 * Payjp
 * jpmobile
 * OAuth
-* letter_opener_web or sendgrid
+* letter_opener_web or SendGrid
 
 # 課題要件
 
 就業Termから２つ以上の技術
 * メッセージ機能
-* device
+* devise
 
 カリキュラム外から１つ以上の技術
 * GoogleAPI
-* ransac
+* ransack
