@@ -48,7 +48,7 @@ ER図：https://cacoo.com/diagrams/n6fyPFohq5aakEym/9E725
 テーブル：https://docs.google.com/spreadsheets/d/1Tc0FE-ffoBvK5L20tNceU-WdeQINK9RC0-crG0NmXUs/edit?usp=sharing
 
 # 画面遷移図
-https://drive.google.com/file/d/1yR6hU4f5owGPaUjgQ6YOoEE12zoBrxgX/view?usp=sharing
+https://drive.google.com/file/d/14wDbbFTp54rTgikw7chSimElWe6eXUO-/view?usp=sharing
 
 # 画面ワイヤーフレーム
 https://cacoo.com/diagrams/n6fyPFohq5aakEym/F59BB
@@ -56,7 +56,7 @@ https://cacoo.com/diagrams/n6fyPFohq5aakEym/F59BB
 # 使用予定Gem/技術
 * devise
 * gem devise-i18n
-* ransac
+* ransack
 * rails admin
 * cancancan
 * dotenv-rails
