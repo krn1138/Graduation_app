@@ -20,24 +20,23 @@
 # 機能一覧(優先度’高’のみ実装)
 * ユーザー登録（guest/host選択）	
 * ログイン、ログアウト機能	
-* 未登録者ログイン	
-* 位置情報特定機能	
-* 宿検索機能	
-* 宿先詳細ページ	
-* 宿予約管理画面CRUD機能	
-* コミュニティー画面	
-* コメント機能	
-* 泊まった宿のレビュー	
-* 個人情報登録	
-* 過去に泊まったところ一覧	
-* 管理者機能	
-* 宿登録	
-* 決済機能	
-* スマホ対応	
-* メッセージ機能	
-* 予約完了後、予約者へ確定メール	
-* 本人確認メール
+* 位置情報特定機能
+* 宿検索機能機能
+* 宿先詳細機能
+* 宿登録機能
+* メッセージ機能
 * guest登録,host登録
+* 泊まった宿のレビュー機能
+* 決済機能
+* 管理者機能
+* メール送信機能
+* 本人確認機能(ユーザー登録)
+* 未登録者ログイン機能
+* 宿予約管理画面CRUD機能
+* コミュニティーCRUD機能
+* (コミュニティー内)コメント機能
+* 過去の宿泊履歴CRUD機能
+* スマホ対応
 
 # カタログ設計
 https://docs.google.com/spreadsheets/d/1Tc0FE-ffoBvK5L20tNceU-WdeQINK9RC0-crG0NmXUs/edit?usp=sharing
@@ -48,7 +47,7 @@ ER図：https://cacoo.com/diagrams/n6fyPFohq5aakEym/9E725
 テーブル：https://docs.google.com/spreadsheets/d/1Tc0FE-ffoBvK5L20tNceU-WdeQINK9RC0-crG0NmXUs/edit?usp=sharing
 
 # 画面遷移図
-https://drive.google.com/file/d/1nKYybuHoxqMXSkH2XhsqiT_H31zOjh7h/view?usp=sharing
+https://drive.google.com/file/d/16t564-mZoiUsBB5X6bKra5n0MRb5NHi_/view?usp=sharing
 
 # 画面ワイヤーフレーム
 https://cacoo.com/diagrams/n6fyPFohq5aakEym/F59BB
