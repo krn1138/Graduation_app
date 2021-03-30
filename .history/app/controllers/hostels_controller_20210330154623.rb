@@ -1,10 +1,10 @@
 class HostelsController < ApplicationController
-  before_action :set_hostel, only: %i[ show edit update destroy ]
+  before_action :set_hostel
 
-  def index
-    @q = Hostel.ransack(params[:q])
-    @hostels = @q.result(distinct: true)
-  end
+    def index
+      @q = Hostel.ransack(params[:q])
+      @hostels = @q.result(distinct: true)
+    end
 
   def show
   end

@@ -11,6 +11,7 @@ class HostelsController < ApplicationController
 
   private
   def set_hostel
+    binding.irb
     @hostel = Hostel.find(params[:id])
   end
 

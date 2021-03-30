@@ -1,5 +1,5 @@
 class HostelsController < ApplicationController
-  before_action :set_hostel, only: %i[ show edit update destroy ]
+  before_action :set_hostel
 
   def index
     @q = Hostel.ransack(params[:q])
@@ -11,6 +11,7 @@ class HostelsController < ApplicationController
 
   private
   def set_hostel
+    binding.irb
     @hostel = Hostel.find(params[:id])
   end
 
