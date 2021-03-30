@@ -2,8 +2,7 @@ class HostelsController < ApplicationController
   before_action :set_hostel, only: %i[ show edit update destroy ]
 
   def index
-    # binding.irb
-    @q = Hostel.ransack(params[:q])
+    @q = Hostel.ransack(params[:hostel][:q])
     @hostels = @q.result(distinct: true)
   end
 
