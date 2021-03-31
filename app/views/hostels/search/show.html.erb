@@ -1,6 +1,6 @@
-<%= link_to 'Search', hostels_path %>
 
-<%= form_with(model: @hostel, url: hostels_path, method: :get, local: true) do |f| %>
-    <%= f.text_field :q %>
+<%= form_with(model: @q, url: hostels_path, method: :get, local: true) do |f| %>
+    <%= f.label :name, "Keyword" %>
+    <%= f.text_field :name_cont %>
     <%= f.submit %>
 <% end %>
