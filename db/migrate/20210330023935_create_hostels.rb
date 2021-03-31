@@ -9,7 +9,7 @@ class CreateHostels < ActiveRecord::Migration[5.2]
       t.string :image
       t.string :phone_number, null: false
       t.text :details, null: false
-      t.integer :country, null: false
+      t.string :country, null: false
       t.integer :capacity
       t.float :latitude
       t.float :longitude
