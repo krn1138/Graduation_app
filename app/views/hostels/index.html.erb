@@ -20,16 +20,26 @@
     </tr>
   </thead>
 
-  <tbody>
-    <div class="task_row"><% @hostels.each do |hostel| %></div>
-      <tr>
-        <td><%= hostel.name %></td>
-        <td><%= hostel.country %></td>
-      </tr>
-    <% end %>
-  </tbody>
+  
 
   <br>
 
-</table>
 </div>
+
+<% if @hostels.present? %>
+<tbody>
+
+  <% @hostels.each do |hostel| %>
+    <tr>
+      <td><%= hostel.name %></td>
+      <td><%= hostel.country %></td>
+    </tr>
+    <% end %>
+<% else %>
+  <div>
+    <p>一致する宿がありません。条件を変えて検索してみよう！</p>
+  </div>
+  <% end %>
+  </tbody>
+
+  </table>
