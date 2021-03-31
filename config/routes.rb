@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root "hostels/search#show"
 
   # MARK: hostels routings 
