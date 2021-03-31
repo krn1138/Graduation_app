@@ -8,6 +8,12 @@
   
     <%#= f.submit "検索" %>
   <%# end %>
+  
+  <%#= form_with(model: @q, url: hostels_path, method: :get, local: true) do |f| %>
+  <%#= f.label :name, "国名か宿名で検索" %>
+    <%#= f.text_field :name_or_country_cont_any %>
+    <%#= f.submit %>
+  <%# end %>
 
   <div class="mx-auto" style="width: 1000px;">
 <table>
