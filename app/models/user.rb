@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum role: {
-    ゲスト:1, ホスト:2
+    ゲスト:0, ホスト:1
   }
 end
