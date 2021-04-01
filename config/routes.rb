@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'guests/new'
-  get 'guests/show'
-  get 'guests/edit'
+  get 'hosts/new'
   devise_for :users
+  resources :guests
+  resources :hosts
   root "hostels/search#show"
 
   # MARK: hostels routings 
