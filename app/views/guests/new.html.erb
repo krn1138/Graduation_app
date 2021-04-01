@@ -1,2 +1,31 @@
 <h1>Guests#new</h1>
 <p>Find me in app/views/guests/new.html.erb</p>
+
+<%= form_with(model: @guest, local: true) do |form| %>
+    <% if @guest.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
+  
+        <ul>
+        <% guest.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="actions">
+      <%= form.label :name %>
+      <%= form.text_area :name %>
+      <br>
+      <%= form.label :address %>
+      <%= form.text_area :address %>
+      <br>
+      <%= form.label :country %>
+      <%= form.text_area :country %>
+      <br>
+      <%= form.submit %>
+    
+    </div>
+  <% end %>
+  
