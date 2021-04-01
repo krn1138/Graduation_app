@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'guests/new'
+  get 'guests/show'
+  get 'guests/edit'
   devise_for :users
   root "hostels/search#show"
 
