@@ -1,6 +1,7 @@
 class HostelsController < ApplicationController
   before_action :set_hostel, only: %i[ show edit update destroy ]
   before_action :set_search_hostel
+  # before_action :authenticate_user!, only: [:new, :create]
 
   def index
 
