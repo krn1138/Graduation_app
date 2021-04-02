@@ -1,19 +1,6 @@
-<h1>Hostels#index</h1>
-<p>Find me in app/views/hostels/index.html.erb</p>
+<h1>宿検索結果</h1>
+<p>hostel/search/showからこの画面</p>
 
-<%#= search_form_for @q do |f| %>
-    <%#= binding.irb %>
-    <%#= f.label :name, "Keyword" %>
-    <%#= f.search_field :name_cont %>
-  
-    <%#= f.submit "検索" %>
-  <%# end %>
-  
-  <%#= form_with(model: @q, url: hostels_path, method: :get, local: true) do |f| %>
-  <%#= f.label :name, "国名か宿名で検索" %>
-    <%#= f.text_field :name_or_country_cont_any %>
-    <%#= f.submit %>
-  <%# end %>
 
   <div class="mx-auto" style="width: 1000px;">
 <table>
@@ -37,7 +24,7 @@
 
   <% @hostels.each do |hostel| %>
     <tr>
-      <td><%= hostel.name %></td>
+      <td><%= link_to hostel.name, hostel_path(hostel.id) %></td>
       <td><%= hostel.country %></td>
     </tr>
     <% end %>
@@ -49,3 +36,5 @@
   </tbody>
 
   </table>
+
+  

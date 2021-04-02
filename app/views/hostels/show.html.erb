@@ -1,3 +1,15 @@
 <h1>Hostels#show</h1>
 <p>Find me in app/views/hostels/show.html.erb</p>
 宿詳細情報
+
+<p> 宿名: <%= @hostel.name %></p>
+<p> 住所: <%= @hostel.address %></p>
+<p> 部屋タイプ: <%= @hostel.kind %></p>
+<p> 市内までの距離: <%= @hostel.walk_city_time %></p>
+<p> １泊の値段: <%= @hostel.price %> 〜 </p>
+<p> 宿の写真: <%= @hostel.image %></p>
+<p> 詳細情報: <%= @hostel.details %></p>
+<p> 宿周辺の情報: <%= @hostel.around_information %></p>
+<p> 国: <%= @hostel.country %></p>
+<p> 部屋数: <%= @hostel.capacity %></p>
+
