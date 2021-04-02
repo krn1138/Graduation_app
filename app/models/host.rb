@@ -1,4 +1,5 @@
 class Host < ApplicationRecord
-    belongs_to :user
     has_one :hostel
+    belongs_to :user
+
 end
