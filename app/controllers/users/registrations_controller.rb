@@ -53,10 +53,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
   #   super(resource)
-  #   if role == host
-  #   new_host_path
-  #   else
+  #   binding.irb
+  #   if resource[:role] == "ゲスト"
   #     new_guest_path
+  #   else
+  #     new_host_path
   #   end
   # end
 

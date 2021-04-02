@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  # has_one :host, dependent: :destroy
+  # has_one :guest, dependent: :destroy
   has_one :host
   has_one :guest
   # Include default devise modules. Others available are:

@@ -7,16 +7,17 @@ class GuestsController < ApplicationController
 
   def create
     #アソシエーション組まないと
-    @guest = current_user.guests.build(guest_params)
+    @guest = current_user.build_guest(guest_params)
 
     if @guest.save
-      redirect_to root_path, notice: "Taskを作成しました！"
+      redirect_to guest_path(@guest.id), notice: "情報を登録しました！"
     else
       render :new
     end
   end
 
   def show
+    # @user = User.find(params[:id])
   end
 
   def edit

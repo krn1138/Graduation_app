@@ -10,6 +10,7 @@ class CreateGuests < ActiveRecord::Migration[5.2]
       t.float :longitude
       t.string :image
       t.integer :birthday
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
