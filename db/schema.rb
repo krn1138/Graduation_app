@@ -44,8 +44,10 @@ ActiveRecord::Schema.define(version: 2021_04_01_080944) do
     t.float "latitude"
     t.float "longitude"
     t.text "around_information"
+    t.bigint "host_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["host_id"], name: "index_hostels_on_host_id"
     t.index ["name", "country"], name: "index_hostels_on_name_and_country"
   end
 
@@ -82,5 +84,6 @@ ActiveRecord::Schema.define(version: 2021_04_01_080944) do
   end
 
   add_foreign_key "guests", "users"
+  add_foreign_key "hostels", "hosts"
   add_foreign_key "hosts", "users"
 end

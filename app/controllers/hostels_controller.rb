@@ -19,6 +19,7 @@ class HostelsController < ApplicationController
   end
 
   def show
+    
   end
 
   private

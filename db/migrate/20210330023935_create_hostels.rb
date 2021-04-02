@@ -14,6 +14,7 @@ class CreateHostels < ActiveRecord::Migration[5.2]
       t.float :latitude
       t.float :longitude
       t.text :around_information
+      t.references :host, foreign_key: true
 
       t.timestamps
     end
