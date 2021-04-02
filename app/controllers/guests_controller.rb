@@ -10,7 +10,7 @@ class GuestsController < ApplicationController
     @guest = current_user.build_guest(guest_params)
 
     if @guest.save
-      redirect_to guest_path(@guest.id), notice: "情報を登録しました！"
+      redirect_to root_path, notice: "情報を登録しました！"
     else
       render :new
     end
