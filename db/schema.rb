@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 2021_04_01_080944) do
   enable_extension "plpgsql"
 
   create_table "guests", force: :cascade do |t|
-    t.string "name", null: false
     t.string "address"
     t.string "phone_number"
     t.integer "gender"
@@ -67,6 +66,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_080944) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.integer "role", default: 0
+    t.string "name", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
