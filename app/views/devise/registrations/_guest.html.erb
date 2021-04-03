@@ -1,11 +1,24 @@
-<%= form_with(model: @user, local: true) do |form| %>
-    　　#formタグ省略
-      <%= form.fields_for :guests do |guest| %>
-      　　<div class="route">
-        　　<%= guest.label :address %><br>
-        　　<%= guest.text_field :address %>
-      　　</div>
-      　　
-      　　<%= form.submit '登録する' %>
-      <% end %>
-    <% end %>
+<h1>guest</h1>
+<%= form.fields_for :guests do |g| %>
+        　　
+    <div class="field">
+    <%= g.label :address %><br />
+    <%= g.text_field :address, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= g.label :phone_number %><br />
+    <%= g.text_field :phone_number, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= g.label :gender %><br />
+    <%= g.text_field :gender, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= g.label :image %><br />
+    <%= g.text_field :image, autofocus: true %>
+  </div>
+<% end %>
+

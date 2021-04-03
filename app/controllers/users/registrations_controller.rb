@@ -2,52 +2,58 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
-  before_action :set_user, only: [:show, :update]
+  before_action :configure_account_update_params, only: [:update]
+  # before_action :configure_account_update_params
 
-  def index
-    @users = User.all
-  end
-  # GET /resource/sign_up
-  def new
-    super
-    @user = User.new
-  end
 
-  # POST /resource
-  def create
-    super
-    @user = User.new(configure_account_update_params)
-    if @user.save
-      #一覧画面へ遷移して、"物件を登録しました！"とメッセージを表示する。
-      redirect_to root_path, notice: "物件を登録しました！"
-    else
-    #入力フォーム(new.html.erb)を再描写
-    render :new
-    end
-  end
-
-  # def show
-  #   @user = User.find(params[:id])
+  # def index
+  #   @users = User.all
   # end
+  # # GET /resource/sign_up
 
-  # GET /resource/edit
+  def new
+    # binding.irb
+    super
+    # @user = User.new
+  end
+
+  # # POST /resource
+  def create
+    # binding.irb
+    super
+    # binding.irb
+    # @user = User.new(configure_account_update_params)
+    # if @user.save
+    #   redirect_to root_path, notice: "登録しました！"
+    # else
+    # render :new
+    # end
+  end
+
+  # # def show
+  # #   @user = User.find(params[:id])
+  # # end
+
+  # # GET /resource/edit
   def edit
     super
     # binding.irb
-    @user.build_guest
-    @user.build_host
+    if resource[:role] == "ゲスト"
+      resource.build_guest
+    else
+      resource.build_host
+    end
   end
 
-  # PUT /resource
+  # # PUT /resource
   def update
     super
-    binding.irb
-    if @user.update(configure_account_update_params)
-      redirect_to root_path, notice: "編集しました！"
-    else
-      render :edit
-    end
+    # binding.irb
+    # if @user.update(configure_account_update_params)
+    #   redirect_to root_path, notice: "編集しました！"
+    # else
+    #   render :edit
+    # end
   end
 
   # DELETE /resource
@@ -80,53 +86,38 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:role, :name])
   end
 
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [
-  #     :name,
-  #     host_attributes: [
-  #       :name,
-  #       :phone_number,
-  #       :profile,
-  #       :image,
-  #       :country,
-  #       :birthday,
-  #       :user_id
-  #       ],
-  #     guest_attributes: [
-  #       :address,
-  #       :phone_number,
-  #       :gender,
-  #       :country,
-  #       :latitude,
-  #       :longitude,
-  #       :image,
-  #       :birthday,
-  #       :user_id
-  #       ]
-  #     ]
-  #   )
+  def configure_account_update_params
+    # binding.irb
+    devise_parameter_sanitizer.permit(:account_update, 
+      keys: guest_host_params(resource.role)
+    )
 
-  # end
+  end
 
 
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
     # binding.irb
-    super(resource)
+    super
+    # super(resource) do 
+    edit_user_registration_path
+    # end
     # binding.irb
-    if resource[:role] == "ゲスト"
-      new_guest_path
-    else
-      new_host_path
-    end
+    # if resource[:role] == "ゲスト"
+    #   new_guest_path
+    # else
+    #   new_host_path
+    # end
   end
 
-  def set_user
-    #parameterのidを利用して、データベースからデータを取得。
-    # binding.irb
-    @user = User.find(params[:id])
-  end
+
+
+  # def set_user
+  #   #parameterのidを利用して、データベースからデータを取得。
+  #   # binding.irb
+  #   @user = User.find(params[:id])
+  # end
 
   # def configure_guest_profile_params
   #   devise_parameter_sanitizer.permit(:sign_up,
@@ -145,5 +136,35 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  private
+  def guest_host_params(role)
+    if role == "ホスト"
+      [:name,
+      host_attributes: [
+        :name,
+        :phone_number,
+        :profile,
+        :image,
+        :country,
+        :birthday,
+        :user_id
+        ]
+      ]
+    else
+      [:name,
+      guest_attributes: [
+        :address,
+        :phone_number,
+        :gender,
+        :country,
+        :latitude,
+        :longitude,
+        :image,
+        :birthday,
+        :user_id
+        ]
+      ]
+    end
+  end
 end
 

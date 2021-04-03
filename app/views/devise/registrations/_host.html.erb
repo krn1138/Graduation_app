@@ -1,0 +1,14 @@
+<%= form.fields_for :hosts do |h| %>
+        　　
+  <div class="field">
+    <%= h.label :profile %><br />
+    <%= h.text_field :profile, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= h.label :country %><br />
+    <%= h.text_field :country, autofocus: true %>
+  </div>
+
+<% end %>
+

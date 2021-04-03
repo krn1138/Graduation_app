@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resources :users, only: %i[show]
-  resources :guests
-  resources :hosts
+  # devise_for :users
+  # resources :guests
+  # resources :hosts
   root "hostels/search#show"
 
-  # devise_for :users, controllers: {
-  #       registrations: 'users/registrations',
+  devise_for :users, controllers: {
+        registrations: 'users/registrations',
         # registrations: 'users/registrations',
-#         sessions: 'users/sessions'
-# }
+        sessions: 'users/sessions'
+  }
+
+  resources :users, only: %i[show]
 
   # MARK: hostels routings 
   namespace :hostels do
