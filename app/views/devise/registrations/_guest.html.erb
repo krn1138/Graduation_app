@@ -1,0 +1,11 @@
+<%= form_with(model: @user, local: true) do |form| %>
+    　　#formタグ省略
+      <%= form.fields_for :guests do |guest| %>
+      　　<div class="route">
+        　　<%= guest.label :address %><br>
+        　　<%= guest.text_field :address %>
+      　　</div>
+      　　
+      　　<%= form.submit '登録する' %>
+      <% end %>
+    <% end %>

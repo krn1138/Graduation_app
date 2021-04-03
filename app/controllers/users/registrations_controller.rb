@@ -1,30 +1,53 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
+  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_account_update_params, only: [:update]
+  before_action :set_user, only: [:show, :update]
 
+  def index
+    @users = User.all
+  end
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    super
+    @user = User.new
+  end
 
   # POST /resource
-  # def create
-  #   super
-  #   binding.irb
+  def create
+    super
+    @user = User.new(configure_account_update_params)
+    if @user.save
+      #一覧画面へ遷移して、"物件を登録しました！"とメッセージを表示する。
+      redirect_to root_path, notice: "物件を登録しました！"
+    else
+    #入力フォーム(new.html.erb)を再描写
+    render :new
+    end
+  end
+
+  # def show
+  #   @nearest_stations = @property.nearest_stations
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  #   @guest = Guest.find(params[:id])
-  # end
+  def edit
+    super
+    # binding.irb
+    @user.build_guest
+    @user.build_host
+  end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+  if @user.update(configure_account_update_params)
+    redirect_to root_path, notice: "物件を編集しました！"
+  else
+    render :edit
+  end
+  end
 
   # DELETE /resource
   # def destroy
@@ -39,6 +62,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
+  
 
   protected
 
@@ -51,32 +75,33 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
-  def configure_permitted_parameters
+  def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:role, :name])
+  end
 
+  def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update, keys: [
-      :name, 
-      :email, 
-      :password, 
-      :password_confirmation,
-    host_attributes: [
       :name,
-      ;phone_number,
-      :profile,
-      :image,
-      :country,
-      :birthday,
-      :user_id,
-    guest_attributes: [
-      :address,
-      :phone_number,
-      :gender,
-      :country,
-      :latitude,
-      :longitude,
-      :image,
-      :birthday,
-      :user_id
+      host_attributes: [
+        :name,
+        :phone_number,
+        :profile,
+        :image,
+        :country,
+        :birthday,
+        :user_id
+        ],
+      guest_attributes: [
+        :address,
+        :phone_number,
+        :gender,
+        :country,
+        :latitude,
+        :longitude,
+        :image,
+        :birthday,
+        :user_id
+        ]
       ]
     )
 
@@ -88,12 +113,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     # binding.irb
     super(resource)
-    binding.irb
+    # binding.irb
     if resource[:role] == "ゲスト"
       new_guest_path
     else
       new_host_path
     end
+  end
+
+  def set_user
+    #parameterのidを利用して、データベースからデータを取得。
+    # binding.irb
+    @user = User.find(params[:id])
   end
 
   # def configure_guest_profile_params
@@ -114,3 +145,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 end
+
