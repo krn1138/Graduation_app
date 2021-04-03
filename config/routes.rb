@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   resources :hosts
   root "hostels/search#show"
 
-#   devise_for :users, controllers: {
-#         registrations: 'users/registrations',
+  # devise_for :users, controllers: {
+  #       registrations: 'users/registrations',
+        # registrations: 'users/registrations',
 #         sessions: 'users/sessions'
 # }
 

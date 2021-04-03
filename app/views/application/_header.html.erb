@@ -8,3 +8,4 @@
     <% end %>
     <%= yield %>
     <%= link_to 'edit', edit_user_registration_path(current_user.id)	%>
+    <%= link_to 'show', user_path(current_user.id)	%>

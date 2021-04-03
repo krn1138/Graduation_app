@@ -2,7 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
-  before_action :configure_account_update_params, only: [:update]
+  # before_action :configure_account_update_params, only: [:update]
   before_action :set_user, only: [:show, :update]
 
   def index
@@ -28,7 +28,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # def show
-  #   @nearest_stations = @property.nearest_stations
+  #   @user = User.find(params[:id])
   # end
 
   # GET /resource/edit
@@ -42,11 +42,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     super
-  if @user.update(configure_account_update_params)
-    redirect_to root_path, notice: "物件を編集しました！"
-  else
-    render :edit
-  end
+    binding.irb
+    if @user.update(configure_account_update_params)
+      redirect_to root_path, notice: "編集しました！"
+    else
+      render :edit
+    end
   end
 
   # DELETE /resource
@@ -79,33 +80,33 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:role, :name])
   end
 
-  def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [
-      :name,
-      host_attributes: [
-        :name,
-        :phone_number,
-        :profile,
-        :image,
-        :country,
-        :birthday,
-        :user_id
-        ],
-      guest_attributes: [
-        :address,
-        :phone_number,
-        :gender,
-        :country,
-        :latitude,
-        :longitude,
-        :image,
-        :birthday,
-        :user_id
-        ]
-      ]
-    )
+  # def configure_account_update_params
+  #   devise_parameter_sanitizer.permit(:account_update, keys: [
+  #     :name,
+  #     host_attributes: [
+  #       :name,
+  #       :phone_number,
+  #       :profile,
+  #       :image,
+  #       :country,
+  #       :birthday,
+  #       :user_id
+  #       ],
+  #     guest_attributes: [
+  #       :address,
+  #       :phone_number,
+  #       :gender,
+  #       :country,
+  #       :latitude,
+  #       :longitude,
+  #       :image,
+  #       :birthday,
+  #       :user_id
+  #       ]
+  #     ]
+  #   )
 
-  end
+  # end
 
 
 
