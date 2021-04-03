@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # MARK: hostels routings 
   namespace :hostels do
     get '/search/', to: 'search#show'
+    # resource :search
   end
   resources :hostels
 end

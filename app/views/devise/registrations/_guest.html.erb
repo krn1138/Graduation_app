@@ -12,13 +12,13 @@
   </div>
 
   <div class="field">
-    <%= g.label :gender %><br />
-    <%= g.text_field :gender, autofocus: true %>
+    <%= g.label :image %><br />
+    <%= g.text_field :image, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= g.label :image %><br />
-    <%= g.text_field :image, autofocus: true %>
+    <%= g.label :gender %><br />
+    <%= g.select :gender, Guest.genders.keys, {prompt: "選択"} %>
   </div>
 <% end %>
 

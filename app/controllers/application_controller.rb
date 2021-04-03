@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   # before_action :configure_permitted_parameters, if: :devise_controller?
-  
+
   # before_action :configure_account_update_params, if: :devise_controller?
 
   def set_search_hostel
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
       # @hostels = @q.result(distinct: true)
   end
 
-  protected
+  # protected
   # def configure_permitted_parameters
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:role, :name])
   # end
