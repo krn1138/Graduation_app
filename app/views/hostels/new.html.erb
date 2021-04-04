@@ -16,35 +16,44 @@
 
   <div class="actions">
     <%= form.label :宿名 %>
-      <%= form.text_area :name %>
+      <%= form.text_field :name %>
+      <br>
       <br>
       <%= form.label :住所 %>
       <%= form.text_area :address %>
       <br>
-      <%= form.label :部屋種類 %>
-      <%= form.text_area :kind %>
+      <br>
+      <%= form.label :部屋種類 %><br />
+      <%= form.select :kind, Hostel.kinds.keys, {prompt: "選択"} %>
+      <br>
       <br>
       <%= form.label :市内までの距離 %>
       <%= form.text_area :walk_city_time %>
-
+      <br>
       <br>
       <%= form.label :１泊の値段 %>
-      <%= form.text_area :prise %>〜　から
+      <%= form.text_field :prise %>〜　から
+      <br>
       <br>
       <%= form.label :写真 %>
       <%= form.text_area :image %>
       <br>
+      <br>
       <%= form.label :詳細 %>
       <%= form.text_area :details %>
+      <br>
       <br>
       <%= form.label :宿周辺情報 %>
       <%= form.text_area :around_information %>
       <br>
+      <br>
       <%= form.label :国 %>
-      <%= form.text_area :country %>
+      <%= form.text_field :country %>
+      <br>
       <br>
       <%= form.label :部屋数 %>
-      <%= form.text_area :capacity %>
+      <%= form.text_field :capacity %>部屋
+      <br>
       <br>
       <%= form.submit %>
     <% end %>
