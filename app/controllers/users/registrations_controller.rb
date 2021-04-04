@@ -143,28 +143,28 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def guest_host_params(role)
     if role == "host"
       [:name,
-      host_attributes: [
-        :name,
-        :phone_number,
-        :profile,
-        :image,
-        :country,
-        :birthday,
-        :user_id
+        host_attributes: [
+          :name,
+          :phone_number,
+          :profile,
+          :image,
+          :country,
+          :birthday,
+          :user_id
         ]
       ]
     else
       [:name,
-      guest_attributes: [
-        :address,
-        :phone_number,
-        :gender,
-        :country,
-        :latitude,
-        :longitude,
-        :image,
-        :birthday,
-        :user_id
+        guest_attributes: [
+          :address,
+          :phone_number,
+          :gender,
+          :country,
+          :latitude,
+          :longitude,
+          :image,
+          :birthday,
+          :user_id
         ]
       ]
     end
