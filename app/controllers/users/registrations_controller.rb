@@ -37,11 +37,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # # GET /resource/edit
   def edit
     super
-    if resource[:role] == "guest"
-      resource.build_guest
-    else
-      resource.build_host
-    end
+    
+    # if resource[:role] == "guest"
+    #   resource.build_guest
+    # else
+    #   resource.build_host
+    # end
   end
 
   # # PUT /resource

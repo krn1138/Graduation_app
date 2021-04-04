@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_073223) do
     t.string "address"
     t.string "phone_number"
     t.integer "gender"
-    t.integer "country", null: false
+    t.integer "country"
     t.float "latitude"
     t.float "longitude"
     t.string "image"
