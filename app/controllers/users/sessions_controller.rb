@@ -21,7 +21,7 @@ class Users::SessionsController < Devise::SessionsController
   # protected
   # def after_sign_in_path_for(resource)
   #   super(resource)
-  #   if current_user == host
+  #   if current_user == "host"
   #     new_host_path
   #   else
   #     new_guest_path

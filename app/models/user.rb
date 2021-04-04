@@ -24,6 +24,6 @@ class User < ApplicationRecord
   end
 
   enum role: {
-    ゲスト:0, ホスト:1
+    guest: 0, host: 1
   }
 end

@@ -3,7 +3,7 @@
 <p>名前 : <%= @user.name %></p>
 <p>メールアドレス : <%= @user.email %></p>
 
-<% if @user.role == "ゲスト" %>
+<% if @user.role == "guest" %>
   <%= render 'users/guest' %>
 <% else %>
    <%= render 'users/host' %>

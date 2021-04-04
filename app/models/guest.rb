@@ -2,6 +2,16 @@ class Guest < ApplicationRecord
     belongs_to :user
 
     enum gender: {
-    女性:0, 男性:1, 答えない:2
-  }
+        female: 0, male: 1, nothing: 2
+    }
+
+    def gender_str
+        if self.gendeer == 'female'
+            return "女性"
+        elsif self.gender == 'male'
+            return "男性"
+        else
+            return "答えない"
+        end
+    end
 end

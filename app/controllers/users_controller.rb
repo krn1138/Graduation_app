@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = current_user
-    # binding.irb
+    # @guest = current_user.guest
+    # @host = current_user.host
   end
 end

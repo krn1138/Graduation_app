@@ -37,8 +37,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # # GET /resource/edit
   def edit
     super
-    # binding.irb
-    if resource[:role] == "ゲスト"
+    if resource[:role] == "guest"
       resource.build_guest
     else
       resource.build_host
@@ -104,7 +103,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     edit_user_registration_path
     # end
     # binding.irb
-    # if resource[:role] == "ゲスト"
+    # if resource[:role] == 'guest'
     #   new_guest_path
     # else
     #   new_host_path
@@ -142,7 +141,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
   private
   def guest_host_params(role)
-    if role == "ホスト"
+    if role == "host"
       [:name,
       host_attributes: [
         :name,
