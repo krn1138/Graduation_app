@@ -4,6 +4,7 @@
 <p>メールアドレス : <%= @user.email %></p>
 
 <% if @user.role == "guest" %>
+<%# binding.irb %>
   <%= render 'users/guest' %>
 <% else %>
    <%= render 'users/host' %>

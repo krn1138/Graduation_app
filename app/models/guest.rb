@@ -6,7 +6,7 @@ class Guest < ApplicationRecord
     }
 
     def gender_str
-        if self.gendeer == 'female'
+        if self.gender == 'female'
             return "女性"
         elsif self.gender == 'male'
             return "男性"
