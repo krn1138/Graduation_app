@@ -5,6 +5,20 @@ class HostelsController < ApplicationController
   def index
   end
 
+  def new
+    @hostel = Hostel.new
+  end
+
+  def create
+    @hostel = current_user.build_hostel(hostel_params)
+
+    if @hostel.save
+      redirect_to root_path, notice: "宿を登録しました！"
+    else
+      render :new
+    end
+  end
+
   def show
   end
 
