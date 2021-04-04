@@ -7,13 +7,16 @@ class HostelsController < ApplicationController
 
   def new
     @hostel = Hostel.new
+    puts current_user.id
+    puts current_user.host.id
   end
 
   def create
-    @hostel = host.build_hostel(hostel_params)
+    @hostel = Hostel.new(hostel_params)
+    @hostel.host_id = current_user.host.id
 
     if @hostel.save
-      redirect_to root_path, notice: "宿を登録しました！"
+      redirect_to hostels_path, notice: "宿を登録しました！"
     else
       render :new
     end

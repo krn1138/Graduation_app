@@ -28,11 +28,11 @@
       <br>
       <br>
       <%= form.label :市内までの距離 %>
-      <%= form.text_area :walk_city_time %>
+      <%= form.number_field :walk_city_time %>
       <br>
       <br>
       <%= form.label :１泊の値段 %>
-      <%= form.text_field :prise %>〜　から
+      <%= form.number_field :prise %>〜　から
       <br>
       <br>
       <%= form.label :写真 %>
@@ -52,7 +52,11 @@
       <br>
       <br>
       <%= form.label :部屋数 %>
-      <%= form.text_field :capacity %>部屋
+      <%= form.number_field :capacity %>部屋
+      <br>
+      <br>
+      <%= form.label :phone_number %>
+      <%= form.text_field :phone_number %>
       <br>
       <br>
       <%= form.submit %>
