@@ -3,6 +3,8 @@
 
 <p> 宿名: <%= @hostel.name %></p>
 <p> 住所: <%= @hostel.address %></p>
+<div id="map"></div>
+
 <p> 部屋タイプ: <%= @hostel.kind %></p>
 <p> 市内までの距離: <%= @hostel.walk_city_time %></p>
 <p> １泊の値段: <%= @hostel.price %> 〜 </p>
@@ -13,3 +15,25 @@
 <p> 部屋数: <%= @hostel.capacity %></p>
 <%= link_to 'Back', root_path %>
 
+
+<script>
+const geocoder = new google.maps.Geocoder()
+
+map = new google.maps.Map(
+    document.getElementById('map'), {
+        center: {
+            lat: <%= @hostel.latitude || 0 %>, 
+            lng: <%= @hostel.longitude || 0 %>, 
+        },
+        zoom: 12,
+    }
+);
+
+marker = new google.maps.Marker({
+    position:  {
+        lat: <%= @hostel.latitude || 0 %>, 
+        lng: <%= @hostel.longitude || 0 %>,
+    },
+    map: map
+});
+</script>

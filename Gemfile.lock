@@ -95,8 +95,10 @@ GEM
     erubi (1.10.0)
     execjs (2.7.0)
     ffi (1.15.0)
+    geocoder (1.6.6)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     i18n (1.8.9)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.1)
@@ -238,6 +240,8 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
+  geocoder
+  gmaps4rails
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mini_magick
