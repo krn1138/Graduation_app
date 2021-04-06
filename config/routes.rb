@@ -1,10 +1,21 @@
 Rails.application.routes.draw do
+  # devise_for :users
+  # resources :guests
+  # resources :hosts
   root "hostels/search#show"
+
+  devise_for :users, controllers: {
+        registrations: 'users/registrations',
+        # registrations: 'users/registrations',
+        sessions: 'users/sessions'
+  }
+
+  resources :users, only: %i[show]
 
   # MARK: hostels routings 
   namespace :hostels do
     get '/search/', to: 'search#show'
+    # resource :search
   end
   resources :hostels
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

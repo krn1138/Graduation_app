@@ -10,9 +10,11 @@
   </head>
 
   <body>
+  <p id="notice"><%= notice %></p>
+    <%= params %>
     <%= render "header" %>
     <%= render "search" %>
-    <%= yield %>
+    <%#= yield %>
     <%= render "footer" %>
   </body>
 </html>

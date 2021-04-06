@@ -1,0 +1,64 @@
+<h1>Hostels#new</h1>
+<h1>宿登録</h1>
+
+<%= form_with(model: @hostel, local: true) do |form| %>
+  <% if @hostel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(hostel.errors.count, "error") %> prohibited this guest from being saved:</h2>
+
+      <ul>
+      <% hostel.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.label :宿名 %>
+    <%= form.text_field :name %>
+    <br>
+    <br>
+    <%= form.label :住所 %>
+    <%= form.text_area :address %>
+    <br>
+    <br>
+    <%= form.label :部屋種類 %><br />
+    <%= form.select :kind, Hostel.kinds.keys, {prompt: "選択"} %>
+    <br>
+    <br>
+    <%= form.label :市内までの距離 %>
+    <%= form.number_field :walk_city_time %>
+    <br>
+    <br>
+    <%= form.label :１泊の値段 %>
+    <%= form.number_field :prise %>〜　から
+    <br>
+    <br>
+    <%= form.label :詳細 %>
+    <%= form.text_area :details %>
+    <br>
+    <br>
+    <%= form.label :宿周辺情報 %>
+    <%= form.text_area :around_information %>
+    <br>
+    <br>
+    <%= form.label :国 %>
+    <%= form.text_field :country %>
+    <br>
+    <br>
+    <%= form.label :部屋数 %>
+    <%= form.number_field :capacity %>部屋
+    <br>
+    <br>
+    <%= form.label :phone_number %>
+    <%= form.text_field :phone_number %>
+    <br>
+    <br>
+    <%= form.label :image %><br/>
+    <%= form.file_field :image %>
+    <%= form.submit %>
+  <% end %>
+  </div>
+    
+  

@@ -1,0 +1,34 @@
+<%= form.fields_for :host, user.host || user.build_host do |h| %>
+
+  <div class="field">
+    <%= h.label :name %><br />(代表者)
+    <%= h.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= h.label :phone_number %><br />
+    <%= h.text_field :phone_number, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%#= h.label :image %><br />
+    <%#= h.text_field :image, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= h.label :birthday %><br />
+    <%= h.text_field :birthday, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= h.label :profile %><br />
+    <%= h.text_field :profile, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= h.label :country %><br />
+    <%= h.text_field :country, autofocus: true %>
+  </div>
+
+<% end %>
+
