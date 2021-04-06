@@ -43,10 +43,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def edit
     super
     
-    if resource[:role] == "guest"
+    if resource[:role] == "guest" && unless current_user.guest.present?
+      # binding.irb
       resource.build_guest
     else
       resource.build_host
+    end
     end
   end
 
@@ -148,7 +150,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
   def guest_host_params(role)
     if role == "host"
+      # binding.irb
       [:name,
+       :image,
         host_attributes: [
           :name,
           :phone_number,
@@ -161,6 +165,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       ]
     else
       [:name,
+       :image,
         guest_attributes: [
           :address,
           :phone_number,

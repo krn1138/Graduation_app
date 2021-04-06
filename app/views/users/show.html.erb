@@ -1,13 +1,14 @@
 <h1>Users#show</h1>
 
+<img src=<%= @user.image %> class = "icon_image">
 <p>名前 : <%= @user.name %></p>
 <p>メールアドレス : <%= @user.email %></p>
 
 <% if @user.role == "guest" %>
 <%# binding.irb %>
-  <%= render 'users/guest' %>
+  <%= render 'users/guest', locals: { guest: @guest } %>
 <% else %>
-   <%= render 'users/host' %>
+   <%= render 'users/host', locals: { host: @host } %>
 <% end %>
 
 

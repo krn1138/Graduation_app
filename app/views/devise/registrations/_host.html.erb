@@ -1,9 +1,4 @@
 <%= form.fields_for :host, user.host || user.build_host do |h| %>
-        　　
-  <div class="field">
-    <%#= g.label :image %><br/>
-    <%#= g.file_field :image %>
-  </div>
 
   <div class="field">
     <%= h.label :name %><br />(代表者)
@@ -16,8 +11,8 @@
   </div>
 
   <div class="field">
-    <%= h.label :image %><br />
-    <%= h.text_field :image, autofocus: true %>
+    <%#= h.label :image %><br />
+    <%#= h.text_field :image, autofocus: true %>
   </div>
 
   <div class="field">

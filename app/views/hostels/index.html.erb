@@ -8,6 +8,10 @@
     <tr>
       <th>宿名</th>
       <br>
+      <th>住所</th>
+      <br>
+      <th>電話番号</th>
+      <br>
       <th>国</th>
       <th colspan="3"></th>
     </tr>
@@ -21,10 +25,11 @@
 
 <% if @hostels.present? %>
 <tbody>
-
   <% @hostels.each do |hostel| %>
     <tr>
       <td><%= link_to hostel.name, hostel_path(hostel.id) %></td>
+      <td><%= hostel.address %></td>
+      <td><%= hostel.phone_number %></td>
       <td><%= hostel.country %></td>
     </tr>
     <% end %>
@@ -32,7 +37,7 @@
   <div>
     <p>一致する宿がありません。条件を変えて検索してみよう！</p>
   </div>
-  <% end %>
+<% end %>
   </tbody>
 
   </table>

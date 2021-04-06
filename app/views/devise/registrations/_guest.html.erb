@@ -1,10 +1,6 @@
 <%= form.fields_for :guest, user.guest || user.build_guest do |g| %>
-  <div class="field">
-    <%#= g.label :image %><br/>
-    <%#= g.file_field :image %>
-  </div>
 
-    <div class="field">
+  <div class="field">
     <%= g.label :address %><br />
     <%= g.text_field :address, autofocus: true %>
   </div>
@@ -25,8 +21,8 @@
   </div>
 
   <div class="field">
-    <%= g.label :image %><br />
-    <%= g.text_field :image, autofocus: true %>
+    <%#= g.label :image %><br />
+    <%#= g.text_field :image, autofocus: true %>
   </div>
 
   <div class="field">
