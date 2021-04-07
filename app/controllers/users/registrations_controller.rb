@@ -55,6 +55,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # # PUT /resource
   def update
     super
+    # @user = current_user.host
+    # if @user.save
+    #   redirect_to new_hostel_path
+    # end
+    
     # binding.irb
     # if @user.update(configure_account_update_params)
     #   redirect_to root_path, notice: "編集しました！"

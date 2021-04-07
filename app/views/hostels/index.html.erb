@@ -44,15 +44,18 @@
 
   <h2>gmap</h2>
 
-  <%= form_for @hostel do |f| %>
-    <%= f.label :address %>
-    <%= f.collection_select :address, Hostel.all, :id, :name %>
+  <%= form_with(scope: :map_search, local: true) do |form| %>
+    <%= form.label :address %>
+    <%= form.collection_select :address, @hostels, :id, :address, {prompt: "行きたい場所を検索"} %>
+  <%#= form.submit %>
+  <input type="button" value="Encode" onclick="codeAddress()">
+
   <% end %>
 <!-- 地名入力用のinputを追加 -->
-<input id="address" type="textbox" placeholder="行きたい場所を検索">
+# <input id="address" type="textbox" placeholder="行きたい場所を検索">
 
 <!-- buttonをクリックしたらcodeAddressを実行　-->
-<input type="button" value="Encode" onclick="codeAddress()">
+# <input type="button" value="Encode" onclick="codeAddress()">
 <div id='map'>
 </div>
 

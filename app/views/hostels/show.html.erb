@@ -8,6 +8,8 @@
 <p> 部屋タイプ: <%= @hostel.kind %></p>
 <p> 市内までの距離: <%= @hostel.walk_city_time %></p>
 <p> １泊の値段: <%= @hostel.price %> 〜 </p>
+<img src=<%= @hostel.image %> class = "icon_image">
+<%#= image_tag @hostel.image.url %>
 <p> 宿の写真: <%= @hostel.image %></p>
 <p> 詳細情報: <%= @hostel.details %></p>
 <p> 宿周辺の情報: <%= @hostel.around_information %></p>
