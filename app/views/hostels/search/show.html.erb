@@ -2,7 +2,7 @@
 ログイン後この画面に遷移
 <h2><%= current_user.name %>さん、どこへ行きますか？</h2>
 
-
+<p>あなたの現在地</p>
 <script>
 if( navigator.geolocation ){　// 現在位置を取得できる場合の処理
 // 現在位置を取得する
@@ -23,6 +23,7 @@ var marker = new google.maps.Marker({
 map: map,
 position: latlng
 });
+
 google.maps.event.addListener(marker, 'click', function (e) {
 infowindow.setContent(results[0].formatted_address);
 infowindow.open(map, marker);
@@ -63,7 +64,7 @@ zoom: 15
 alert("あなたの端末では、現在位置を取得できません。");
 }
 </script>
-<div id="sample" style="width: 700px; height: 400px;"></div>
+<div id="sample" style="width: 300px; height: 200px;"></div>
 <div id="address"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap"></script>
 

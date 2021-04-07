@@ -62,24 +62,28 @@
   <% end %>
   </div>
     
-  <script>
-const geocoder = new google.maps.Geocoder()
 
-map = new google.maps.Map(
-    document.getElementById('map'), {
-        center: {
-            lat: <%= @hostel.latitude || 0 %>, 
-            lng: <%= @hostel.longitude || 0 %>, 
-        },
-        zoom: 12,
-    }
-);
 
-marker = new google.maps.Marker({
-    position:  {
-        lat: <%= @hostel.latitude || 0 %>, 
-        lng: <%= @hostel.longitude || 0 %>,
-    },
-    map: map
-});
-</script>
+  
+
+#   <script>
+# const geocoder = new google.maps.Geocoder()
+
+# map = new google.maps.Map(
+#     document.getElementById('map'), {
+#         center: {
+#             lat: <%= @hostel.latitude || 0 %>, 
+#             lng: <%= @hostel.longitude || 0 %>, 
+#         },
+#         zoom: 12,
+#     }
+# );
+
+# marker = new google.maps.Marker({
+#     position:  {
+#         lat: <%= @hostel.latitude || 0 %>, 
+#         lng: <%= @hostel.longitude || 0 %>,
+#     },
+#     map: map
+# });
+# </script>
