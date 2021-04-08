@@ -4,7 +4,6 @@
 
   <div class="field">
   <%= f.label :image %><br/>
-  <img src=<%#= image_tag @user.image %> class: "icon"><br/>
   <%= image_tag @user.image.url, class: "icon", id: :img_prev if @user.image? %><br/>
     <%= f.file_field :image, id: :user_img %><br/>
     <%# binding.irb%>
