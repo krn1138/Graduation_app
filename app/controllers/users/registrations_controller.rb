@@ -128,13 +128,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_update_path_for(resource)
-    # if resource[:role] == "host"
-    # # @user = current_user.host
-    # #   if @user.save
-    #   redirect_to new_hostel_path
-    # else
-    #   redirect_to root_path
-    # end
+
+    if resource[:role] == "host"
+    # @user = current_user.host
+    #   if @user.save
+      new_hostel_path
+    else
+      root_path
+    end
   end
 
 
