@@ -52,9 +52,9 @@
 
   # <% end %>
 <!-- 地名入力用のinputを追加 -->
-<%= select_tag "address", options_from_collection_for_select(@hostels,"id", "address","Encode"),onclick: "codeAddress()" %>
+<%= select_tag "address", options_from_collection_for_select(@hostels,:address, :address) %>
 
-<input id="address" type="textbox" placeholder="行きたい場所を検索">
+<!-- input id="address" type="textbox" placeholder="行きたい場所を検索" -->
 
 <!-- buttonをクリックしたらcodeAddressを実行　-->
 <input type="button" value="Encode" onclick="codeAddress()">
@@ -82,13 +82,16 @@ function initMap(){
 
   map = new google.maps.Map(document.getElementById('map'), {
   center: {lat: -34.397, lng: 150.644},
-  zoom: 6
+  zoom: 8
   });
 }
 
 function codeAddress(){
   // 入力を取得
-  let inputAddress = document.getElementById('address').value;
+  let inputAddressId = document.getElementById('address');
+  let inputAddress = inputAddressId.options[inputAddressId.selectedIndex].value;
+  console.log(inputAddressId.selectedIndex)
+  console.log(inputAddress)
 
   // geocodingしたあとmapを移動
   geocoder.geocode( { 'address': inputAddress}, function(results, status) {
@@ -108,6 +111,6 @@ function codeAddress(){
 }
 
 </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
 
   
