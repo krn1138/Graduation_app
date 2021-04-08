@@ -1,9 +1,10 @@
 <h2><%= current_user.name %>さんの情報登録</h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+
   <div class="field">
-    <img src=<%= @user.image %> class = "icon_image">
-    <%= f.label :image %><br/>
+  <%= f.label :image %><br/>
+  <img src=<%= image_tag @user.image %> class: "icon_image"><br/>
     <%= f.file_field :image %>
     <%#= link_to '削除する', root_path, method: :delete, data: { confirm: '本当に削除していいですか？' } %>
   </div>
