@@ -168,6 +168,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       # binding.irb
       [:name,
        :image,
+       :remove_image,
         host_attributes: [
           :name,
           :phone_number,
@@ -175,13 +176,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
           :image,
           :country,
           :birthday,
-          :user_id,
-          :remove_image
+          :user_id
         ]
       ]
     else
       [:name,
        :image,
+       :remove_image,
         guest_attributes: [
           :address,
           :phone_number,
@@ -191,8 +192,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
           :longitude,
           :image,
           :birthday,
-          :user_id,
-          :remove_image
+          :user_id
         ]
       ]
     end
