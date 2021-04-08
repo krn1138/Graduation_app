@@ -4,9 +4,11 @@
 
   <div class="field">
   <%= f.label :image %><br/>
-  <img src=<%= image_tag @user.image %> class: "icon_image"><br/>
-    <%= f.file_field :image %>
-    <%#= link_to '削除する', root_path, method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+  <img src=<%#= image_tag @user.image %> class: "icon"><br/>
+  <%= image_tag @user.image.url, class: "icon", id: :img_prev if @user.image? %><br/>
+    <%= f.file_field :image, id: :user_img %><br/>
+    <%# binding.irb%>
+    <%= f.check_box :remove_image %>画像を削除する
   </div>
 
   <div class="field">
@@ -60,3 +62,20 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+<script type="text/javascript">
+$(function() {
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $("#img_prev").attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+   }
+ }
+ $("#user_img").change(function(){
+   readURL(this);
+ });
+});
+</script>

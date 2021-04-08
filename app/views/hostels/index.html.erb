@@ -44,28 +44,10 @@
 
   <h2>gmap</h2>
 
-  # <%= form_with(scope: :map_search, local: true) do |form| %>
-    # <%= form.label :address %>
-    # <%= form.collection_select :address, @hostels, :id, :address, {prompt: "行きたい場所を検索"} %>
-  <%#= form.submit %>
-  <input type="button" value="Encode" onclick="codeAddress()">
-
-  # <% end %>
-<!-- 地名入力用のinputを追加 -->
-<%= select_tag "address", options_from_collection_for_select(@hostels,:address, :address) %>
-
-<!-- input id="address" type="textbox" placeholder="行きたい場所を検索" -->
-
-<!-- buttonをクリックしたらcodeAddressを実行　-->
+<%= select_tag "address", options_from_collection_for_select(@hostels,:address, :address), {prompt: "行きたい宿の場所をみる！"}  %>
 <input type="button" value="Encode" onclick="codeAddress()">
 <div id='map'>
 </div>
-
-<style>
-#map{
-  height: 400px;
-}
-</style>
 
 <script>
 /*
@@ -82,7 +64,7 @@ function initMap(){
 
   map = new google.maps.Map(document.getElementById('map'), {
   center: {lat: -34.397, lng: 150.644},
-  zoom: 8
+  zoom: 60
   });
 }
 

@@ -4,7 +4,7 @@ class HostelsController < ApplicationController
   before_action :hostel_registration, only: [:new, :create]
 
   def index
-    @hostel = Hostel.find(1)
+    # @hostel = Hostel.find(1)
   end
 
   def new

@@ -175,7 +175,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
           :image,
           :country,
           :birthday,
-          :user_id
+          :user_id,
+          :remove_image
         ]
       ]
     else
@@ -190,7 +191,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
           :longitude,
           :image,
           :birthday,
-          :user_id
+          :user_id,
+          :remove_image
         ]
       ]
     end

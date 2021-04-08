@@ -9,9 +9,8 @@
 <p id='name'> 部屋タイプ: <%= @hostel.kind %></p>
 <p> 市内までの距離: <%= @hostel.walk_city_time %></p>
 <p> １泊の値段: <%= @hostel.price %> 〜 </p>
-<img src=<%#= @hostel.image %> class = "icon">
-<%= image_tag @hostel.image.url %>
-<p> 宿の写真: <%= @hostel.image %></p>
+
+<p> 宿の写真: <%= image_tag @hostel.image.thumb.url if @user.image? %></p>
 <p> 詳細情報: <%= @hostel.details %></p>
 <p> 宿周辺の情報: <%= @hostel.around_information %></p>
 <p> 国: <%= @hostel.country %></p>
@@ -32,8 +31,10 @@
 #   $("#name").css("color","#d9534f");
 # });
 
+#関係あるファイル：application.html, javascripts, show.html.erb, index.html.erb,
 # # binding挟んだら緯度経緯、住所、名前は取れているが地図が表示されない
 # # そもそもjavascriptが反応しない可能性あり。上記のものも反応しなかった
+# id:mapはindexに定義してあってshowでmapを使うと同じ地図が出てくる、map_twoなど変数名を変えてみたら表示されない
   function initMap() {
       var test ={lat: <%= @hostel.latitude %>, lng: <%= @hostel.longitude %>};
       var map = new google.maps.Map(document.getElementById(‘map’), {
