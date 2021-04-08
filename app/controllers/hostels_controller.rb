@@ -9,6 +9,7 @@ class HostelsController < ApplicationController
 
   def new
     @hostel = Hostel.new
+    # 3.times { @hostel.build_host }
   end
 
   def create

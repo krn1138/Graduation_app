@@ -23,7 +23,6 @@
     <%= form.text_field :address, placeholder: "住所" %>
     <br>
     <br>
-    <div id="map"></div>
     <%= form.label :部屋種類 %><br />
     <%= form.select :kind, Hostel.kinds.keys, {prompt: "選択"} %>
     <br>

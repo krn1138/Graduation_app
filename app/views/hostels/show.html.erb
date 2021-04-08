@@ -10,7 +10,7 @@
 <p> 市内までの距離: <%= @hostel.walk_city_time %></p>
 <p> １泊の値段: <%= @hostel.price %> 〜 </p>
 
-<p> 宿の写真: <%= image_tag @hostel.image.thumb.url if @user.image? %></p>
+<p> 宿の写真: <%= image_tag @hostel.image.thumb.url %></p>
 <p> 詳細情報: <%= @hostel.details %></p>
 <p> 宿周辺の情報: <%= @hostel.around_information %></p>
 <p> 国: <%= @hostel.country %></p>
