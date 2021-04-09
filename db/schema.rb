@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_01_073223) do
+ActiveRecord::Schema.define(version: 2021_04_09_013634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,15 @@ ActiveRecord::Schema.define(version: 2021_04_01_073223) do
     t.index ["user_id"], name: "index_hosts_on_user_id"
   end
 
+  create_table "message_rooms", force: :cascade do |t|
+    t.bigint "host_id"
+    t.bigint "guest_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guest_id"], name: "index_message_rooms_on_guest_id"
+    t.index ["host_id"], name: "index_message_rooms_on_host_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -87,4 +96,6 @@ ActiveRecord::Schema.define(version: 2021_04_01_073223) do
   add_foreign_key "guests", "users"
   add_foreign_key "hostels", "hosts"
   add_foreign_key "hosts", "users"
+  add_foreign_key "message_rooms", "guests"
+  add_foreign_key "message_rooms", "hosts"
 end
