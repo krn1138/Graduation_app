@@ -32,7 +32,8 @@ class HostelsController < ApplicationController
   end
 
   def show
-    # @users = User.find(sender_id)
+
+    # @users = User.find()
   end
 
   private

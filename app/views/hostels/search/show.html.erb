@@ -23,7 +23,6 @@ var marker = new google.maps.Marker({
 map: map,
 position: latlng
 });
-
 google.maps.event.addListener(marker, 'click', function (e) {
 infowindow.setContent(results[0].formatted_address);
 infowindow.open(map, marker);
@@ -64,6 +63,6 @@ zoom: 15
 alert("あなたの端末では、現在位置を取得できません。");
 }
 </script>
-<div id="sample" style="width: 400px; height: 400px;"></div>
+<div id="sample" style="width: 700px; height: 400px;"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap"></script>
 
