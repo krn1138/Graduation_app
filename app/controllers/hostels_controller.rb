@@ -31,6 +31,7 @@ class HostelsController < ApplicationController
   end
 
   def show
+    @users = User.find(params[:id])
   end
 
   private

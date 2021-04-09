@@ -41,15 +41,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # # GET /resource/edit
   def edit
-    super
-    
-    if resource[:role] == "guest" && unless current_user.guest.present?
-      # binding.irb
-      resource.build_guest
+    if resource.role == "guest"
+      resource.build_guest unless resource.guest.present?
     else
-      resource.build_host
+      resource.build_host unless resource.host.present?
     end
-    end
+    super
   end
 
   # # PUT /resource

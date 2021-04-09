@@ -1,0 +1,14 @@
+<table class="table table-hover">
+  <thead>
+    <h2>メッセージ一覧</h2>
+  </thead>
+  <tbody>
+    <% @message_rooms.each do |message_room| %>
+      <td>
+        <% if message_room.target_user(current_user).present? %>
+          <%= link_to message_room.target_user(current_user).name, message_room_messages_path(message_room)%>
+        <% end %>
+      </td>
+    <% end %>
+  </tbody>
+</table>

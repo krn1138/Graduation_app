@@ -10,7 +10,7 @@ Rails.application.routes.draw do
         sessions: 'users/sessions'
   }
 
-  resources :users, only: %i[show]
+  resources :users, only: %i[index show]
 
   # MARK: hostels routings 
   namespace :hostels do
