@@ -64,3 +64,6 @@ gem 'ransack'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'dotenv-rails'
+gem "geocoder"
+gem 'gmaps4rails'

@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def different_user_check
     @user = User.find(params[:id])
     if current_user.id != @user.id
-        redirect_to root_path, notice: "あなたのページはここです"
+      redirect_to root_path, notice: "あなたのページはここです"
     end
   end
 end

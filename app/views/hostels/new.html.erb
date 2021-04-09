@@ -16,11 +16,11 @@
 
   <div class="actions">
     <%= form.label :宿名 %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, placeholder: "宿名" %>
     <br>
     <br>
     <%= form.label :住所 %>
-    <%= form.text_area :address %>
+    <%= form.text_field :address, placeholder: "住所" %>
     <br>
     <br>
     <%= form.label :部屋種類 %><br />
@@ -28,7 +28,7 @@
     <br>
     <br>
     <%= form.label :市内までの距離 %>
-    <%= form.number_field :walk_city_time %>
+    <%= form.number_field :walk_city_time, placeholder: "市内までの距離" %>
     <br>
     <br>
     <%= form.label :１泊の値段 %>
@@ -36,15 +36,15 @@
     <br>
     <br>
     <%= form.label :詳細 %>
-    <%= form.text_area :details %>
+    <%= form.text_area :details, placeholder: "詳細" %>
     <br>
     <br>
     <%= form.label :宿周辺情報 %>
-    <%= form.text_area :around_information %>
+    <%= form.text_area :around_information, placeholder: "宿周辺情報" %>
     <br>
     <br>
     <%= form.label :国 %>
-    <%= form.text_field :country %>
+    <%= form.text_field :country, placeholder: "国" %>
     <br>
     <br>
     <%= form.label :部屋数 %>
@@ -52,7 +52,7 @@
     <br>
     <br>
     <%= form.label :phone_number %>
-    <%= form.text_field :phone_number %>
+    <%= form.text_field :phone_number, placeholder: "電話番号" %>
     <br>
     <br>
     <%= form.label :image %><br/>
@@ -61,4 +61,27 @@
   <% end %>
   </div>
     
+
   
+
+#   <script>
+# const geocoder = new google.maps.Geocoder()
+
+# map = new google.maps.Map(
+#     document.getElementById('map'), {
+#         center: {
+#             lat: <%= @hostel.latitude || 0 %>, 
+#             lng: <%= @hostel.longitude || 0 %>, 
+#         },
+#         zoom: 12,
+#     }
+# );
+
+# marker = new google.maps.Marker({
+#     position:  {
+#         lat: <%= @hostel.latitude || 0 %>, 
+#         lng: <%= @hostel.longitude || 0 %>,
+#     },
+#     map: map
+# });
+# </script>

@@ -3,13 +3,83 @@
 
 <p> 宿名: <%= @hostel.name %></p>
 <p> 住所: <%= @hostel.address %></p>
-<p> 部屋タイプ: <%= @hostel.kind %></p>
+#map_two,リロードしたらマップが出なくなる。mapとしたらindexのmapがおそらくでる
+<div id="map"></div>
+
+<p id='name'> 部屋タイプ: <%= @hostel.kind %></p>
 <p> 市内までの距離: <%= @hostel.walk_city_time %></p>
 <p> １泊の値段: <%= @hostel.price %> 〜 </p>
-<p> 宿の写真: <%= @hostel.image %></p>
+
+<p> 宿の写真: <%= image_tag @hostel.image.thumb.url %></p>
 <p> 詳細情報: <%= @hostel.details %></p>
 <p> 宿周辺の情報: <%= @hostel.around_information %></p>
 <p> 国: <%= @hostel.country %></p>
 <p> 部屋数: <%= @hostel.capacity %></p>
 <%= link_to 'Back', root_path %>
+
+
+<script type=“text/javascript”>
+# # $(function() {
+# # $("#name").click(function() {
+# # $("#name").css({
+# # 'background-color':'yellow',
+# # 'font-size' :'12px'
+# # });
+# # });
+
+# $(document).ready(function(){
+#   $("#name").css("color","#d9534f");
+# });
+
+#関係あるファイル：application.html, javascripts, show.html.erb, index.html.erb,
+# # binding挟んだら緯度経緯、住所、名前は取れているが地図が表示されない
+# # そもそもjavascriptが反応しない可能性あり。上記のものも反応しなかった
+# id:mapはindexに定義してあってshowでmapを使うと同じ地図が出てくる、map_twoなど変数名を変えてみたら表示されない
+  function initMap() {
+      var test ={lat: <%= @hostel.latitude %>, lng: <%= @hostel.longitude %>};
+      var map = new google.maps.Map(document.getElementById(‘map’), {
+                zoom: 15,
+                center: test
+                });
+      var transitLayer = new google.maps.TransitLayer();
+      transitLayer.setMap(map);
+      var contentInfo = ‘<%= @hostel.name %>‘;
+      var contentString = ‘住所：<%= @hostel.address %>’;
+      var infowindow = new google.maps.InfoWindow({
+        content: contentInfo
+      });
+      var marker = new google.maps.Marker({
+                    position:test,
+                    map: map,
+                    title: contentString
+                   });
+       marker.addListener(‘mouseover’, function() {
+         infowindow.open(map, marker);
+       });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
+
+# <script>
+# const geocoder = new google.maps.Geocoder()
+
+# map = new google.maps.Map(
+#     document.getElementById('map'), {
+#         center: {
+#             lat: <%= @hostel.latitude || 0 %>, 
+#             lng: <%= @hostel.longitude || 0 %>, 
+#         },
+#         zoom: 12,
+#     }
+# );
+
+# marker = new google.maps.Marker({
+#     position:  {
+#         lat: <%= @hostel.latitude || 0 %>, 
+#         lng: <%= @hostel.longitude || 0 %>,
+#     },
+#     map: map
+# });
+# </script>
+# <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
 

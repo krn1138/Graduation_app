@@ -1,9 +1,13 @@
 <h2><%= current_user.name %>さんの情報登録</h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+
   <div class="field">
-    <%= f.label :image %><br/>
-    <%= f.file_field :image %>
+  <%= f.label :image %><br/>
+  <%= image_tag @user.image.url, class: "icon", id: :img_prev if @user.image? %><br/>
+    <%= f.file_field :image, id: :user_img %><br/>
+    <%# binding.irb%>
+    <%= f.check_box :remove_image %>画像を削除する
   </div>
 
   <div class="field">
@@ -57,3 +61,20 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+<script type="text/javascript">
+$(function() {
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $("#img_prev").attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+   }
+ }
+ $("#user_img").change(function(){
+   readURL(this);
+ });
+});
+</script>

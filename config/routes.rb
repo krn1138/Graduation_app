@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # resources :guests
   # resources :hosts
   root "hostels/search#show"
-
+  # get 'hostels/:id' => 'hostels#new'
   devise_for :users, controllers: {
         registrations: 'users/registrations',
         # registrations: 'users/registrations',

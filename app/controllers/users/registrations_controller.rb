@@ -55,6 +55,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # # PUT /resource
   def update
     super
+    # @user = current_user.host
+    # if @user.save
+    #   redirect_to new_hostel_path
+    # end
+    
     # binding.irb
     # if @user.update(configure_account_update_params)
     #   redirect_to root_path, notice: "編集しました！"
@@ -64,9 +69,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -122,6 +127,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.update_without_password(params)
   end
 
+  def after_update_path_for(resource)
+
+    # if resource[:role] == "host"
+    # # @user = current_user.host
+    # #   if @user.save
+    #   new_hostel_path
+    # else
+    #   root_path
+    # end
+  end
 
 
   # def set_user
@@ -153,6 +168,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       # binding.irb
       [:name,
        :image,
+       :remove_image,
         host_attributes: [
           :name,
           :phone_number,
@@ -166,6 +182,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       [:name,
        :image,
+       :remove_image,
         guest_attributes: [
           :address,
           :phone_number,

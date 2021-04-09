@@ -4,10 +4,12 @@ class HostelsController < ApplicationController
   before_action :hostel_registration, only: [:new, :create]
 
   def index
+    # @hostel = Hostel.find(1)
   end
 
   def new
     @hostel = Hostel.new
+    # 3.times { @hostel.build_host }
   end
 
   def create
