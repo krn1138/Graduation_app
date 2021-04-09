@@ -32,7 +32,7 @@
     <br>
     <br>
     <%= form.label :１泊の値段 %>
-    <%= form.number_field :prise %>〜　から
+    <%= form.number_field :prise %>〜  から
     <br>
     <br>
     <%= form.label :詳細 %>
@@ -56,7 +56,7 @@
     <br>
     <br>
     <%= form.label :image %><br/>
-    <%= form.file_field :image %>
+    <%= form.file_field :images, multiple: true %>
     <%= form.submit %>
   <% end %>
   </div>

@@ -9,10 +9,11 @@ class HostelsController < ApplicationController
 
   def new
     @hostel = Hostel.new
-    # 3.times { @hostel.build_host }
+    # 5.times { @hostel[:image].build_host }
   end
 
   def create
+    # binding.irb
     # @hostel = host.build_hostel(hostel_params)
     @hostel = Hostel.new(hostel_params)
     @hostel.host_id = current_user.host.id
@@ -31,7 +32,7 @@ class HostelsController < ApplicationController
   end
 
   def show
-    @users = User.find(params[:id])
+    # @users = User.find(sender_id)
   end
 
   private
@@ -44,8 +45,8 @@ class HostelsController < ApplicationController
 
   def hostel_params
     params.require(:hostel).permit(:name, :contentname, :address, :kind, :walk_city_time, :price,
-                                   :image, :phone_number, :details, :country, :capacity, 
-                                   :latitude, :longitude, :around_information)
+                                   :phone_number, :details, :country, :capacity, 
+                                   :latitude, :longitude, :around_information, {images: []})
   end
 
   def hostel_registration

@@ -9,12 +9,18 @@
 <p id='name'> 部屋タイプ: <%= @hostel.kind %></p>
 <p> 市内までの距離: <%= @hostel.walk_city_time %></p>
 <p> １泊の値段: <%= @hostel.price %> 〜 </p>
+<p> 宿の写真: 
+<% @hostel.images.each do |img| %>
+  <%= image_tag img.thumb.url %></p>
+<% end %>
 
-<p> 宿の写真: <%= image_tag @hostel.image.thumb.url %></p>
 <p> 詳細情報: <%= @hostel.details %></p>
 <p> 宿周辺の情報: <%= @hostel.around_information %></p>
 <p> 国: <%= @hostel.country %></p>
 <p> 部屋数: <%= @hostel.capacity %></p>
+
+
+
 <%= link_to 'Back', root_path %>
 
 
