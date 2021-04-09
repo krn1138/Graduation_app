@@ -32,21 +32,29 @@ class HostelsController < ApplicationController
   end
 
   def show
-
-    # @users = User.find()
   end
 
+  def edit
+  end
+
+  def update
+    if @hostel.update(hostel_params)
+      redirect_to hostels_path, notice: "編集しました"
+    else
+      render :edit
+    end
+  end
   private
   # http://localhost:3000/hostels/1 => params[:id] => 1
   # R -> C -> @ -> V -> form, url -> R -> params -> C -> V
   def set_hostel
     @hostel = Hostel.find(params[:id])
   end
-  
+
 
   def hostel_params
     params.require(:hostel).permit(:name, :contentname, :address, :kind, :walk_city_time, :price,
-                                   :phone_number, :details, :country, :capacity, 
+                                   :phone_number, :details, :country, :capacity,
                                    :latitude, :longitude, :around_information, {images: []})
   end
 

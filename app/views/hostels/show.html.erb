@@ -9,7 +9,7 @@
 <p id='name'> 部屋タイプ: <%= @hostel.kind %></p>
 <p> 市内までの距離: <%= @hostel.walk_city_time %></p>
 <p> １泊の値段: <%= @hostel.price %> 〜 </p>
-<p> 宿の写真: 
+<p> 宿の写真:
 <% @hostel.images.each do |img| %>
   <%= image_tag img.thumb.url %></p>
 <% end %>
@@ -23,6 +23,7 @@
 
 <%#= link_to '予約する', message_room_messages_path(message_room_id) %>
 <%= link_to 'Back', root_path %>
+<%= link_to 'edit', edit_hostel_path %>
 
 
 <script type=“text/javascript”>
@@ -73,8 +74,8 @@
 # map = new google.maps.Map(
 #     document.getElementById('map'), {
 #         center: {
-#             lat: <%= @hostel.latitude || 0 %>, 
-#             lng: <%= @hostel.longitude || 0 %>, 
+#             lat: <%= @hostel.latitude || 0 %>,
+#             lng: <%= @hostel.longitude || 0 %>,
 #         },
 #         zoom: 12,
 #     }
@@ -82,7 +83,7 @@
 
 # marker = new google.maps.Marker({
 #     position:  {
-#         lat: <%= @hostel.latitude || 0 %>, 
+#         lat: <%= @hostel.latitude || 0 %>,
 #         lng: <%= @hostel.longitude || 0 %>,
 #     },
 #     map: map
