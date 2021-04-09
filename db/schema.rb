@@ -65,12 +65,13 @@ ActiveRecord::Schema.define(version: 2021_04_09_013634) do
   end
 
   create_table "message_rooms", force: :cascade do |t|
-    t.bigint "host_id"
-    t.bigint "guest_id"
+    t.integer "sender_id"
+    t.integer "recipient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["guest_id"], name: "index_message_rooms_on_guest_id"
-    t.index ["host_id"], name: "index_message_rooms_on_host_id"
+    t.index ["recipient_id"], name: "index_message_rooms_on_recipient_id"
+    t.index ["sender_id", "recipient_id"], name: "index_message_rooms_on_sender_id_and_recipient_id", unique: true
+    t.index ["sender_id"], name: "index_message_rooms_on_sender_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -96,6 +97,4 @@ ActiveRecord::Schema.define(version: 2021_04_09_013634) do
   add_foreign_key "guests", "users"
   add_foreign_key "hostels", "hosts"
   add_foreign_key "hosts", "users"
-  add_foreign_key "message_rooms", "guests"
-  add_foreign_key "message_rooms", "hosts"
 end

@@ -5,8 +5,8 @@ class MessageRoomsController < ApplicationController
   end
 
   def create
-    if Message_room.between(params[:guest_id], params[:host_id]).present?
-      @message_room = Message_room.between(params[:guest_id], params[:host_id]).first
+    if Message_room.between(params[:sender_id], params[:recipient_id]).present?
+      @message_room = Message_room.between(params[:sender_id], params[:recipient_id]).first
     else
       @message_room = Message_room.create!(message_room_params)
     end
@@ -18,6 +18,6 @@ class MessageRoomsController < ApplicationController
 
   private
   def message_room_params
-    params.permit(:guest_id, :host_id)
+    params.permit(:sender_id, :recipient_id)
   end
 end
