@@ -18,4 +18,8 @@ Rails.application.routes.draw do
     # resource :search
   end
   resources :hostels
+
+  resources :message_rooms do
+    resources :messages
+  end
 end
