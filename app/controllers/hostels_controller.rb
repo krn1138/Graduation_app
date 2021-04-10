@@ -18,12 +18,12 @@ class HostelsController < ApplicationController
     @host = current_user.host
     @hostel = @host.build_hostel(hostel_params)
     # binding.irb
-    if params[:back]
-      render :new
-    end
+    # if params[:back]
+    #   render :new
+    # end
 
     if @hostel.save
-      redirect_to hostels_path, notice: "宿を登録しました！"
+      redirect_to root_path, notice: "宿を登録しました！"
     else
       render :new
     end
@@ -47,8 +47,11 @@ class HostelsController < ApplicationController
     # @hostel = current_user.hostel.build(hostel_params)
 
     # @hostel = Hostel.new(hostel_params)
-
     # @hostel.id = params[:id]
+    # binding.irb
+    # if params[:back]
+    #   render :new
+    # end
     render :new if @hostel.invalid?
     # @hostel = Hostel.new(hostel_params)
     # render :new if @hostel.invalid?
