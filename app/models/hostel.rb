@@ -13,6 +13,8 @@ class Hostel < ApplicationRecord
 
   # geocoded_by :address
   # after_validation :geocode
-
+  # before_action do
+  #   @message_room = Message_room.find(params[:message_room_id])
+  # end
 end
 

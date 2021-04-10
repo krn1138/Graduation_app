@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   before_action do
-    @message_room = Message_room.find(params[:message_room_id])
+    @message_room = MessageRoom.find(params[:message_room_id])
   end
 
   def index
@@ -34,7 +34,8 @@ class MessagesController < ApplicationController
   end
 
   private
-def message_params
-  params.require(:message).permit(:content, :user_id, :read, message_room_id)
+  def message_params
+    params.require(:message).permit(:content, :user_id, :read)
+  end
 end
-end
+

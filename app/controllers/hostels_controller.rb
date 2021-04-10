@@ -4,6 +4,10 @@ class HostelsController < ApplicationController
   before_action :hostel_registration, only: [:new, :create]
 
   def index
+    # @users = current_user
+    # @guest = current_user.guest
+    # @host = current_user.host
+    # @users = User.all
     # @hostel = Hostel.find(1)
   end
 
@@ -34,7 +38,15 @@ class HostelsController < ApplicationController
     # end
   end
 
+
   def show
+    @users = User.all
+    @guest = current_user.guest
+    @host = current_user.host
+    # @users = User.all
+    # @message_room = Message_room.find(params[:message_room_id])
+    # @messages = @message_room.messages
+    # @message_rooms = Message_room.all
   end
 
   def edit

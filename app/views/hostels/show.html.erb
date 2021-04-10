@@ -19,13 +19,20 @@
 <p> 国: <%= @hostel.country %></p>
 <p> 部屋数: <%= @hostel.capacity %></p>
 
-<%#= link_to message_room.target_user(current_user).name, message_room_messages_path(message_room)%>
-
-<%#= link_to '予約する', message_room_messages_path(message_room_id) %>
 <%= link_to 'Back', root_path %>
 <%= link_to 'edit', edit_hostel_path %>
 
-
+<h2>ユーザー</h2>
+<% @users.each do |user| %>
+  <% if user.id != current_user.id %>
+    <li>
+      <div class="item">
+        <%#= link_to @host.name, user %>
+        <%= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.id), method: :post %>
+      </div>
+    </li>
+  <% end %>
+<% end %>
 <script type=“text/javascript”>
 # # $(function() {
 # # $("#name").click(function() {
