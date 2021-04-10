@@ -12,12 +12,17 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[index show]
 
-  # MARK: hostels routings 
+  # MARK: hostels routings
   namespace :hostels do
     get '/search/', to: 'search#show'
     # resource :search
   end
-  resources :hostels
+  resources :hostels do
+    collection do
+      post :confirm
+      # patch :confirm
+    end
+  end
 
   resources :message_rooms do
     resources :messages

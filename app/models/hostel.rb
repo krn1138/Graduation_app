@@ -1,5 +1,6 @@
 class Hostel < ApplicationRecord
     belongs_to :host, optional: true
+    # validates :name, :address, :kind, :walk_city_time, :price, :images, :phone_number, :details, :country, :capacity, :around_information, presence: true
 
     enum kind: {
       single: 0, twin: 1, dormitory: 2

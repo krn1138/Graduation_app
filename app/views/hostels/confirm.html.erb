@@ -1,0 +1,33 @@
+<h3>以下の内容で、送信する。</h3>
+<%= form_with(model: @hostel, url: hostels_path, local: true) do |form| %>
+  <%= form.hidden_field :name %>
+  <%= form.hidden_field :address %>
+  <%= form.hidden_field :kind %>
+  <%= form.hidden_field :walk_city_time %>
+  <%= form.hidden_field :price %>
+  <%= form.hidden_field :images_cache %>
+  <%= form.hidden_field :details %>
+  <%= form.hidden_field :around_information %>
+  <%= form.hidden_field :country %>
+  <%= form.hidden_field :capacity %>
+
+  <p> 宿名: <%= @hostel.name %></p>
+  <p> 住所: <%= @hostel.address %></p>
+  #map_two,リロードしたらマップが出なくなる。mapとしたらindexのmapがおそらくでる
+  <div id="map"></div>
+
+  <p id='name'> 部屋タイプ: <%= @hostel.kind %></p>
+  <p> 市内までの距離: <%= @hostel.walk_city_time %></p>
+  <p> １泊の値段: <%= @hostel.price %> 〜 </p>
+  <p> 宿の写真:
+  <% @hostel.images.each do |img| %>
+    <%= image_tag img.thumb.url %></p>
+  <% end %>
+
+  <p> 詳細情報: <%= @hostel.details %></p>
+  <p> 宿周辺の情報: <%= @hostel.around_information %></p>
+  <p> 国: <%= @hostel.country %></p>
+  <p> 部屋数: <%= @hostel.capacity %></p>
+  <%= form.submit  "登録する" %>
+  <%= form.submit "戻る", name: 'back' %>
+<% end %>

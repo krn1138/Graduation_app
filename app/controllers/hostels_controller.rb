@@ -9,21 +9,24 @@ class HostelsController < ApplicationController
 
   def new
     @hostel = Hostel.new
-    # 5.times { @hostel[:image].build_host }
   end
 
   def create
     # binding.irb
-    # @hostel = host.build_hostel(hostel_params)
-    @hostel = Hostel.new(hostel_params)
-    @hostel.host_id = current_user.host.id
+    # @hostel = Hostel.new(hostel_params)
+    # @hostel.host_id = current_user.host.id
+    @host = current_user.host
+    @hostel = @host.build_hostel(hostel_params)
+    # binding.irb
+    if params[:back]
+      render :new
+    end
 
     if @hostel.save
       redirect_to hostels_path, notice: "宿を登録しました！"
     else
       render :new
     end
-
     # if @hostel.build_host.save
     #   redirect_to hostels_path, notice: "宿を登録しました！"
     # else
@@ -37,7 +40,22 @@ class HostelsController < ApplicationController
   def edit
   end
 
+  def confirm
+    # binding.irb
+    @host = current_user.host
+    @hostel = @host.build_hostel(hostel_params)
+    # @hostel = current_user.hostel.build(hostel_params)
+
+    # @hostel = Hostel.new(hostel_params)
+
+    # @hostel.id = params[:id]
+    render :new if @hostel.invalid?
+    # @hostel = Hostel.new(hostel_params)
+    # render :new if @hostel.invalid?
+  end
+
   def update
+    # binding.irb
     if @hostel.update(hostel_params)
       redirect_to hostels_path, notice: "編集しました"
     else
@@ -48,14 +66,19 @@ class HostelsController < ApplicationController
   # http://localhost:3000/hostels/1 => params[:id] => 1
   # R -> C -> @ -> V -> form, url -> R -> params -> C -> V
   def set_hostel
+    # binding.irb
     @hostel = Hostel.find(params[:id])
   end
 
 
   def hostel_params
-    params.require(:hostel).permit(:name, :contentname, :address, :kind, :walk_city_time, :price,
+    # binding.irb
+    params.require(:hostel).permit(:name, :address, :kind, :walk_city_time, :price,
                                    :phone_number, :details, :country, :capacity,
-                                   :latitude, :longitude, :around_information, {images: []})
+                                   :latitude, :longitude, :around_information, {images: []}, :images_cache)
+  #   params.require(:hostel).permit(:name, :address, :kind, :walk_city_time, :price,
+  #                                  :phone_number, :details, :country, :capacity,
+  #                                  :latitude, :longitude, :around_information, {images: []})
   end
 
   def hostel_registration
