@@ -14,9 +14,10 @@
   <body>
   <p id="notice"><%= notice %></p>
     <%= params %>
-    <%= render "search" %>
     <%= render "header" %>
-    <%#= yield %>
+    <%= yield %>
+    <%#= render "search" %>
+
     <%= render "footer" %>
   </body>
 </html>

@@ -14,4 +14,7 @@ class Guest < ApplicationRecord
             return "答えない"
         end
     end
+
+    # validates :name, presence: true
+
 end

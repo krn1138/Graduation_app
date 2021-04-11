@@ -7,6 +7,14 @@ module ApplicationHelper
     end
   end
 
+  def host_edit_path
+    if action_name == 'edit' || action_name == 'new' || action_name == 'create'
+      hostel_path
+    else
+      user_path
+    end
+  end
+
   # def confirm_new_or_edit
   #   unless @hostel.id?
   #     hostels_path
