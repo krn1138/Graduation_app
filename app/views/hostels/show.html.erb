@@ -9,15 +9,31 @@
 <p id='name'> 部屋タイプ: <%= @hostel.kind %></p>
 <p> 市内までの距離: <%= @hostel.walk_city_time %></p>
 <p> １泊の値段: <%= @hostel.price %> 〜 </p>
+<p> 宿の写真:
+<% @hostel.images.each do |img| %>
+  <%= image_tag img.thumb.url %></p>
+<% end %>
 
-<p> 宿の写真: <%= image_tag @hostel.image.thumb.url %></p>
 <p> 詳細情報: <%= @hostel.details %></p>
 <p> 宿周辺の情報: <%= @hostel.around_information %></p>
 <p> 国: <%= @hostel.country %></p>
 <p> 部屋数: <%= @hostel.capacity %></p>
+
 <%= link_to 'Back', root_path %>
+<%= link_to 'edit', edit_hostel_path %><br>
+宿登録者：<%= @host.name %><br>
+<%= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.id), method: :post %>
 
-
+<%# @users.each do |user| %>
+  <%# if user.id != current_user.id %>
+    <li>
+      <div class="item">
+        <%#= link_to @host.name, user %>
+        <%#= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.id), method: :post %>
+      </div>
+    </li>
+  <%# end %>
+<%# end %>
 <script type=“text/javascript”>
 # # $(function() {
 # # $("#name").click(function() {
@@ -66,8 +82,8 @@
 # map = new google.maps.Map(
 #     document.getElementById('map'), {
 #         center: {
-#             lat: <%= @hostel.latitude || 0 %>, 
-#             lng: <%= @hostel.longitude || 0 %>, 
+#             lat: <%= @hostel.latitude || 0 %>,
+#             lng: <%= @hostel.longitude || 0 %>,
 #         },
 #         zoom: 12,
 #     }
@@ -75,7 +91,7 @@
 
 # marker = new google.maps.Marker({
 #     position:  {
-#         lat: <%= @hostel.latitude || 0 %>, 
+#         lat: <%= @hostel.latitude || 0 %>,
 #         lng: <%= @hostel.longitude || 0 %>,
 #     },
 #     map: map

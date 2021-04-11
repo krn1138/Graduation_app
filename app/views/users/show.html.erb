@@ -5,12 +5,14 @@
 
 <% if @user.role == "guest" %>
 <%# binding.irb %>
-  <%= render 'users/guest', locals: { guest: @guest } %>
+  <%= render 'users/guest', guest: @guest %>
 <% else %>
-   <%= render 'users/host', locals: { host: @host } %>
+  <%= render 'users/host', host: @host %>
 <% end %>
 
 
-<%= link_to 'edit', edit_user_registration_path(current_user.id)	%>
+<%= link_to 'edit', edit_user_registration_path	%>
 <%= link_to 'Back', root_path %>
+
+
 

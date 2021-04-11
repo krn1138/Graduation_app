@@ -22,9 +22,9 @@
   </div>
   
   <% if resource.role == "guest" %>
-    <%= render 'guest', form: f, user: resource %>
+    <%= render 'guest', form: f %>
   <% else %>
-    <%= render 'host', form: f, user: resource %>
+    <%= render 'host', form: f %>
   <% end %>
 
 

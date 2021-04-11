@@ -6,7 +6,7 @@ class CreateHostels < ActiveRecord::Migration[5.2]
       t.integer :kind
       t.integer :walk_city_time
       t.integer :price
-      t.string :image
+      t.string :images, default: [], array: true
       t.string :phone_number
       t.text :details
       t.string :country
