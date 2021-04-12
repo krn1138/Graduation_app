@@ -1,3 +1,4 @@
+<div class="hostel_index">
 <h1>宿検索結果</h1>
 <p>hostel/search/showからこの画面</p>
 <%= form_with(model: @q, url: hostels_path, method: :get, local: true) do |f| %>
@@ -5,24 +6,22 @@
   <%= f.text_field :name_or_country_cont_any %>
   <%= f.submit %>
 <% end %>
+</div>
 
 
-  <div class="mx-auto" style="width: 1000px;">
-<table>
+  # <div class="mx-auto" style="width: 1000px;">
+
+  <table>
   <thead>
     <tr>
       <th>宿名</th>
-      <br>
       <th>住所</th>
-      <br>
       <th>電話番号</th>
-      <br>
-      <th>国</th>
-      <th colspan="3"></th>
+      <th>国名</th>
     </tr>
   </thead>
 
-
+  <tbody>
 
   <br>
 
@@ -47,56 +46,126 @@
 
   </table>
 
-  <h2>gmap</h2>
+  <style>
+      #header {
+          background-color: darkblue;
+          padding: 3px;
+          width: 1195px;
+          font-family: Meriyo UI;
+          font-size: 14px;
+          color: white;
+      }
+      #target {
+        width: 700px;
+        height: 500px;
+      }
+    </style>
 
-<%= select_tag "address", options_from_collection_for_select(@hostels,:address, :address), {prompt: "行きたい宿の場所をみる！"}  %>
-<input type="button" value="Encode" onclick="codeAddress()">
-<div id='map'>
-</div>
 
-<script>
-/*
-mapを関数の外で定義(codeAddressでも使うため)
-geocoderを用意
-*/
+    <%= select_tag "keyword", options_from_collection_for_select(@hostels,:address, :address), {prompt: "行きたい宿の場所をみる！"}  %>
+    <button id="search">検索実行</button>
+    <button id="clear">結果クリア</button>
+    <div id="target"></div>
 
-let map
-let geocoder
+    <script>
 
-function initMap(){
-  // geocoderを初期化
-  geocoder = new google.maps.Geocoder()
+      var map;
+      var marker;
+      var infoWindow;
 
-  map = new google.maps.Map(document.getElementById('map'), {
-  center: {lat: -34.397, lng: 150.644},
-  zoom: 60
-  });
-}
+      function initMap() {
 
-function codeAddress(){
-  // 入力を取得
-  let inputAddressId = document.getElementById('address');
-  let inputAddress = inputAddressId.options[inputAddressId.selectedIndex].value;
-  console.log(inputAddressId.selectedIndex)
-  console.log(inputAddress)
+        //マップ初期表示の位置設定
+        var target = document.getElementById('target');
+        var centerp = {lat: 37.67229496806523, lng: 137.88838989062504};
 
-  // geocodingしたあとmapを移動
-  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
-    if (status == 'OK') {
-　　　　　　　　　　　　// map.setCenterで地図が移動
-      map.setCenter(results[0].geometry.location);
+        //マップ表示
+        map = new google.maps.Map(target, {
+          center: centerp,
+          zoom: 6,
+        });
 
-　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
-      var marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
-      });
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-    }
-  });
-}
+        // 検索実行ボタンが押下されたとき
+        document.getElementById('search').addEventListener('click', function() {
 
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
+          var place = document.getElementById('keyword').value;
+          var geocoder = new google.maps.Geocoder();      // geocoderのコンストラクタ
+
+          geocoder.geocode({
+            address: place
+          }, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+
+              var bounds = new google.maps.LatLngBounds();
+              map.setCenter(results[0].geometry.location);
+              for (var i in results) {
+                if (results[0].geometry) {
+                  // 緯度経度を取得
+                  var latlng = results[0].geometry.location;
+                  // 住所を取得
+                  var address = results[0].formatted_address;
+                  // 検索結果地が含まれるように範囲を拡大
+                  bounds.extend(latlng);
+                  // マーカーのセット
+                  setMarker(latlng);
+                  // マーカーへの吹き出しの追加
+                  setInfoW(place, latlng, address);
+                  // マーカーにクリックイベントを追加
+                  markerEvent();
+                }
+              }
+            } else if (status == google.maps.GeocoderStatus.ZERO_RESULTS) {
+              alert("見つかりません");
+            } else {
+              console.log(status);
+              alert("エラー発生");
+            }
+          });
+
+        });
+
+        // 結果クリアーボタン押下時
+        document.getElementById('clear').addEventListener('click', function() {
+          deleteMakers();
+        });
+
+      }
+
+      // マーカーのセットを実施する
+      function setMarker(setplace) {
+        // 既にあるマーカーを削除
+        deleteMakers();
+
+        var iconUrl = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
+          marker = new google.maps.Marker({
+            position: setplace,
+            map: map,
+            icon: iconUrl
+          });
+        }
+
+        //マーカーを削除する
+        function deleteMakers() {
+          if(marker != null){
+            marker.setMap(null);
+          }
+          marker = null;
+        }
+
+        // マーカーへの吹き出しの追加
+        function setInfoW(place, latlng, address) {
+          infoWindow = new google.maps.InfoWindow({
+          content: "<a href='http://www.google.com/search?q=" + place + "' target='_blank'>" + place + "</a><br><br>" + latlng + "<br><br>" + address + "<br><br><a href='http://www.google.com/search?q=" + place + "&tbm=isch' target='_blank'>画像検索 by google</a>"
+        });
+      }
+
+      // クリックイベント
+      function markerEvent() {
+        marker.addListener('click', function() {
+          infoWindow.open(map, marker);
+        });
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
 

@@ -13,67 +13,61 @@
 </div>
 
 <div class="google_map">
+
 <script>
-if( navigator.geolocation ){　// 現在位置を取得できる場合の処理
-// 現在位置を取得する
-navigator.geolocation.getCurrentPosition( success, error, option);
-/*現在位置が取得できた時に実行*/
-function success(position){
-var data = position.coords ;
-// 必要な緯度経度だけ取得
-var lat = data.latitude;
-var lng = data.longitude;
-//Google Maps
-var geocoder = new google.maps.Geocoder();
-latlng = new google.maps.LatLng(lat, lng);
-geocoder.geocode({'latLng': latlng}, function(results, status) {
-if (status == google.maps.GeocoderStatus.OK) {
-map.setCenter(latlng);
-var marker = new google.maps.Marker({
-map: map,
-position: latlng
-});
-google.maps.event.addListener(marker, 'click', function (e) {
-infowindow.setContent(results[0].formatted_address);
-infowindow.open(map, marker);
-});
-document.getElementById('address').innerHTML = results[0].formatted_address;
-}
-else {
-alert("エラー" + status);
-}
-});
-}
-/*現在位置の取得に失敗した時に実行する関数名*/
-function error(error){
-var errorMessage = {
-0: "原因不明のエラーが発生しました。",
-1: "位置情報が許可されませんでした。",
-2: "位置情報が取得できませんでした。",
-3: "タイムアウトしました。",
-} ;
-//とりあえずalert
-alert( errorMessage[error.code]);
-}
-// オプション(省略可)
-var option = {
-"enableHighAccuracy": false,
-"timeout": 100 ,
-"maximumAge": 100 ,
-};
-//MAPの表示
-var map;
-function initMap() {
-map = new google.maps.Map(document.getElementById('sample'), {
-zoom: 15
-});
-}
-} else {// 現在位置を取得できない場合の処理
-//とりあえずalert
-alert("あなたの端末では、現在位置を取得できません。");
-}
-</script>
-<div id="sample" style="width: 700px; height: 400px;"></div>
+    // 現在地取得処理
+    function initMap() {
+      // Geolocation APIに対応している
+      if (navigator.geolocation) {
+        // 現在地を取得
+        navigator.geolocation.getCurrentPosition(
+          // 取得成功した場合
+          function(position) {
+            // 緯度・経度を変数に格納
+            var mapLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            // マップオプションを変数に格納
+            var mapOptions = {
+              zoom : 15,          // 拡大倍率
+              center : mapLatLng  // 緯度・経度
+            };
+            // マップオブジェクト作成
+            var map = new google.maps.Map(
+              document.getElementById("map"), // マップを表示する要素
+              mapOptions         // マップオプション
+            );
+            //　マップにマーカーを表示する
+            var marker = new google.maps.Marker({
+              map : map,             // 対象の地図オブジェクト
+              position : mapLatLng   // 緯度・経度
+            });
+          },
+          // 取得失敗した場合
+          function(error) {
+            // エラーメッセージを表示
+            switch(error.code) {
+              case 1: // PERMISSION_DENIED
+                alert("位置情報の利用が許可されていません");
+                break;
+              case 2: // POSITION_UNAVAILABLE
+                alert("現在位置が取得できませんでした");
+                break;
+              case 3: // TIMEOUT
+                alert("タイムアウトになりました");
+                break;
+              default:
+                alert("その他のエラー(エラーコード:"+error.code+")");
+                break;
+            }
+          }
+        );
+      // Geolocation APIに対応していない
+      } else {
+        alert("この端末では位置情報が取得できません");
+      }
+    }
+  </script>
+
+  <div id="map" style="width:400px; height:300px"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap"></script>
 
 </div>
