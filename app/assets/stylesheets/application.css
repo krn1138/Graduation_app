@@ -14,3 +14,10 @@
  *= require_tree .
  *= require_self
  */
+.devise_edit {
+    text-align: center;
+}
+
+.google_map {
+    margin-left: 650px;
+}
