@@ -1,40 +1,31 @@
-<h1>Hostels#show</h1>
+<div class="hostel_show">
 <h1>宿詳細情報</h1>
 
 <p> 宿名: <%= @hostel.name %></p>
 <p> 住所: <%= @hostel.address %></p>
-#map_two,リロードしたらマップが出なくなる。mapとしたらindexのmapがおそらくでる
-<div id="map"></div>
-
+<p> 電話番号: <%= @hostel.phone_number %></p>
 <p id='name'> 部屋タイプ: <%= @hostel.kind %></p>
-<p> 市内までの距離: <%= @hostel.walk_city_time %></p>
-<p> １泊の値段: <%= @hostel.price %> 〜 </p>
-<p> 宿の写真:
-<% @hostel.images.each do |img| %>
-  <%= image_tag img.thumb.url %></p>
-<% end %>
-
-<p> 詳細情報: <%= @hostel.details %></p>
-<p> 宿周辺の情報: <%= @hostel.around_information %></p>
 <p> 国: <%= @hostel.country %></p>
 <p> 部屋数: <%= @hostel.capacity %></p>
-
-<%= link_to 'Back', root_path %>
-<%= link_to 'edit', edit_hostel_path %><br>
-# 宿登録者：
-<%#= @host.name %><br>
+<p> １泊の値段: <%= @hostel.price %> 〜 </p>
+宿の写真:<br>
+<% @hostel.images.each do |img| %>
+  <%= image_tag img.thumb.url %>
+<% end %>
+<p> 市内までの距離: <%= @hostel.walk_city_time %></p>
+<p> 詳細情報: <%= @hostel.details %></p>
+<p> 宿周辺の情報: <%= @hostel.around_information %></p>
 <%= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.id), method: :post %>
+<br>
+<% if current_user.id == @hostel.host.id %>
+  <%= link_to 'edit', edit_hostel_path %><br>
+  <%= link_to 'Back', root_path %>
+<% end %>
+<%= @host.name %><br>
+</div>
 
-<%# @users.each do |user| %>
-  <%# if user.id != current_user.id %>
-    <li>
-      <div class="item">
-        <%#= link_to @host.name, user %>
-        <%#= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.id), method: :post %>
-      </div>
-    </li>
-  <%# end %>
-<%# end %>
+# map_two,リロードしたらマップが出なくなる。mapとしたらindexのmapがおそらくでる
+# <div id="map"></div>
 <script type=“text/javascript”>
 # # $(function() {
 # # $("#name").click(function() {

@@ -42,7 +42,7 @@ class HostelsController < ApplicationController
   def show
     @users = User.all
     # @guest = current_user.guest
-    # @host = current_user.host
+    @host = current_user.host
     # @users = User.all
     # @message_room = Message_room.find(params[:message_room_id])
     # @messages = @message_room.messages
