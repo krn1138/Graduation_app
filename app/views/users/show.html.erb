@@ -1,4 +1,5 @@
-<h1>Users#show</h1>
+<div class="profile">
+<h1><%= current_user.name %>さんのプロフィール</h1>
 <%= image_tag @user.image.url, class: "icon_image" %>
 <p>名前 : <%= @user.name %></p>
 <p>メールアドレス : <%= @user.email %></p>
@@ -13,6 +14,8 @@
 
 <%= link_to 'edit', edit_user_registration_path	%>
 <%= link_to 'Back', root_path %>
+
+</div>
 
 
 

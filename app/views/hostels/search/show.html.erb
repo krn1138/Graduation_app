@@ -1,3 +1,4 @@
+<div class="top_page">
 <h2><%= current_user.name %>さん、どこへ行きますか？</h2>
 
 <%= form_with(model: @q, url: hostels_path, method: :get, local: true) do |f| %>
@@ -8,6 +9,10 @@
 
 
 <p>あなたの現在地</p>
+
+</div>
+
+<div class="google_map">
 <script>
 if( navigator.geolocation ){　// 現在位置を取得できる場合の処理
 // 現在位置を取得する
@@ -71,3 +76,4 @@ alert("あなたの端末では、現在位置を取得できません。");
 <div id="sample" style="width: 700px; height: 400px;"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap"></script>
 
+</div>

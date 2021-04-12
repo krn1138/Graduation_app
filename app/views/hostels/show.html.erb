@@ -21,7 +21,8 @@
 
 <%= link_to 'Back', root_path %>
 <%= link_to 'edit', edit_hostel_path %><br>
-宿登録者：<%= @host.name %><br>
+# 宿登録者：
+<%#= @host.name %><br>
 <%= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.id), method: :post %>
 
 <%# @users.each do |user| %>
