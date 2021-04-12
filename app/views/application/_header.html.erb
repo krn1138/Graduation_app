@@ -1,5 +1,4 @@
 
-
 <% if user_signed_in? || current_user == 'host' %>
   あなたの名前:<%= link_to current_user.name, user_path(current_user.id) %>
   <%#= link_to "ブログ投稿", blogs_path %>
