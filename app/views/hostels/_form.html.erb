@@ -1,3 +1,4 @@
+<div class="hostel_new">
 <%= form_with(model: @hostel, local: true, url: choose_new_or_edit) do |form| %>
   <% if @hostel.errors.any? %>
     <div id="error_explanation">
@@ -11,7 +12,6 @@
     </div>
   <% end %>
 
-  <div class="actions">
     <%= form.label :宿名 %>
     <%= form.text_field :name, placeholder: "宿名" %>
     <br>
@@ -20,7 +20,7 @@
     <%= form.text_field :address, placeholder: "住所" %>
     <br>
     <br>
-    <%= form.label :部屋種類 %><br />
+    <%= form.label :部屋種類 %>
     <%= form.select :kind, Hostel.kinds.keys, {prompt: "選択"} %>
     <br>
     <br>
@@ -42,18 +42,21 @@
     <br>
     <%= form.label :国 %>
     <%= form.text_field :country, placeholder: "国" %>
+    <%= form.select :country, Hostel.countrys.keys, {prompt: "選択"} %>
+
     <br>
     <br>
-    <%= form.label :部屋数 %>
+    <%= form.label :部屋数 %>:
     <%= form.number_field :capacity %>部屋
     <br>
     <br>
-    <%= form.label :phone_number %>
+    <%= form.label :電話番号 %>
     <%= form.text_field :phone_number, placeholder: "電話番号" %>
     <br>
     <br>
-    <%= form.label :image %><br/>
-    <%= form.file_field :images, multiple: true %>
+    <%= form.label :写真 %><br/>
+    <%= form.file_field :images, multiple: true %><br/>
+    <br/>
     <%= form.submit %>
   <% end %>
   </div>

@@ -16,5 +16,5 @@ class Hostel < ApplicationRecord
   # before_action do
   #   @message_room = Message_room.find(params[:message_room_id])
   # end
-end
 
+end
