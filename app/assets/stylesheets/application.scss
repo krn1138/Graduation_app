@@ -15,12 +15,21 @@
  *= require_self
  */
 
+ @font-face {
+    font-family: "kkk";
+    src: url('/assets/SoukouMincho.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: "kkk";
+}
 .devise_edit {
     text-align: center;
 }
 
 .google_map {
-    margin-left: 650px;
+    margin-left: 550px;
 }
 
 .border {
@@ -36,7 +45,9 @@
 
 .covid_message {
     text-align: center;
-}
+    font-size: medium;
+
+ }
 
 .your_name {
     margin-left: 1400px;

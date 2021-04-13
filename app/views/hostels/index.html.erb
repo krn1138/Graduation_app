@@ -56,8 +56,8 @@
 
     <div class="address_point">
 
-    <%= select_tag "keyword", options_from_collection_for_select(@hostels,:address, :address), {prompt: "行きたい宿の場所をみる！"}  %>
-    <%= select_tag "keyword", options_from_collection_for_select(@hostels,:country, :country), {prompt: "行きたい宿の場所をみる！"}  %>
+    <%= select_tag "keyword", options_from_collection_for_select(@hostels, :address, :address), {prompt: "行きたい宿の場所をみる！"}  %>
+    <%= select_tag "keyword", options_from_collection_for_select(@hostels, :name, :name), {prompt: "行きたい宿の場所をみる！"}  %>
 
     <button id="search">検索実行</button>
     <button id="clear">結果クリア</button>
