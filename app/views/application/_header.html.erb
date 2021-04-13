@@ -11,21 +11,15 @@
   <%= link_to "ログイン", new_user_session_path %>
 <% end %>
 <br>
+
+<%= link_to 'top_page', root_path %>
 <div class="border"></div>
 
 <div class="covid_message">
 <%= "新型コロナウイルス(COVID-19)に気をつけてください​​" %>
 </div>
-<div class="dropdown">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown link
-  </a>
 
-  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-    <%= link_to "報告書(作成中)", root_path, class: "dropdown-item" %>
-    <a class="dropdown-item" href="#">Something else here</a>
-  </div>
 </div>
 
-  <%= link_to 'top_page', root_path %>
+
   <%#= yield %>

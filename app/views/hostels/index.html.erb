@@ -9,31 +9,24 @@
 </div>
 
 
-  # <div class="mx-auto" style="width: 1000px;">
-
-  <table>
-  <thead>
-    <tr>
-      <th>宿名</th>
-      <th>住所</th>
-      <th>電話番号</th>
-      <th>国名</th>
-    </tr>
-  </thead>
-
-  <tbody>
-
-  <br>
-
-</div>
-
+<table>
 <% if @hostels.present? %>
 <tbody>
   <% @hostels.each do |hostel| %>
     <tr>
+      <td>宿名：</td>
       <td><%= link_to hostel.name, hostel_path(hostel.id) %></td>
+    </tr>
+    <tr>
+      <td>住所：</td>
       <td><%= hostel.address %></td>
+    </tr>
+    <tr>
+      <td>電話番号：</td>
       <td><%= hostel.phone_number %></td>
+    </tr>
+    <tr>
+      <td>国：</td>
       <td><%= hostel.country %></td>
     </tr>
     <% end %>
