@@ -1,8 +1,7 @@
-<div class="your_name">
-あなたの名前:<%#= link_to current_user.name, user_path(current_user.id) %>
-</div>
 <% if user_signed_in? || current_user == 'host' %>
-  <%#= link_to "ブログ投稿", blogs_path %>
+<div class="your_name">
+  あなたの名前:<%= link_to current_user.name, user_path(current_user.id) %>
+</div>
   <%= link_to "宿登録", new_hostel_path %>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
   <%= link_to "DM", message_rooms_path(@message_rooms) %>

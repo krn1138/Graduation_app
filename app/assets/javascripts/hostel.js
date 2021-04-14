@@ -20,9 +20,10 @@ function initMap() {
 
     var place = document.getElementById('keyword').value
     if (place !== ''){
-      place
+
     } else {
       place = document.getElementById('country_key').value
+
     };
 
     var geocoder = new google.maps.Geocoder();      // geocoderのコンストラクタ
