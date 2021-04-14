@@ -15,23 +15,22 @@
 <%= link_to 'top_page', root_path %>
 <div class="border"></div>
 
-<div class="covid_message">
+<div class="covid_19_message">
 <%= "新型コロナウイルス(COVID-19)に気をつけてください​​" %>
 </div>
-<div class="btn-group">
-  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Action
-  </button>
-  <div class="dropdown-menu">
-    <%= link_to "アカウント管理", user_path(current_user.id), class: 'dropdown-item' %>
-    <%= link_to "過去に宿泊した宿", class: 'dropdown-item' %>
-    <%= link_to "参加コミュニティ", class: 'dropdown-item' %>
-    <%= link_to "メッセージ", message_rooms_path(@message_rooms), class: 'dropdown-item' %>
-    <%= link_to "いいねした宿", class: 'dropdown-item' %>
-    <%= link_to "レビューをした宿", class: 'dropdown-item' %>
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
-  </div>
-</div>
+# <div class="btn-group">
+#   <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+#     Action
+#   </button>
+#   <div class="dropdown-menu">
+    <%#= link_to "アカウント管理", user_path(current_user.id), class: 'dropdown-item' %>
+    <%#= link_to "参加コミュニティ", root_path, class: 'dropdown-item' %>
+    <%#= link_to "メッセージ", root_path, message_rooms_path(@message_rooms), class: 'dropdown-item' %>
+    <%#= link_to "いいねした宿", root_path, class: 'dropdown-item' %>
+    <%#= link_to "レビューをした宿", root_path, class: 'dropdown-item' %>
+    <%#= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+#   </div>
+# </div>
 
 
   <%#= yield %>

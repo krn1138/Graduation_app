@@ -11,12 +11,13 @@
  * It is generally better to create a new file per style scope.
  *
  *= require bootstrap/dist/css/bootstrap.min
- */
- // Custom bootstrap variables must be set or imported *before* bootstrap.
-@import "bootstrap";
+ *= require_tree .
+ *= require_self
+*/
+
 @font-face {
     font-family: "kkk";
-    src: url('/assets/SoukouMincho.ttf') format("truetype");
+    src: url('/assets/Ronde-B_square.otf') format("truetype");
     font-weight: normal;
     font-style: normal;
 }
@@ -36,15 +37,16 @@ body {
     margin-top: 0px;
 }
 
-// .border_two {
+/* // .border_two {
 //     position:fixed;
 //     border-bottom: 1px solid rgb(190, 188, 188);
 //     margin-top: 200px;
-// }
+// } */
 
-.covid_message {
+.covid_19_message {
     text-align: center;
     font-size: medium;
+    font-family: "kkk";
 
  }
 
