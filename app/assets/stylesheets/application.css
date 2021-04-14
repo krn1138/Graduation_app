@@ -14,7 +14,6 @@
  *= require_tree .
  *= require_self
 */
-
 @font-face {
     font-family: "kkk";
     src: url('/assets/Ronde-B_square.otf') format("truetype");
@@ -46,7 +45,6 @@ body {
 .covid_19_message {
     text-align: center;
     font-size: medium;
-    font-family: "kkk";
 
  }
 
@@ -54,3 +52,5 @@ body {
     margin-left: 1400px;
 
 }
+
+

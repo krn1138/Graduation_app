@@ -18,19 +18,55 @@
 <div class="covid_19_message">
 <%= "新型コロナウイルス(COVID-19)に気をつけてください​​" %>
 </div>
-# <div class="btn-group">
-#   <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-#     Action
-#   </button>
-#   <div class="dropdown-menu">
-    <%#= link_to "アカウント管理", user_path(current_user.id), class: 'dropdown-item' %>
-    <%#= link_to "参加コミュニティ", root_path, class: 'dropdown-item' %>
-    <%#= link_to "メッセージ", root_path, message_rooms_path(@message_rooms), class: 'dropdown-item' %>
-    <%#= link_to "いいねした宿", root_path, class: 'dropdown-item' %>
-    <%#= link_to "レビューをした宿", root_path, class: 'dropdown-item' %>
-    <%#= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
-#   </div>
-# </div>
+<div class="wrapper typo">This is a custom<div class="list"><span class="placeholder">select</span>
+        <ul class="list__ul">
+        <div class="a">
+          <li><%= link_to "DM", message_rooms_path(@message_rooms) %>DM</li>
+          <li><%= link_to "DM", root_path %></li>
+        </div>
+            <li><a href="">select</a></li>
+            <li><a href="">lorem</a></li>
+            <li><a href="">ipsum</a></li>
+            <li><a href="">dolor</a></li>
+            <li><a href="">sit</a></li>
+            <li><a href="">amet</a></li>
+        </ul>
+    </div>
+</div>
 
 
   <%#= yield %>
+<script>
+console.clear();
+
+var el = {};
+
+$('.placeholder').on('click', function (ev) {
+  $('.placeholder').css('opacity', '0');
+  $('.list__ul').toggle();
+});
+
+ $('.list__ul a').on('click', function (ev) {
+   ev.preventDefault();
+   var index = $(this).parent().index();
+
+   $('.placeholder').text( $(this).text() ).css('opacity', '1');
+
+   console.log($('.list__ul').find('li').eq(index).html());
+
+   $('.list__ul').find('li').eq(index).prependTo('.list__ul');
+   $('.list__ul').toggle();
+
+ });
+
+
+$('select').on('change', function (e) {
+
+  // Set text on placeholder hidden element
+  $('.placeholder').text(this.value);
+
+  // Animate select width as placeholder
+  $(this).animate({width: $('.placeholder').width() + 'px' });
+
+});
+</script>
