@@ -18,7 +18,13 @@ function initMap() {
   // 検索実行ボタンが押下されたとき
   document.getElementById('search').addEventListener('click', function() {
 
-    var place = document.getElementById('keyword').value;
+    var place = document.getElementById('keyword').value
+    if (place !== ''){
+      place
+    } else {
+      place = document.getElementById('country_key').value
+    };
+
     var geocoder = new google.maps.Geocoder();      // geocoderのコンストラクタ
 
     geocoder.geocode({
