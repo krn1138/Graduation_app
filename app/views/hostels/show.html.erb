@@ -4,7 +4,7 @@
 <p> 宿名: <%= @hostel.name %></p>
 <p> 住所: <%= @hostel.address %></p>
 <p> 電話番号: <%= @hostel.phone_number %></p>
-<p id='name'> 部屋タイプ: <%= @hostel.kind %></p>
+<p> 部屋タイプ: <%= @hostel.kind %></p>
 <p> 国: <%= @hostel.country %></p>
 <p> 部屋数: <%= @hostel.capacity %></p>
 <p> １泊の値段: <%= @hostel.price %> 〜 </p>
@@ -21,5 +21,8 @@
   <%= link_to 'edit', edit_hostel_path %><br>
 <% end %>
 <%= link_to 'Back', root_path %>
-<%#= @host.name %><br>
+<%# if current_user == 'host' || current_user == 'guest' %>
+  <%= @host.name %><br>
+<%# end %>
 </div>
+
