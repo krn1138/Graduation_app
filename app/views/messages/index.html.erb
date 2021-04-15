@@ -1,3 +1,8 @@
+<%#= image_tag @host.image.url, class: "icon_image"%>
+
+<div class="message_opponent"><%= @message_room.sender == current_user ? @message_room.recipient.name : @message_room.sender.name %>さんとのDM</div>
+
+<div class="massage_top">
 <% if @over_ten %>
   <%= link_to '以前のメッセージ', '?m=all' %>
 <% end %>
@@ -6,14 +11,15 @@
     <% if message.content.present? %>
       <div class="item">
         <div class="content">
-          <div class="header"><strong><%= message.user.name %></strong> <%= message.message_time %></div>
+          <div class="left-message"><strong><%= message.user.name %></strong> <%= message.message_time %></div>
           <div class="list">
             <div class="item">
               <i class="right triangle icon"></i>
-              <%= message.content %> /
+              <div class="messages_1"><%= message.content %>/
               <% if message.user == current_user %>
-                <%= message.read ? '既読' : '未読' %>
+                  <%= message.read ? '既読' : '未読' %>
               <% end %>
+              </div>
             </div>
           </div>
         </div>
@@ -22,7 +28,58 @@
   <% end %>
 </div>
 <%= form_with(model: [@message_room, @message]) do |f| %>
-  <div class="field">
+  <div class="field_two">
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
+    <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+  <div>
+    <%= f.submit "メッセージを送る" %>
+  </div>
+<% end %>
+
+</div>
+
+<div class='container wrapper'>
+  <h4 class='text-center'>
+    <i class="fa fa-comment-o fa-flip-horizontal" aria-hidden="true"></i><span class='small-space'><%= @message_room.sender == current_user ? @message_room.recipient.name : @message_room.sender.name %>さんとのDM
+  </h4>
+  <div class='conrainer'>
+    <div class='dm-content' id='messages'>
+      <% @messages.each do |message| %>
+        <% if message.user_id == current_user.id %>
+          <div class="sender-messages">
+            <div class="dm-user">
+              <strong><%= message.user.name %></strong><span class='space'><i class="fa fa-user" aria-hidden="true"></i>
+            </div>
+            <div class="list">
+              <div class="sender-item">
+                <% if message.user == current_user %>
+                  <p><%= message.content %></p>
+                  <span><%= '未読/' unless message.read? %></span>
+                <% end %>
+              </div>
+              <%= l message.created_at, format: :short %>
+            </div>
+          </div>
+        <% else %>
+          <div class="recipient-messages">
+            <div class="dm-user">
+              <i class="fa fa-user" aria-hidden="true"></i><span class='small-space'><strong><%= message.user.name %></strong>
+            </div>
+            <div class="list">
+              <div class="recipient-item">
+                <p><%= message.content %></p>
+              </div>
+              <%= l message.created_at, format: :short %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <%= form_with(model: [@message_room, @message]) do |f| %>
+  <div class="field_two">
     <%= f.text_area :content, class: "form-control" %>
   </div>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>

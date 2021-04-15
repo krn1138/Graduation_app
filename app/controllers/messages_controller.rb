@@ -4,6 +4,8 @@ class MessagesController < ApplicationController
   end
 
   def index
+    # @me = current_user
+    # @user =
     # indexアクションに書かれたこれらの記載は、
     # 一つ一つの部分で何をしているかの理解をわかりやすくするために
     # このような記載にしていますが、実戦で用いるのには少々冗長なコードとなっているので
