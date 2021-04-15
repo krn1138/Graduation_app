@@ -56,7 +56,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # if @user.save
     #   redirect_to new_hostel_path
     # end
-    
+
     # binding.irb
     # if @user.update(configure_account_update_params)
     #   redirect_to root_path, notice: "編集しました！"
@@ -67,6 +67,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # DELETE /resource
   def destroy
+    # byebug
     super
   end
 
@@ -78,7 +79,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
-  
+
 
   protected
 
@@ -97,7 +98,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def configure_account_update_params
     # binding.irb
-    devise_parameter_sanitizer.permit(:account_update, 
+    devise_parameter_sanitizer.permit(:account_update,
       keys: guest_host_params(resource.role)
     )
 
@@ -109,7 +110,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     # binding.irb
     super
-    # super(resource) do 
+    # super(resource) do
     edit_user_registration_path
     # end
     # binding.irb

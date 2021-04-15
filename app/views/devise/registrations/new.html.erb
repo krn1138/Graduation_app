@@ -10,27 +10,27 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="login">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, placeholder: "name" %><br />
+    <%#= f.label :name %>
+    <%= f.text_field :name, autofocus: true, placeholder: "name" %>
 
-    <%= f.label :email %><br />
+    <%#= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %><br />
 
-    <%= f.label :password %><br />
+    <%#= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <% end %>
     <%= f.password_field :password, autocomplete: "new-password", placeholder: "password" %><br />
 
-    <%= f.label :password_confirmation %><br />
+    <%#= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "password confimation" %><br />
-
+<div class="sign_up_role">
     <%= f.select :role, User.roles.keys, {prompt: "role:選択"} %><br />
-<div class="login2">
+</div>
     <%= f.submit "Sign up" %><br />
-    </div>
-<% end %>
 
+<% end %>
+<br />
 <%= render "devise/shared/links" %>
 
 </div>
+

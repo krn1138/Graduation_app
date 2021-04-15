@@ -1,4 +1,6 @@
-<h2><%= current_user.name %>さんの情報登録</h2>
+<div class="form_edit">
+<div class="profile_edit">
+<div id="focus"></div>
 <div class="devise_edit">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -35,17 +37,37 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-
-  <div class="actions">
-    <%= f.submit "Update" %>
+  <div class="field">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
   </div>
 
-<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+
+
+  <%# byebug %>
+    <%= f.submit "Update", class: "input" %>
+
+<%#= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
 
 <% end %>
 <br>
 <br>
+</div>
+</div>
+</div>
 <%= link_to "Back", :back %>
+
+
+
 
 <script>
 const FORM = $("form"); // set form or other element here
@@ -115,4 +137,3 @@ $(function() {
 });
 
 </script>
-</div>

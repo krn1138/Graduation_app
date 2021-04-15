@@ -1,10 +1,9 @@
 <div class="hostel_index">
-<h1>宿検索結果</h1>
-<p>hostel/search/showからこの画面</p>
+<h3>宿検索結果</h3>
 <%= form_with(model: @q, url: hostels_path, method: :get, local: true) do |f| %>
   <%= f.label :name, "国名か宿名で検索" %>
-  <%= f.text_field :name_or_country_cont_any %>
-  <%= f.submit %>
+  <%= f.text_field :name_or_country_cont_any, class: "textbox_two", placeholder: "Search", autocomplete: "off", maxlength: "60" %>
+  <%#= f.submit %>
 <% end %>
 </div>
 
@@ -45,7 +44,7 @@
     <%= select_tag "keyword", options_from_collection_for_select(@hostels, :address, :name), {prompt: "行きたい宿の場所をみる！"}  %>
     <%#= select_tag "country_key", options_from_collection_for_select(@hostels, :country, :country), {prompt: "行きたい宿の場所をみる！"}  %>
     <%#= text_field "country_key", placeholder: "検索" %>
-    <input type="text" id="country_key">
+    <input type="text_index" id="country_key" >
     <button id="search">検索実行</button>
     <button id="clear">結果クリア</button>
     <div id="target"></div>

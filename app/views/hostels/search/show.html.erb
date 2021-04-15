@@ -1,64 +1,16 @@
 <div class="top_page">
-<h2><%= current_user.name %>さん、どこへ行きますか？</h2>
 <h1>enjoy trip!!</h1>
+<h2><%= current_user.name %>さん、どこへ行きますか？</h2>
 <div id="containter">
 <%= form_with(model: @q, url: hostels_path, method: :get, local: true) do |f| %>
   <%#= f.label :name, "国名か宿名で検索" %>
-  <%= f.text_field :name_or_country_cont_any, class: "textbox", placeholder: "Search", autocomplete: "off", maxlength: "60"%>
+  <%= f.text_field :name_or_country_cont_any, class: "textbox_two", placeholder: "Search", autocomplete: "off", maxlength: "60"%>
   <%#= f.submit %>
 <% end %>
 </div>
 
 
-<style>
-*::-webkit-input-placeholder {
-    color: #fff;
-}
-*:-moz-placeholder {
-    color: #fff;
-}
-*::-moz-placeholder {
-    color: #fff;
-}
-*:-ms-input-placeholder {
-    color: #fff;
-}
 
-#containter {
-  text-align: center;
-}
-
-h1 {
-  color: #55acee;
-  font-family: cursive;
-  font-weight: bold;
-  font-size: 40px;
-  margin-top: 0px;
-}
-
-.textbox {
-  margin-top: 10px;
-  font-family: cursive;
-  border: 1px solid #acacac;
-  color: #fff;
-  opacity: .7;
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-  width: 400px;
-  transition: all .3s;
-  -webkit-transition: all .3s;
-  -moz-transition: all .3s;
-  font-size: 16px;
-  outline: none;
-  background-color: #acacac;
-}
-
-.textbox:focus {
-  width: 500px;
-  outline: none;
-}
-</style>
 
 
 
@@ -81,7 +33,7 @@ h1 {
             var mapLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
             // マップオプションを変数に格納
             var mapOptions = {
-              zoom : 15,          // 拡大倍率
+              zoom : 17,          // 拡大倍率
               center : mapLatLng  // 緯度・経度
             };
             // マップオブジェクト作成

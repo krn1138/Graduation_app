@@ -19,7 +19,7 @@
 
 .hostel_show {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 70px;
 }
 
 .hostel_index {
@@ -60,3 +60,20 @@ table {
 width: 700px;
 height: 500px;
 }
+.text_index{
+
+}
+
+input[type=text_index] {
+  width: 40%;
+  padding: 0px;
+  border: 1px solid rgb(0, 0, 0);
+  font-size: 15px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(51, 71, 185);
+}
+
+input[type=text_index]:focus {
+  outline: none;
+}
+
