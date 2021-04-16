@@ -19,11 +19,8 @@ function initMap() {
   document.getElementById('search').addEventListener('click', function() {
 
     var place = document.getElementById('keyword').value
-    if (place !== ''){
-
-    } else {
+    if (place == ''){
       place = document.getElementById('country_key').value
-
     };
 
     var geocoder = new google.maps.Geocoder();      // geocoderのコンストラクタ

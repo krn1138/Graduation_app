@@ -25,11 +25,15 @@ class HostelsController < ApplicationController
     # if params[:back]
     #   render :new
     # end
-
-    if @hostel.save
-      redirect_to root_path, notice: "宿を登録しました！"
-    else
+    if params[:back]
       render :new
+    else
+
+      if @hostel.save
+        redirect_to root_path, notice: "宿を登録しました！"
+      else
+        render :new
+      end
     end
     # if @hostel.build_host.save
     #   redirect_to hostels_path, notice: "宿を登録しました！"
@@ -64,6 +68,7 @@ class HostelsController < ApplicationController
     # if params[:back]
     #   render :new
     # end
+    @hostel.id = params[:id]
     render :new if @hostel.invalid?
     # @hostel = Hostel.new(hostel_params)
     # render :new if @hostel.invalid?

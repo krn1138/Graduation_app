@@ -2,6 +2,7 @@
 <h3>宿詳細情報</h3>
 宿の写真<i class="fa fa-picture-o" aria-hidden="true"></i>:<br>
 <% @hostel.images.each do |img| %>
+<%# byebug %>
   <span><%= image_tag img.thumb.url, class: "hostel_icon" %>　　　</span>
 <% end %>
 <br>
@@ -29,7 +30,9 @@
 <i class="fa fa-check" aria-hidden="true"></i>
 <%= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.id), method: :post %>
 <br>
-<% if current_user.id == @hostel.host.id %>
+<%# byebug%>
+
+<% if @host.id == @hostel.host.id %>
   <%= link_to 'edit', edit_hostel_path %><br>
 <% end %>
 

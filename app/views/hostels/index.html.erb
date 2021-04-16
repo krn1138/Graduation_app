@@ -1,17 +1,23 @@
 <div class="hostel_index">
-<h3>宿検索結果</h3>
 <%= form_with(model: @q, url: hostels_path, method: :get, local: true) do |f| %>
-  <%= f.label :name, "国名か宿名で検索" %>
+  <%#= f.label :name, "国名か宿名で検索" %>
   <%= f.text_field :name_or_country_cont_any, class: "textbox_two", placeholder: "Search", autocomplete: "off", maxlength: "60" %>
   <%#= f.submit %>
 <% end %>
 </div>
-<%= @q %>:<%= @hostels.count %>
+<p><%= @hostels.count %>軒の宿が見つかりました</p>
 <div class="hostel_box">
 <table class="sample">
 <% if @hostels.present? %>
 <tbody>
   <% @hostels.each do |hostel| %>
+  <%# byebug %>
+    <tr>
+      <td>写真：</td>
+      <%# byebug %>
+      <% hostel.images do |img| %>
+        <%= image_tag img.thumb.url %>
+      <% end %>
     <tr>
       <td>宿名：</td>
       <td><%= link_to hostel.name, hostel_path(hostel.id) %></td>
@@ -19,10 +25,6 @@
     <tr>
       <td>住所：</td>
       <td><%= hostel.address %></td>
-    </tr>
-    <tr>
-      <td>電話番号：</td>
-      <td><%= hostel.phone_number %></td>
     </tr>
     <tr>
       <td>国：</td>
