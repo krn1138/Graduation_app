@@ -133,7 +133,7 @@ input[type=text_index]:focus {
       text-align: center;
       width:calc(300px);
       margin-bottom:30px;
-      border:2px solid #999696;
+      // border:2px solid #999696;
       &:placeholder-shown{
         border:2px solid #EAE4DA;
       }
@@ -171,13 +171,13 @@ input[type=text_index]:focus {
     // }
 }
 
-.edit_new_form_walk_city_time, .edit_new_form_capacity {
+.edit_new_form_name, .edit_new_form_address, .edit_new_form_country, .edit_new_form_phone_number {
   width:calc(300px);
-  border:2px solid #EAE4DA;
+  // border:2px solid #EAE4DA;
   // border:2px solid #999696;
 }
 
-.edit_new_form_price {
+.edit_new_form_price, .edit_new_form_walk_city_time, .edit_new_form_capacity {
   width:calc(300px);
   border:2px solid #EAE4DA;
   // border:2px solid #999696;

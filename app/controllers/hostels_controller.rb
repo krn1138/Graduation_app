@@ -2,6 +2,7 @@ class HostelsController < ApplicationController
   before_action :set_hostel, only: %i[ show edit update destroy ]
   before_action :set_search_hostel
   before_action :hostel_registration, only: [:new, :create]
+  # before_action :check_not_hostel_edit, only: [:edit, :update, :destroy]
 
   def index
     # @users = current_user
@@ -82,6 +83,12 @@ class HostelsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @hostel.destroy
+    redirect_to root_path, notice:"宿を削除しました！"
+  end
+
   private
   # http://localhost:3000/hostels/1 => params[:id] => 1
   # R -> C -> @ -> V -> form, url -> R -> params -> C -> V
@@ -105,5 +112,12 @@ class HostelsController < ApplicationController
     unless current_user.host
       redirect_to root_path, notice: "ホスト権限はありません"
     end
+  end
+
+  def check_not_hostel_edit
+    # @host = Host.find(params[:id])
+    # if @host.id != @hostel.host.id
+    #   redirect_to  root_path, notice:"編集できません"
+    # end
   end
 end
