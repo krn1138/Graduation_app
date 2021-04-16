@@ -1,0 +1,28 @@
+
+<%= @message_room.sender == current_user ? @message_room.recipient.name : @message_room.sender.name %>さんとのDM
+      <% @messages.each do |message| %>
+        <% if message.user_id == current_user.id %>
+          <%= message.user.name %>
+            <% if message.user == current_user %>
+              <%= message.content %>
+              <%= '未読/' unless message.read? %>
+              <%# byebug %>
+            <% end %>
+          <%= l message.created_at, format: :short %>
+        <% else %>
+          <%= message.user.name %>
+          <%= message.content %>
+          <%= l message.created_at, format: :short %>
+          <%# byebug %>
+            <% end %>
+        <% end %>
+
+  <%= form_with(model: [@message_room, @message]) do |f| %>
+  <div class="field_two">
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
+    <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+  <div>
+    <%= f.submit "メッセージを送る" %>
+  </div>
+<% end %>

@@ -1,14 +1,19 @@
 <% if user_signed_in? || current_user == 'host' %>
 <div class="your_name">
   あなたの名前:<%= link_to current_user.name, user_path(current_user.id) %>
-</div>
-  <%= link_to "宿登録", new_hostel_path %>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-  <%= link_to "DM", message_rooms_path(@message_rooms) %>
+  <div class="btn-group">
+    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+  <div class="dropdown-menu">
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+    <%= link_to "宿登録", new_hostel_path, class: "dropdown-item" %>
+    <%= link_to "DM", message_rooms_path(@message_rooms) %>
 <% else %>
   <%= link_to "新規登録", new_user_registration_path %>
   <%= link_to "ログイン", new_user_session_path %>
 <% end %>
+  </div>
+</div>
+</div>
 <br>
 
 <%= link_to 'top_page', root_path %>
@@ -16,4 +21,3 @@
 
 <div class="covid_19_message">
 <%= "新型コロナウイルス(COVID-19)に気をつけてください​​" %>
-</div>

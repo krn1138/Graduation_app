@@ -30,7 +30,7 @@ body {
 
 .border {
     border-bottom: 5px solid rgb(128, 124, 124);
-    margin-top: 0px;
+    margin-top: -10px;
 }
 
 /* // .border_two {

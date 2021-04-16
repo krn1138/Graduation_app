@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .message_top {
-  margin-right: 400px;
+  // margin-right: 400px;
 }
 
 .field_two {
@@ -14,7 +14,7 @@
   // border-radius: 30px;
 }
 
-input{
+// input{
   // padding:10px 15px;
   // border-radius:10px;
   // transition:.3s ease;
@@ -36,80 +36,84 @@ input{
     //   margin-right:30px;
     // }
   // }
-  &[type=submit]{
-    background:#D09B52;
-    color:#EAE4DA;
-    border:2px solid #D09B52;
-    outline:10px solid #fff;
-    width:calc(50% - 30px);
-    height:40px;
-    margin:0 30px -20px 0;
-    float:right;
-    font-weight:800;
-    font-size:0.7em;
-    letter-spacing:1.8pt;
-    text-transform:uppercase;
-    cursor:pointer;
+  // &[type=submit]{
+  //   background:#D09B52;
+  //   color:#EAE4DA;
+  //   border:2px solid #D09B52;
+  //   outline:10px solid #fff;
+  //   width:calc(50% - 30px);
+  //   height:40px;
+  //   margin:0 30px -20px 0;
+  //   float:right;
+  //   font-weight:800;
+  //   font-size:0.7em;
+  //   letter-spacing:1.8pt;
+  //   text-transform:uppercase;
+  //   cursor:pointer;
 
-    &:hover{
-      outline-width:0;
-    }
-  }
-  &:focus{
-    outline:0;
-  }
+  //   &:hover{
+  //     outline-width:0;
+  //   }
+  // }
+  // &:focus{
+  //   outline:0;
+  // }
+// }
+
+.right-message {
+margin-right: 600px;
 }
 
 .left-message {
-  margin-left: 500px;
+  margin-left: 600px;
   margin-top: 20px;
   // text-align: right;
 }
 
 .messages_1 {
-  margin-left: 500px;
+  margin-right: 600px;
 
-  // text-align: right;
+//   text-align: right;
 }
 
-.message_opponent {
-  margin-left: 750px;
-}
+// .message_opponent {
+//   margin-left: 750px;
+// }
 
-.dm-content{
-  height: 520px;
-  margin-bottom: -15px;
-  padding: 15px 40px;
-  overflow: scroll;
-  word-break: break-all;
-  background-color: rgb(243, 244, 245);
-}
+// .dm-content{
+//   height: 520px;
+//   margin-bottom: -15px;
+//   padding: 15px 40px;
+//   overflow: scroll;
+//   word-break: break-all;
+//   background-color: rgb(243, 244, 245);
+// }
 
-.dm-user{
-  margin-top: 5px;
-}
+// .dm-user{
+//   margin-top: 5px;
+// }
 
-.sender-messages{
-  text-align: right;
-  margin-left: 55%;
-}
+// .sender-messages{
+//   text-align: right;
+//   margin-left: 55%;
+// }
 
-.sender-item p{
-  background-color: rgb(125, 158, 246);
-  color: white;
-  padding: 5px 10px;
-  margin-bottom: 0;
-  border-radius: 20px 3px 20px 20px;
-}
+// .sender-item p{
+//   background-color: rgb(125, 158, 246);
+//   color: white;
+//   padding: 5px 10px;
+//   margin-bottom: 0;
+//   border-radius: 20px 3px 20px 20px;
+// }
 
-.recipient-item p{
-  background-color: white;
-  max-width: 250px;
-  padding: 5px 10px;
-  margin-bottom: 0;
-  border-radius: 3px 20px 20px 20px;
-}
+// .recipient-item p{
+//   background-color: white;
+//   max-width: 250px;
+//   padding: 5px 10px;
+//   margin-bottom: 0;
+//   border-radius: 3px 20px 20px 20px;
+// }
 
-.dm-form{
-  margin-bottom: 20px;
-}
+// .dm-form{
+//   margin-bottom: 20px;
+// }
