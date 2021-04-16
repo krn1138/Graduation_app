@@ -1,5 +1,7 @@
 class Guest < ApplicationRecord
     belongs_to :user
+    validates :address, presence: true
+
 
     enum gender: {
         female: 0, male: 1, nothing: 2

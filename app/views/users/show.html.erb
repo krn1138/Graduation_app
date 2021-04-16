@@ -4,8 +4,8 @@
 <%= image_tag @user.image.url, class: "icon_image" %>
 <br>
 <br>
-<p><i class="fa fa-user-circle-o" aria-hidden="true"></i>名前 : <%= @user.name %></p>
-<p><i class="fa fa-envelope-o" aria-hidden="true"></i>メールアドレス : <%= @user.email %></p>
+<p>名前 : <%= @user.name %></p>
+<p>メールアドレス : <%= @user.email %></p>
 <% if @user.role == "guest" %>
 <%# binding.irb %>
   <%= render 'users/guest', guest: @guest %>
