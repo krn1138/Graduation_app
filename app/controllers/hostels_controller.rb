@@ -31,7 +31,7 @@ class HostelsController < ApplicationController
     else
 
       if @hostel.save
-        redirect_to root_path, notice: "宿を登録しました！"
+        redirect_to hostel_path(@hostel.id), notice: "宿を登録しました！"
       else
         render :new
       end
