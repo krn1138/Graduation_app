@@ -9,7 +9,7 @@ module ApplicationHelper
 
   def host_edit_path
     if action_name == 'edit' || action_name == 'new' || action_name == 'create'
-      hostel_path
+      hosts_path
     else
       user_path
     end

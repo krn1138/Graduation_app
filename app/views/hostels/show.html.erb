@@ -1,5 +1,5 @@
-<div class="hostel_show">
 <h3>宿詳細情報</h3>
+<div class="hostel_show">
 宿の写真<i class="fa fa-picture-o" aria-hidden="true"></i>:<br>
 <% @hostel.images.each do |img| %>
 <%# byebug %>
@@ -32,14 +32,15 @@
 <br>
 <%# byebug%>
 
-<% if @host.id == @hostel.host.id || current_user.id == @hostel.host.id %>
+<% if current_user.id == @hostel.host.id %>
+<%# byebug%>
   <%= link_to 'edit', edit_hostel_path %><br>
   <%= link_to 'delete', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
   <%= link_to 'Back', hostels_search_path %><br>
 <% else %>
   <%= link_to 'Back', hostels_search_path %><br>
 <% end %>
-
+<%current_user.id == @hostel.host.id%>
 
 <% if current_user.present? %>
   <%#= @host.name %><br>
