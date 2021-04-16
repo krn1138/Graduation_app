@@ -12,12 +12,20 @@
     </div>
   <% end %>
 
+<%#= image_tag @hostel.images.url, class: "icon", id: :img_prev if @hostel.images? %><br/>
+    <%#= f.file_field :images, id: :hostel_img %><br/>
+    <%# binding.irb%>
+    <%#= f.check_box :remove_image %>画像を削除する
+    <%= form.label :写真 %><br/>
+    <%= form.file_field :images, multiple: true %><br/>
+    <br/>
+    <br/>
     <%= form.label :宿名 %>
-    <%= form.text_field :name, placeholder: "宿名" %>
+    <%= form.text_field :name, placeholder: "宿名", class: "edit_new_form" %>
     <br>
     <br>
     <%= form.label :address %>
-    <%= form.text_field :address, placeholder: "住所" %>
+    <%= form.text_field :address, placeholder: "住所", class: "edit_new_form" %>
     <br>
     <br>
     <%= form.label :部屋種類 %>
@@ -25,36 +33,104 @@
     <br>
     <br>
     <%= form.label :市内までの距離 %>
-    <%= form.number_field :walk_city_time, placeholder: "市内までの距離" %>
+    <%= form.number_field :walk_city_time, placeholder: "市内までの距離", class: "edit_new_form_walk_city_time" %>
     <br>
     <br>
     <%= form.label :１泊の値段 %>
-    <%= form.number_field :price %>〜  から
-    <br>
-    <br>
-    <%= form.label :詳細 %>
-    <%= form.text_area :details, placeholder: "詳細" %>
-    <br>
-    <br>
-    <%= form.label :宿周辺情報 %>
-    <%= form.text_area :around_information, placeholder: "宿周辺情報" %>
+    <%= form.number_field :price, class: "edit_new_form_price" %>〜  から
     <br>
     <br>
     <%= form.label :国 %>
-    <%= form.text_field :country, placeholder: "国" %>
+    <%= form.text_field :country, placeholder: "国", class: "edit_new_form" %>
     <br>
     <br>
     <%= form.label :部屋数 %>:
-    <%= form.number_field :capacity %>部屋
+    <%= form.number_field :capacity, class: "edit_new_form_capacity" %>部屋
     <br>
     <br>
     <%= form.label :電話番号 %>
-    <%= form.text_field :phone_number, placeholder: "電話番号" %>
+    <%= form.text_field :phone_number, placeholder: "電話番号", class: "edit_new_form" %>
     <br>
     <br>
-    <%= form.label :写真 %><br/>
-    <%= form.file_field :images, multiple: true %><br/>
-    <br/>
+    <%= form.label :宿周辺情報 %>
+    <%= form.text_area :around_information, placeholder: "宿周辺情報", class: "edit_new_form_around_information" %>
+    <br>
+    <br>
+    <%= form.label :詳細 %>
+    <%= form.text_area :details, placeholder: "詳細", class: "edit_new_form_details" %>
+    <br>
+    <br>
     <%= form.submit %>
   <% end %>
   </div>
+
+  <script>
+const FORM = $("form"); // set form or other element here
+const TYPES = ["input[type=text], input[type=submit]"]; // set which elements get targeted by the focus
+const FOCUS = $("#focus"); // focus element
+
+// function for positioning the div
+function position(e) {
+  // get position
+  var props = {
+    top: e.offset().top,
+    left: e.offset().left,
+    width: e.outerWidth(),
+    height: e.outerHeight(),
+    radius: parseInt(e.css("border-radius"))
+  };
+
+  // set position
+  FOCUS.css({
+    top: props.top,
+    left: props.left,
+    width: props.width,
+    height: props.height,
+    "border-radius": props.radius
+  });
+
+  FOCUS.fadeIn(200);
+}
+
+FORM.find(TYPES.join()).each(function(i) {
+  // when clicking an input defined in TYPES
+  $(this).focus(function() {
+    el = $(this);
+
+    // adapt size/position when resizing browser
+    $(window).resize(function() {
+      position(el);
+    });
+
+    position(el);
+  });
+});
+
+FORM.on("focusout", function(e) {
+  setTimeout(function() {
+    if (!e.delegateTarget.contains(document.activeElement)) {
+      FOCUS.fadeOut(200);
+    }
+  }, 0);
+});
+</script>
+
+
+
+<script type="text/javascript">
+$(function() {
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $("#img_prev").attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+   }
+ }
+ $("#hostel_img").change(function(){
+   readURL(this);
+ });
+});
+
+</script>
