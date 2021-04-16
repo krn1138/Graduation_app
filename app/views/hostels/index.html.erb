@@ -8,7 +8,7 @@
 </div>
 <%= @q %>:<%= @hostels.count %>
 <div class="hostel_box">
-<table>
+<table class="sample">
 <% if @hostels.present? %>
 <tbody>
   <% @hostels.each do |hostel| %>
@@ -29,12 +29,13 @@
       <td><%= hostel.country %></td>
     </tr>
   <% end %>
+  </tbody>
 <% else %>
   <div>
     <p>一致する宿がありません。条件を変えて検索してみよう！</p>
   </div>
 <% end %>
-</tbody>
+
 
 </table>
 

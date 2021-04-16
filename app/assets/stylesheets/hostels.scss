@@ -14,7 +14,24 @@
 // }
 
 .hostel_new {
+  margin-left: 500px;
   text-align: center;
+  border:2px solid #D09B52;
+  padding:40px 10px 0px 40px;
+  width:70%;
+  max-width:700px;
+  border-radius:20px;
+}
+
+.hostel_icon{
+    width: 300px;
+    height: 300px;
+    //サイズ指定
+    border-radius: 100px;
+    //画像を丸くする
+    object-fit: cover;
+    //タテヨコ比を変えないままトリミング
+
 }
 
 .hostel_show {
@@ -31,7 +48,19 @@
   width: 530px;
   height: 400px;
 }
+tbody tr:first-child {
+  // background-color:red;
+  border-top: 1px solid rgb(128, 124, 124);
+  border-left: 1px solid rgb(128, 124, 124);
+}
 
+tbody tr:nth-child(4){
+  border-bottom: 1px solid rgb(128, 124, 124);
+  border-left: 1px solid rgb(128, 124, 124);
+  // padding-left: 10px;
+  padding-bottom: 20px;
+
+}
 table {
   // margin-left: 1000px;
   // text-align: center;

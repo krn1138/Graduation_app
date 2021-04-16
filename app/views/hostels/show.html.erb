@@ -1,6 +1,10 @@
 <div class="hostel_show">
 <h3>宿詳細情報</h3>
 
+宿の写真:<br>
+<% @hostel.images.each do |img| %>
+  <span><%= image_tag img.thumb.url, class: "hostel_icon" %>　　　</span>
+<% end %>
 <p> 宿名: <%= @hostel.name %></p>
 <p> 住所: <%= @hostel.address %></p>
 <p> 電話番号: <%= @hostel.phone_number %></p>
@@ -8,10 +12,7 @@
 <p> 国: <%= @hostel.country %></p>
 <p> 部屋数: <%= @hostel.capacity %></p>
 <p> １泊の値段: <%= @hostel.price %> 〜 </p>
-宿の写真:<br>
-<% @hostel.images.each do |img| %>
-  <%= image_tag img.thumb.url %>
-<% end %>
+
 <p> 市内までの距離: <%= @hostel.walk_city_time %></p>
 <p> 詳細情報: <%= @hostel.details %></p>
 <p> 宿周辺の情報: <%= @hostel.around_information %></p>
@@ -24,7 +25,7 @@
 <%= link_to 'Back', hostels_search_path %><br>
 
 <% if current_user.present? %>
-  <%= @host.name %><br>
+  <%#= @host.name %><br>
 <% end %>
 </div>
 
