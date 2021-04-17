@@ -1,23 +1,32 @@
-<% if user_signed_in? || current_user == 'host' %>
-<div class="your_name">
-  あなたの名前:<%= link_to current_user.name, user_path(current_user.id) %>
-  <div class="btn-group">
-    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-  <div class="dropdown-menu">
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-    <%= link_to "宿登録", new_hostel_path, class: "dropdown-item" %>
-    <%= link_to "DM", message_rooms_path(@message_rooms) %>
-<% else %>
+<div class="top_page_header"></div>
+  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+  <label for="openSidebarMenu" class="sidebarIconToggle">
+    <div class="spinner diagonal part-1"></div>
+    <div class="spinner horizontal"></div>
+    <div class="spinner diagonal part-2"></div>
+  </label>
+  <div id="sidebarMenu">
+    <ul class="sidebarMenuInner">
+      <li>Jelena Jovanovic <span>Web Developer</span></li>
+      <% if user_signed_in? || current_user == 'host' %>
+      <li><%= link_to "hostel registration", new_hostel_path %></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      <li><%= link_to "DM", message_rooms_path(@message_rooms) %></li>
+      <li><%= link_to "アカウント管理", user_path(current_user.id) %></li>
+      <li><%= link_to 'top_page', root_path %></li>
+    </ul>
+  </div>
+  <% else %>
   <%= link_to "新規登録", new_user_registration_path %>
   <%= link_to "ログイン", new_user_session_path %>
-<% end %>
-  </div>
-</div>
-</div>
-<br>
+  <% end %>
 
-<%= link_to 'top_page', root_path %>
+
+
+
+
+
 <div class="border"></div>
 
 <div class="covid_19_message">
-<%= "新型コロナウイルス(COVID-19)に気をつけてください​​" %>
+<%#= "新型コロナウイルス(COVID-19)に気をつけてください​​" %>

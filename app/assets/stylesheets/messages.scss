@@ -11,6 +11,8 @@
   border-radius:20px;
   margin-left: 350px;
   margin-top: 30px;
+  word-wrap:break-word;
+  overflow: scroll;
 }
 
 .field_two {
@@ -19,6 +21,7 @@
   // margin-right: 300px;
   // text-align: center;
   width: 500px;
+  position: relative;
   // border-radius: 30px;
 }
 
