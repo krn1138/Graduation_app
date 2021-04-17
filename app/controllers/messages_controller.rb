@@ -4,13 +4,14 @@ class MessagesController < ApplicationController
   end
 
   def index
+    @message_rooms = MessageRoom.all
     # @me = current_user
     # @user = User.all
     # indexアクションに書かれたこれらの記載は、
     # 一つ一つの部分で何をしているかの理解をわかりやすくするために
     # このような記載にしていますが、実戦で用いるのには少々冗長なコードとなっているので
     # 余力のある人はコードのリファクタリングにも挑戦してみましょう！
-    @messages = @message_room.messages
+    @messages = @message_room.messages.eager_load(:user).order(:created_at)
     if @messages.length > 10
       @over_ten = true
       @messages = Message.where(id: @messages[-10..-1].pluck(:id))

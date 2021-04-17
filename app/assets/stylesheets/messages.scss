@@ -3,14 +3,22 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .message_top {
-  // margin-right: 400px;
+  text-align: center;
+  border:2px solid #D09B52;
+  // padding:300px 300px 0px 40px;
+  width:60%;
+  // max-width:700px;
+  border-radius:20px;
+  margin-left: 350px;
+  margin-top: 30px;
 }
 
 .field_two {
-  margin-left: 600px;
+  margin-left: 280px;
+  margin-top: 20px;
   // margin-right: 300px;
   // text-align: center;
-  width: 400px;
+  width: 500px;
   // border-radius: 30px;
 }
 
@@ -76,6 +84,20 @@ margin-right: 600px;
 //   text-align: right;
 }
 
+.message_submit {
+  margin-right: 370px !important;
+}
+
+.message_index {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+}
+.message_index_two {
+  margin-top: 50px;
+  margin-right: 1000px;
+  // padding-left: 0px;
+}
 // .message_opponent {
 //   margin-left: 750px;
 // }
