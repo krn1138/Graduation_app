@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tops, only: [:index]
   # devise_for :users
   # resources :guests
   resources :hosts

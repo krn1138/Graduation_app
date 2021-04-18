@@ -1,0 +1,29 @@
+<%#= image_tag "raise-3338589_1920-1280x720.jpg", class:"pict" %>
+<html>
+	<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.4.0/vegas.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.4.0/vegas.min.css">
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#photo, body").vegas({
+          animation: "random",
+          overlay: '/js/vegas/dist/overlays/08.png', //フォルダ『overlays』の中からオーバーレイのパターン画像を選択
+          transition: 'fade', //スライドを遷移させる際のアニメーション
+          transitionDuration: 4000, //スライドの遷移アニメーションの時間
+          delay: 10000, //スライド切り替え時の遅延時間
+          animationDuration: 20000,
+          slides: [
+            { src: "https://music-life-music.com/wp/wp-content/uploads/2020/05/raise-3338589_1920-1280x720.jpg" },
+            { src: "http://img.kb-cdn.com/imgviewer/NVpIM2ptOHhYRzVmUk5rM1NrNlFxYVV6enV4aGk2UFRJMmxPckdDUUVNYk55Qm1LOE8wL0tETzN2NXQxVjIwTXlKRjF6MDlnbWZHNmZyOTdLUVUvSHpyRjhMRENmUDJRSjhwZlJKQTdhRE1SNi94S0NhVVE5SXR2QW5xbWpva3UxRlJWQWNQT0ZkVVp5Smk4OXVINGpVdjVNa1lxN0xvRE5paVl1NWxPTjd1dWRTZDV1c3hTQkw0c2VEZmkyZUh1S043RHZvWUUwa0FKTjhBeHV6ZGFCTkpyNjVleG54c0tyRS9nTzVuQ3I5RT0=?square=0" },
+            { src: "http://img.kb-cdn.com/imgviewer/NVpIM2ptOHhYRzVmUk5rM1NrNlFxYVV6enV4aGk2UFRJMmxPckdDUUVNYUorK0tNQ0VoZnlMa1QrSVVKYTZNNTdZK25mUTVvc0d6TkVVcXY5SVlPSDB1ZTJlVzB2bjNoNWlkMUoxdmIzQ2g3RGlkY1VabFVrODJ5cy9EZDR2YUxzcXVFUmloTUlCZVdmWjhQQ1A4cUkxcll6Vzk5MzJSa3JWaGxWRGROVStzTU5iTnRGQ1VSb0VISE0yNHVHbnBZVTZyUTd1SGF1VnJBTG1xei9FMUVSeEk3d2NGd25SZU1ncEo3TWpQcFlQMnkwRkVicmN6OFl5MHltV0ozQ21MdkVHc08zM2ZrU1U4Q2lObDcxVi93bEE9PQ==?square=0" },
+            { src: "/images/IMG_5324.jpeg" }
+          ]
+        });
+      });
+    </script>
+	</head>
+	<body>
+    <div id="photo"></div>
+	</body>
+</html>
