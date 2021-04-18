@@ -12,11 +12,13 @@
 <tbody>
   <% @hostels.each do |hostel| %>
   <%# byebug %>
+
+
     <tr>
       <td>写真：</td>
       <%# byebug %>
       <% hostel.images do |img| %>
-        <%= image_tag img.thumb.url %>
+        <%= image_tag img.url, class: "hostel_icon" %>
       <% end %>
     <tr>
       <td>宿名：</td>
