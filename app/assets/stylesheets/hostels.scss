@@ -2,12 +2,247 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#map { 
-    height: 400px;
-    width: 800px;
+
+// #map {
+//     height: 400px;
+//     width: 800px;
+// }
+
+// #map_two {
+//     height: 200px;
+//     width: 400px;
+// }
+
+#map {
+  width: 600px;
+  height: 400px;
+
 }
 
-#map_two { 
-    height: 200px;
-    width: 400px;
+.hostel_form {
+  margin-left: 500px;
+  text-align: center;
+  border:2px solid #D09B52;
+  padding:40px 10px 0px 40px;
+  width:70%;
+  max-width:700px;
+  border-radius:20px;
 }
+
+.hostel_icon{
+    width: 200px;
+    height: 200px;
+    //サイズ指定
+    // border-radius: 100px;
+    //画像を丸くする
+    object-fit: cover;
+    //タテヨコ比を変えないままトリミング
+
+}
+
+.hostel_show {
+
+  margin-top: 70px;
+  font-size: 20px;
+  border:2px solid #D09B52;
+  border-radius:20px;
+  // padding:40px 10px 0px 40px;
+  width:70%;
+  margin-left: 300px;
+}
+
+.hostel__inner_show {
+  text-align: left;
+  margin-left: 450px;
+}
+
+// .hostel_show_images {
+//   text-align: center;
+//   margin-right: 400px;
+// }
+
+.hostel_index {
+  text-align: center;
+  margin-top: 10px;
+}
+.not_search {
+  margin-top: 200px;
+  margin-right: 100px;
+}
+#map_two{
+  width: 530px;
+  height: 400px;
+}
+
+// tbody tr:first-child {
+//   // background-color:red;
+//   border-top: 1px solid rgb(128, 124, 124);
+//   border-left: 1px solid rgb(128, 124, 124);
+// }
+
+// tbody tr:nth-child(4){
+//   border-bottom: 1px solid rgb(128, 124, 124);
+//   border-left: 1px solid rgb(128, 124, 124);
+//   // padding-left: 10px;
+//   padding-bottom: 20px;
+
+// }
+table {
+  // margin-left: 1000px;
+  // text-align: center;
+}
+
+// .address_point {
+//   margin-top: -100px;
+//   margin-left: 100px;
+// }
+
+.hostel_box {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+}
+
+#header {
+  background-color: darkblue;
+  padding: 3px;
+  width: 1195px;
+  font-family: Meriyo UI;
+  font-size: 14px;
+  color: white;
+}
+#target {
+width: 700px;
+height: 500px;
+z-index: 3;
+
+}
+.text_index{
+
+}
+
+input[type=text_index] {
+  width: 40%;
+  padding: 0px;
+  border: 1px solid rgb(0, 0, 0);
+  font-size: 15px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+input[type=text_index]:focus {
+  outline: none;
+}
+
+// #hostel/new,edit↓
+
+
+
+.edit_new_form, .edit_new_form_walk_city_time, .edit_new_form_price,
+.edit_new_form_details, .edit_new_form_around_information {
+    padding:10px 15px;
+    border-radius:10px;
+    transition:.3s ease;
+    color:#868283;
+    text-align: center;
+
+    &[type=text]{
+      text-align: center;
+      width:calc(300px);
+      margin-bottom:30px;
+      // border:2px solid #999696;
+      &:placeholder-shown{
+        border:2px solid #EAE4DA;
+      }
+      // &::placeholder{
+      //   color:#A3A5AA;
+      // }
+      // &[half]{
+      //   width:calc(50% - 30px);
+      //   float:left;
+      //   margin-right:30px;
+      // }
+    }
+    // &[type=submit]{
+    //   background:#D09B52;
+    //   color:#EAE4DA;
+    //   border:2px solid #D09B52;
+    //   outline:10px solid #fff;
+    //   width:calc(50% - 30px);
+    //   height:40px;
+    //   margin-left: 500px;
+    //   // margin:0 30px -20px 0;
+    //   float:right;
+    //   font-weight:800;
+    //   font-size:0.7em;
+    //   letter-spacing:1.8pt;
+    //   text-transform:uppercase;
+    //   cursor:pointer;
+
+    //   &:hover{
+    //     outline-width:0;
+    //   }
+    // }
+    // &:focus{
+    //   outline:0;
+    // }
+}
+
+.edit_new_form_name, .edit_new_form_address, .edit_new_form_country, .edit_new_form_phone_number {
+  width:calc(300px);
+  // border:2px solid #EAE4DA;
+  // border:2px solid #999696;
+}
+
+.edit_new_form_price, .edit_new_form_walk_city_time, .edit_new_form_capacity {
+  width:calc(300px);
+  border:2px solid #EAE4DA;
+  // border:2px solid #999696;
+}
+
+.edit_new_form_details {
+  width:calc(400px);
+  height: 150px;
+  border:2px solid #EAE4DA;
+  // border:2px solid #999696;
+
+}
+
+.edit_new_form_around_information {
+  width:calc(400px);
+  height: 100px;
+  border:2px solid #EAE4DA;
+  // border:2px solid #999696;
+
+}
+
+// .edit_new_form_capacity, .edit_new_form_phone_number, .edit_new_form_country {
+//   width:calc(300px);
+//   border:2px solid #999696;
+
+// }
+
+
+
+// submit {
+//   background:#52d087;
+//       color:#EAE4DA;
+//       border:2px solid #D09B52;
+//       outline:10px solid #fff;
+//       width:calc(50% - 30px);
+//       height:40px;
+//       margin:0 30px -20px 0;
+//       float:right;
+//       font-weight:800;
+//       font-size:0.7em;
+//       letter-spacing:1.8pt;
+//       text-transform:uppercase;
+//       cursor:pointer;
+
+//       &:hover{
+//         outline-width:0;
+//       }
+//     &:focus{
+//       outline:0;
+//       }
+// }

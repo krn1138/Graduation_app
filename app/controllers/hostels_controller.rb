@@ -2,6 +2,7 @@ class HostelsController < ApplicationController
   before_action :set_hostel, only: %i[ show edit update destroy ]
   before_action :set_search_hostel
   before_action :hostel_registration, only: [:new, :create]
+  # before_action :check_not_hostel_edit, only: [:edit, :update, :destroy]
 
   def index
     # @users = current_user
@@ -25,11 +26,15 @@ class HostelsController < ApplicationController
     # if params[:back]
     #   render :new
     # end
-
-    if @hostel.save
-      redirect_to root_path, notice: "宿を登録しました！"
-    else
+    if params[:back]
       render :new
+    else
+
+      if @hostel.save
+        redirect_to hostel_path(@hostel.id), notice: "宿を登録しました！"
+      else
+        render :new
+      end
     end
     # if @hostel.build_host.save
     #   redirect_to hostels_path, notice: "宿を登録しました！"
@@ -41,7 +46,7 @@ class HostelsController < ApplicationController
 
   def show
     @users = User.all
-    @guest = current_user.guest
+    # @guest = current_user.guest
     @host = current_user.host
     # @users = User.all
     # @message_room = Message_room.find(params[:message_room_id])
@@ -64,6 +69,7 @@ class HostelsController < ApplicationController
     # if params[:back]
     #   render :new
     # end
+    @hostel.id = params[:id]
     render :new if @hostel.invalid?
     # @hostel = Hostel.new(hostel_params)
     # render :new if @hostel.invalid?
@@ -77,6 +83,12 @@ class HostelsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @hostel.destroy
+    redirect_to root_path, notice:"宿を削除しました！"
+  end
+
   private
   # http://localhost:3000/hostels/1 => params[:id] => 1
   # R -> C -> @ -> V -> form, url -> R -> params -> C -> V
@@ -100,5 +112,12 @@ class HostelsController < ApplicationController
     unless current_user.host
       redirect_to root_path, notice: "ホスト権限はありません"
     end
+  end
+
+  def check_not_hostel_edit
+    # @host = Host.find(params[:id])
+    # if @host.id != @hostel.host.id
+    #   redirect_to  root_path, notice:"編集できません"
+    # end
   end
 end

@@ -1,7 +1,11 @@
-<h2><%= current_user.name %>さんの情報登録</h2>
+<div class="form_edit">
+<div class="profile_edit">
+<div id="focus"></div>
+<div class="devise_edit">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
+<h1>Your info</h1>
   <div class="field">
   <%= f.label :image %><br/>
   <%= image_tag @user.image.url, class: "icon", id: :img_prev if @user.image? %><br/>
@@ -10,20 +14,21 @@
     <%= f.check_box :remove_image %>画像を削除する
   </div>
 
+
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
-  
+
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.text_field :email, autofocus: true %>
   </div>
-  
+
   <% if resource.role == "guest" %>
     <%= render 'guest', form: f %>
-  <% else %>
+    <% else %>
     <%= render 'host', form: f %>
   <% end %>
 
@@ -46,21 +51,74 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%#= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%#= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+
+  <%# byebug %>
+    <%= f.submit "Update", class: "input" %>
+
+<%#= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
+<br>
+<br>
+</div>
+</div>
+</div>
 <%= link_to "Back", :back %>
+
+
+
+
+<script>
+const FORM = $("form"); // set form or other element here
+const TYPES = ["input[type=text], input[type=submit]"]; // set which elements get targeted by the focus
+const FOCUS = $("#focus"); // focus element
+
+// function for positioning the div
+function position(e) {
+  // get position
+  var props = {
+    top: e.offset().top,
+    left: e.offset().left,
+    width: e.outerWidth(),
+    height: e.outerHeight(),
+    radius: parseInt(e.css("border-radius"))
+  };
+
+  // set position
+  FOCUS.css({
+    top: props.top,
+    left: props.left,
+    width: props.width,
+    height: props.height,
+    "border-radius": props.radius
+  });
+
+  FOCUS.fadeIn(200);
+}
+
+FORM.find(TYPES.join()).each(function(i) {
+  // when clicking an input defined in TYPES
+  $(this).focus(function() {
+    el = $(this);
+
+    // adapt size/position when resizing browser
+    $(window).resize(function() {
+      position(el);
+    });
+
+    position(el);
+  });
+});
+
+FORM.on("focusout", function(e) {
+  setTimeout(function() {
+    if (!e.delegateTarget.contains(document.activeElement)) {
+      FOCUS.fadeOut(200);
+    }
+  }, 0);
+});
+</script>
 
 <script type="text/javascript">
 $(function() {
@@ -77,4 +135,5 @@ $(function() {
    readURL(this);
  });
 });
+
 </script>

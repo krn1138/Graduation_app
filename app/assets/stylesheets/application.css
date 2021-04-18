@@ -10,6 +10,44 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootstrap/dist/css/bootstrap.min
+ *= require font-awesome
  *= require_tree .
  *= require_self
- */
+*/
+@font-face {
+    font-family: "kkk";
+    src: url('/assets/SoukouMincho.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: "kkk";
+}
+
+.google_map {
+    margin-left: 550px;
+}
+/*
+.border {
+    border-bottom: 5px solid rgb(128, 124, 124);
+    margin-top: -10px; */
+/* } */
+
+/* // .border_two {
+//     position:fixed;
+//     border-bottom: 1px solid rgb(190, 188, 188);
+//     margin-top: 200px;
+// } */
+
+.covid_19_message {
+    text-align: center;
+    font-size: medium;
+
+ }
+
+/* .your_name {
+    margin-left: 1400px;
+
+} */
+

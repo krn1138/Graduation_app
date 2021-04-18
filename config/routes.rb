@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # devise_for :users
   # resources :guests
-  # resources :hosts
+  resources :hosts
   root "hostels/search#show"
   # get 'hostels/:id' => 'hostels#new'
   devise_for :users, controllers: {
@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   # MARK: hostels routings
   namespace :hostels do
     get '/search/', to: 'search#show'
+    # get '/search/', to: 'search#new'
+
     # resource :search
   end
   resources :hostels do

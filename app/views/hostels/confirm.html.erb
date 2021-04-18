@@ -1,3 +1,4 @@
+<div class="hostel_form">
 <h3>以下の内容で、送信する。</h3>
 <%= form_with(model: @hostel, url: hostels_path, local: true) do |form| %>
   <%= form.hidden_field :name %>
@@ -10,24 +11,27 @@
   <%= form.hidden_field :around_information %>
   <%= form.hidden_field :country %>
   <%= form.hidden_field :capacity %>
+  <%= form.hidden_field :phone_number %>
 
-  <p> 宿名: <%= @hostel.name %></p>
-  <p> 住所: <%= @hostel.address %></p>
-  #map_two,リロードしたらマップが出なくなる。mapとしたらindexのmapがおそらくでる
-  <div id="map"></div>
 
-  <p id='name'> 部屋タイプ: <%= @hostel.kind %></p>
-  <p> 市内までの距離: <%= @hostel.walk_city_time %></p>
-  <p> １泊の値段: <%= @hostel.price %> 〜 </p>
-  <p> 宿の写真:
+
+  <p> 宿名: <%= @hostel.name %></p><br>
+  <p> 住所: <%= @hostel.address %></p><br>
+  <p> 部屋タイプ: <%= @hostel.kind %></p><br>
+  <p> 市内までの距離: <%= @hostel.walk_city_time %></p><br>
+  <p> １泊の値段: <%= @hostel.price %> 〜 </p><br>
+  宿の写真:
   <% @hostel.images.each do |img| %>
-    <%= image_tag img.thumb.url %></p>
+    <%= image_tag img.thumb.url %>
   <% end %>
+<br>
+  <p> 詳細情報: <%= @hostel.details %></p><br>
+  <p> 宿周辺の情報: <%= @hostel.around_information %></p><br>
+  <p> 国: <%= @hostel.country %></p><br>
+  <p> 部屋数: <%= @hostel.capacity %></p><br>
+  <p> 電話番号: <%= @hostel.phone_number %></p><br>
 
-  <p> 詳細情報: <%= @hostel.details %></p>
-  <p> 宿周辺の情報: <%= @hostel.around_information %></p>
-  <p> 国: <%= @hostel.country %></p>
-  <p> 部屋数: <%= @hostel.capacity %></p>
   <%= form.submit  "登録する" %>
   <%= form.submit "戻る", name: 'back' %>
 <% end %>
+</div>

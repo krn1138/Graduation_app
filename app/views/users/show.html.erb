@@ -1,8 +1,11 @@
-<h1>Users#show</h1>
+<div class="profile">
+<h3><%= current_user.name %>さんのプロフィール</h3>
+<br>
 <%= image_tag @user.image.url, class: "icon_image" %>
+<br>
+<br>
 <p>名前 : <%= @user.name %></p>
 <p>メールアドレス : <%= @user.email %></p>
-
 <% if @user.role == "guest" %>
 <%# binding.irb %>
   <%= render 'users/guest', guest: @guest %>
@@ -14,5 +17,4 @@
 <%= link_to 'edit', edit_user_registration_path	%>
 <%= link_to 'Back', root_path %>
 
-
-
+</div>

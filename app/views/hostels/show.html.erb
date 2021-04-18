@@ -1,101 +1,52 @@
-<h1>Hostels#show</h1>
-<h1>宿詳細情報</h1>
+<h3>宿詳細情報</h3>
+<div class="hostel_show">
+  <div class="hostel__inner_show">
+    <div class="hostel_show_images">
+      宿の写真<i class="fa fa-picture-o" aria-hidden="true"></i>:<br>
+      <% @hostel.images.each do |img| %>
+        <span><%= image_tag img.thumb.url, class: "hostel_icon" %>　　　</span>
+      <% end %>
+    </div>
+    <br>
+    <br>
+    <p> <i class="fa fa-home" aria-hidden="true"></i>宿名:　<%= @hostel.name %></p>
 
-<p> 宿名: <%= @hostel.name %></p>
-<p> 住所: <%= @hostel.address %></p>
-#map_two,リロードしたらマップが出なくなる。mapとしたらindexのmapがおそらくでる
-<div id="map"></div>
+    <p> <i class="fa fa-map-o" aria-hidden="true"></i>住所:　<%= @hostel.address %></p>
 
-<p id='name'> 部屋タイプ: <%= @hostel.kind %></p>
-<p> 市内までの距離: <%= @hostel.walk_city_time %></p>
-<p> １泊の値段: <%= @hostel.price %> 〜 </p>
-<p> 宿の写真:
-<% @hostel.images.each do |img| %>
-  <%= image_tag img.thumb.url %></p>
-<% end %>
+    <p> <i class="fa fa-phone" aria-hidden="true"></i>電話番号:　<%= @hostel.phone_number %></p>
 
-<p> 詳細情報: <%= @hostel.details %></p>
-<p> 宿周辺の情報: <%= @hostel.around_information %></p>
-<p> 国: <%= @hostel.country %></p>
-<p> 部屋数: <%= @hostel.capacity %></p>
+    <p> <i class="fa fa-bed" aria-hidden="true"></i>部屋タイプ:　<%= @hostel.kind %></p>
 
-<%= link_to 'Back', root_path %>
-<%= link_to 'edit', edit_hostel_path %><br>
-宿登録者：<%= @host.name %><br>
-<%= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.id), method: :post %>
+    <p> <i class="fa fa-globe" aria-hidden="true"></i>国:　<%= @hostel.country %></p>
 
-<%# @users.each do |user| %>
-  <%# if user.id != current_user.id %>
-    <li>
-      <div class="item">
-        <%#= link_to @host.name, user %>
-        <%#= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.id), method: :post %>
-      </div>
-    </li>
-  <%# end %>
-<%# end %>
-<script type=“text/javascript”>
-# # $(function() {
-# # $("#name").click(function() {
-# # $("#name").css({
-# # 'background-color':'yellow',
-# # 'font-size' :'12px'
-# # });
-# # });
+    <p> <i class="fa fa-star" aria-hidden="true"></i>部屋数:　<%= @hostel.capacity %></p>
 
-# $(document).ready(function(){
-#   $("#name").css("color","#d9534f");
-# });
+    <p> <i class="fa fa-money" aria-hidden="true"></i>１泊の値段:　<%= @hostel.price %> 〜 </p>
 
-#関係あるファイル：application.html, javascripts, show.html.erb, index.html.erb,
-# # binding挟んだら緯度経緯、住所、名前は取れているが地図が表示されない
-# # そもそもjavascriptが反応しない可能性あり。上記のものも反応しなかった
-# id:mapはindexに定義してあってshowでmapを使うと同じ地図が出てくる、map_twoなど変数名を変えてみたら表示されない
-  function initMap() {
-      var test ={lat: <%= @hostel.latitude %>, lng: <%= @hostel.longitude %>};
-      var map = new google.maps.Map(document.getElementById(‘map’), {
-                zoom: 15,
-                center: test
-                });
-      var transitLayer = new google.maps.TransitLayer();
-      transitLayer.setMap(map);
-      var contentInfo = ‘<%= @hostel.name %>‘;
-      var contentString = ‘住所：<%= @hostel.address %>’;
-      var infowindow = new google.maps.InfoWindow({
-        content: contentInfo
-      });
-      var marker = new google.maps.Marker({
-                    position:test,
-                    map: map,
-                    title: contentString
-                   });
-       marker.addListener(‘mouseover’, function() {
-         infowindow.open(map, marker);
-       });
-    }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
+    <p> <i class="fa fa-car" aria-hidden="true"></i>市内までの距離:　<%= @hostel.walk_city_time %></p>
 
-# <script>
-# const geocoder = new google.maps.Geocoder()
+    <p> <i class="fa fa-commenting-o" aria-hidden="true"></i>詳細情報:　<%= @hostel.details %></p>
 
-# map = new google.maps.Map(
-#     document.getElementById('map'), {
-#         center: {
-#             lat: <%= @hostel.latitude || 0 %>,
-#             lng: <%= @hostel.longitude || 0 %>,
-#         },
-#         zoom: 12,
-#     }
-# );
+    <p> <i class="fa fa-street-view" aria-hidden="true"></i>宿周辺の情報:　<%= @hostel.around_information %></p>
 
-# marker = new google.maps.Marker({
-#     position:  {
-#         lat: <%= @hostel.latitude || 0 %>,
-#         lng: <%= @hostel.longitude || 0 %>,
-#     },
-#     map: map
-# });
-# </script>
-# <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
+    <i class="fa fa-check" aria-hidden="true"></i>
+    <%= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.id), method: :post %>
+    <br>
+    <%# byebug%>
+
+    <% if current_user.id == @hostel.host.id %>
+    <%# byebug%>
+      <%= link_to 'edit', edit_hostel_path %><br>
+      <%= link_to 'delete', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+      <%= link_to 'Back', hostels_search_path %><br>
+    <% else %>
+      <%= link_to 'Back', hostels_search_path %><br>
+    <% end %>
+    <%current_user.id == @hostel.host.id%>
+
+    <% if current_user.present? %>
+      <%#= @host.name %><br>
+    <% end %>
+  </div>
+</div>
 
