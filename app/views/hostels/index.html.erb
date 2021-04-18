@@ -17,8 +17,9 @@
     <tr>
       <td></td>
       <% hostel.images.each do |image| %>
-        <td><%= image_tag image.thumb.url %></td>
+        <td><%= image_tag image.url, class: "hostel_icon"%></td>
       <% end %>
+      <br>
       <td><%= link_to hostel.name, hostel_path(hostel.id) %></td>
       <br>
       <td><%= truncate(hostel.address, length: 15) %><td>

@@ -14,12 +14,13 @@
     <%= f.text_field :name, autofocus: true, placeholder: "name" %>
 
     <%#= f.label :email %>
-    <%= f.text_field :email, autofocus: true, autocomplete: "email", placeholder: "email" %><br />
+    <%= f.text_field :email, autofocus: true, autocomplete: "email", placeholder: "email" %>
     <%#= f.label :password %>
     <% if @minimum_password_length %>
     <% end %>
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "password" %><br />
-
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "password" %>
+<br>
+<br>
     <%#= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "password confimation" %><br />
 <div class="sign_up_role">

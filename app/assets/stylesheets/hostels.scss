@@ -30,10 +30,10 @@
 }
 
 .hostel_icon{
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     //サイズ指定
-    border-radius: 100px;
+    // border-radius: 100px;
     //画像を丸くする
     object-fit: cover;
     //タテヨコ比を変えないままトリミング
@@ -55,6 +55,11 @@
   text-align: left;
   margin-left: 450px;
 }
+
+// .hostel_show_images {
+//   text-align: center;
+//   margin-right: 400px;
+// }
 
 .hostel_index {
   text-align: center;
