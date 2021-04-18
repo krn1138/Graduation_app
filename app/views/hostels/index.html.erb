@@ -15,22 +15,26 @@
 
 
     <tr>
-      <td>写真：</td>
-      <%# byebug %>
-      <% hostel.images do |img| %>
-        <%= image_tag img.url, class: "hostel_icon" %>
+      <td></td>
+      <% hostel.images.each do |image| %>
+        <td><%= image_tag image.thumb.url %></td>
       <% end %>
-    <tr>
-      <td>宿名：</td>
       <td><%= link_to hostel.name, hostel_path(hostel.id) %></td>
-    </tr>
-    <tr>
-      <td>住所：</td>
-      <td><%= hostel.address %></td>
-    </tr>
-    <tr>
-      <td>国：</td>
+      <br>
+      <td><%= truncate(hostel.address, length: 15) %><td>
+      <br>
       <td><%= hostel.country %></td>
+      <br>
+    <tr>
+      <td></td>
+
+    </tr>
+    <tr>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+    <br>
     </tr>
   <% end %>
   </tbody>
@@ -50,8 +54,7 @@
     <%#= select_tag "country_key", options_from_collection_for_select(@hostels, :country, :country), {prompt: "行きたい宿の場所をみる！"}  %>
     <%#= text_field "country_key", placeholder: "検索" %>
     <input type="text_index" id="country_key" >
-    <button id="search">検索実行</button>
-    <button id="clear">結果クリア</button>
+    <button id="search">検索実行</button><button id="clear">結果クリア</button>
     <div id="target"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
   </div>

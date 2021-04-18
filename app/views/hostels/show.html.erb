@@ -1,5 +1,6 @@
 <h3>宿詳細情報</h3>
 <div class="hostel_show">
+<div class="hostel__inner_show">
 宿の写真<i class="fa fa-picture-o" aria-hidden="true"></i>:<br>
 <% @hostel.images.each do |img| %>
 <%# byebug %>
@@ -45,5 +46,6 @@
 <% if current_user.present? %>
   <%#= @host.name %><br>
 <% end %>
+</div>
 </div>
 

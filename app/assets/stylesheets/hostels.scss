@@ -41,7 +41,7 @@
 }
 
 .hostel_show {
-  text-align: center;
+
   margin-top: 70px;
   font-size: 20px;
   border:2px solid #D09B52;
@@ -49,6 +49,11 @@
   // padding:40px 10px 0px 40px;
   width:70%;
   margin-left: 300px;
+}
+
+.hostel__inner_show {
+  text-align: left;
+  margin-left: 450px;
 }
 
 .hostel_index {
