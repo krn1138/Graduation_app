@@ -5,10 +5,6 @@
 @import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
 
-body{
-
-}
-
 .body2{
   margin: 0 !important;
   padding: 0 !important;
@@ -64,6 +60,7 @@ body{
 }
 
 .login{
+  // text-align: center;
   position: absolute !important;
   top: calc(45% - 75px) !important;
   left: calc(50% - 50px) !important;
@@ -113,7 +110,7 @@ body{
   font-weight: 600 !important;
   padding: 0px !important;
   margin-top: 20px !important;
-  margin-right: 50px !important;
+  margin-right: 90px;
 }
 
 .login input[type=submit]:hover{

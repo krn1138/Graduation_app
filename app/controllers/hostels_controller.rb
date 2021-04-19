@@ -2,6 +2,7 @@ class HostelsController < ApplicationController
   before_action :set_hostel, only: %i[ show edit update destroy ]
   before_action :set_search_hostel
   before_action :hostel_registration, only: [:new, :create]
+  # before_action :not_movie
   # before_action :check_not_hostel_edit, only: [:edit, :update, :destroy]
 
   def index

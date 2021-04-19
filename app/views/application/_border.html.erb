@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to image_tag(src= "air.png", class: "header_icon"), root_path %>
+<div class="boder_header">
+  <% if user_signed_in? || current_user == 'host' %>
+    <div class="boder_header_coler">
+      <%= link_to "Account", user_path(current_user.id) %>
+      <%= link_to "hostel registration", new_hostel_path if current_user.host? %>
+      <%= link_to "DM", message_rooms_path(@message_rooms) %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+    </div>
+  <% end %>
+</div>
+
+<div class="border"></div>

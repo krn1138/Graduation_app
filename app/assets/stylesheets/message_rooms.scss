@@ -1,40 +1,10 @@
 // Place all the styles related to the Message_rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.dm-index-row{
-    padding: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    height: 120px;
-    overflow-wrap: normal;
-  }
-
-  .dm-index-left{
-    margin-left: -5px;
-  }
-
-  .dm-index-right{
-    margin-left: 10px;
-    padding-right: -10px;
-  }
-
-  .dm-index-right i{
-    margin-top: 4px;
-  }
-
-  .dm-index-target{
-    margin-top: -5px;
-  }
-
-  .conversation-index-user p{
-    margin-top: 3px;
-    margin-bottom: 0;
-  }
-
-  .conversation-index-content{
-    height: 50px;
-    margin-right: 3px;
-    margin-left: 10px;
-    overflow: scroll;
-    word-break: break-all;
-  }
+.message_index {
+  text-align: center;
+}
+.message_index_two {
+  text-align: center;
+  margin-left: 800px;
+}
