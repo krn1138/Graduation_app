@@ -8,16 +8,16 @@
 
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <meta name="viewport" content="width=device-width">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-
+ <%= render "header" %>
 
   <p id="notice"><%= notice %></p>
     <%#= params %>
-    <%= render "header" %>
+
     <%= yield %>
     <%#= render "search" %>
     <%= render "footer" %>

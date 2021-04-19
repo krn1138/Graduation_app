@@ -34,7 +34,7 @@
     <br>
     <%# byebug%>
 
-    <% if current_user.id == @hostel.host.id %>
+    <% if current_user.host == @hostel.host.id %>
     <%# byebug%>
       <%= link_to 'edit', edit_hostel_path %><br>
       <%= link_to 'delete', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>

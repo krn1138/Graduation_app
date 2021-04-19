@@ -1,29 +1,57 @@
-<div class="top_page_header"></div>
-  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-  <label for="openSidebarMenu" class="sidebarIconToggle">
-    <div class="spinner diagonal part-1"></div>
-    <div class="spinner horizontal"></div>
-    <div class="spinner diagonal part-2"></div>
-  </label>
-  <div id="sidebarMenu">
-    <ul class="sidebarMenuInner">
-      <li>Jelena Jovanovic <span>Web Developer</span></li>
-      <% if user_signed_in? || current_user == 'host' %>
-      <li><%= link_to "hostel registration", new_hostel_path %></li>
-      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-      <li><%= link_to "DM", message_rooms_path(@message_rooms) %></li>
-      <li><%= link_to "アカウント管理", user_path(current_user.id) %></li>
-      <li><%= link_to 'top_page', root_path %></li>
-    </ul>
-  </div>
-  <% else %>
-  <%= link_to "新規登録", new_user_registration_path %>
-  <%= link_to "ログイン", new_user_session_path %>
-  <% end %>
+<!DOCTYPE>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.4.0/vegas.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.4.0/vegas.min.css">
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#photo").vegas({
+          animation: "random",
+          overlay: '/js/vegas/dist/overlays/08.png', //フォルダ『overlays』の中からオーバーレイのパターン画像を選択
+          transition: 'fade', //スライドを遷移させる際のアニメーション
+          transitionDuration: 4000, //スライドの遷移アニメーションの時間
+          delay: 10000, //スライド切り替え時の遅延時間
+          animationDuration: 20000,
+          slides: [
+            { src: "<%= image_path "amerika.jpg" %>" },
+            { src: "http://img-cdn.guide.travel.co.jp/article/95/20140803173041/936D1F267E6F482D9EEA4361998D974E_LL.jpg" },
+            { src: "<%= image_path "italy.jpg" %>" },
+            { src: "<%= image_path "Mexico.jpg" %>" },
+            { src: "<%= image_path "mo.jpg" %>" },
+            { src: "http://img.kb-cdn.com/imgviewer/NVpIM2ptOHhYRzVmUk5rM1NrNlFxYVV6enV4aGk2UFRJMmxPckdDUUVNYUorK0tNQ0VoZnlMa1QrSVVKYTZNNTdZK25mUTVvc0d6TkVVcXY5SVlPSDB1ZTJlVzB2bjNoNWlkMUoxdmIzQ2g3RGlkY1VabFVrODJ5cy9EZDR2YUxzcXVFUmloTUlCZVdmWjhQQ1A4cUkxcll6Vzk5MzJSa3JWaGxWRGROVStzTU5iTnRGQ1VSb0VISE0yNHVHbnBZVTZyUTd1SGF1VnJBTG1xei9FMUVSeEk3d2NGd25SZU1ncEo3TWpQcFlQMnkwRkVicmN6OFl5MHltV0ozQ21MdkVHc08zM2ZrU1U4Q2lObDcxVi93bEE9PQ==?square=0" },
+            { src: "<%= image_path "header.jpg" %>" }
+
+          ]
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="photo">
+      <div class="top_header">
+        <% if user_signed_in? || current_user == 'host' %>
+          <div class="header_coler">
+            <%= link_to "hostel registration", new_hostel_path %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+            <%= link_to "DM", message_rooms_path(@message_rooms) %>
+            <%= link_to "Account", user_path(current_user.id) %>
+            <%= link_to 'top_page', root_path %>
+          </div>
+        <% end %>
+      </div>
+      <div class="catchphrase">Do you have a landscape you want to
+      <br>
+      return to other than your hometown?</div>
+    </div>
+  </body>
+</html>
 
 
 
-<div class="border"></div>
+<%# else %>
+          <%#= link_to "新規登録", new_user_registration_path %>
+          <%#= link_to "ログイン", new_user_session_path %>
 
 <div class="covid_19_message">
 <%#= "新型コロナウイルス(COVID-19)に気をつけてください​​" %>

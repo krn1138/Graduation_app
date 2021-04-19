@@ -11,7 +11,9 @@
   <%= image_tag @user.image.url, class: "icon", id: :img_prev if @user.image? %><br/>
     <%= f.file_field :image, id: :user_img %><br/>
     <%# binding.irb%>
+    <div class="edit_checkbox">
     <%= f.check_box :remove_image %>画像を削除する
+    </div>
   </div>
 
 

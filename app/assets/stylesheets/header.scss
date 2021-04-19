@@ -1,14 +1,71 @@
+.top_header {
+  // background-image: url(header.jpg) !important;
+  // position: absolute !important;
+  // top: -20px !important;
+  // left: -20px !important;
+  // right: -40px !important;
+  // bottom: -40px !important;
+  // width: 1000px !important;
+  // height: 1000px !important;
+  // background-size: cover !important;
+  // // -webkit-filter: blur(5px) !important;
+  // z-index: 0 !important;
+
+  margin-left: 1100px;
+}
+
+.header_coler {
+  color: white !important;
+}
+
+@font-face {
+  font-family: "aa";
+  src: url('/assets/Backrush.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+#photo {
+  width: 1680px;
+  height: 700px;
+  // width: 179vh !important;
+// height: 700px !important;
+
+}
+// .border {
+//   border-bottom: 5px solid rgb(128, 124, 124);
+//   margin-top: 100px;
+
+// }
+.catchphrase {
+  margin-top: 220px;
+  margin-left: 200px;
+  font-family: 'Permanent Marker', cursive;
+  // font-family: "aa";
+  // font-family: 'Oswald', sans-serif;
+  font-size: 70px;
+  color: white;
+}
+// .catchphrase_2 {
+//   font-family: 'Oswald', sans-serif;
+//   // font-size: 80px;
+//   // margin-left: 300px;
+//   color: white;
+// }
+
+
+
 // @import url('https://fonts.googleapis.com/css?family=Varela+Round');
-// // // html, body {
-// // //     overflow-x: hidden;
-// // //     height: 100%;
-// // // }
-// // // body {
-// //     // background: #fff;
-// //     // padding: 0;
-// //     // margin: 0;
-// //     // font-family: 'Varela Round', sans-serif;
-// // // }
+// // html, body {
+// //     overflow-x: hidden;
+// //     height: 100%;
+// // }
+// // body {
+//     // background: #fff;
+//     // padding: 0;
+//     // margin: 0;
+//     // font-family: 'Varela Round', sans-serif;
+// // }
 // .top_page_header {
 //     display: block;
 //     margin: 0 auto;
