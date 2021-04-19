@@ -18,9 +18,16 @@
 
     <tr>
       <td></td>
-      <% hostel.images.each do |image| %>
-        <td><%= image_tag image.url, class: "hostel_icon"%></td>
-      <% end %>
+      <%# hostel.images.each do |image| %>
+        <td><%#= image_tag image.url, class: "hostel_icon"%></td>
+        <td><%#= image_tag image[0].to_s %></td>
+      <%# end %>
+      <td><%= image_tag hostel.images[0].to_s, class: "hostel_icon" %></td>
+      <%# hostel.images.each do |image| %>
+        <%# if image.count > 0 %>
+          <%#= image_tag hostel.image_url %>
+        <%# end %>
+      <%# end %>
       <br>
       <td><%= link_to hostel.name, hostel_path(hostel.id) %></td>
       <br>

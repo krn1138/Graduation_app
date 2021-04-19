@@ -36,7 +36,7 @@
     <br>
     <%# byebug%>
 
-    <% if current_user.host == @hostel.host.id %>
+    <% if current_user.host.id == @hostel.host.id %>
     <%# byebug%>
       <%= link_to 'edit', edit_hostel_path %><br>
       <%= link_to 'delete', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
@@ -52,3 +52,17 @@
   </div>
 </div>
 
+<% if user_signed_in? %>
+    <%# byebug%>
+      <%#= link_to 'edit', edit_hostel_path if current_user.host.id == @hostel.host.id %><br>
+      <%#= link_to 'delete', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.host.id == @hostel.host.id %>
+      <%= link_to 'Back', hostels_search_path %><br>
+      <%= link_to 'edit', edit_hostel_path if current_user.host.id == @hostel.host.id %><br>
+      <%= link_to 'delete', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.host.id == @hostel.host.id %>
+
+    <% else %>
+
+      <%# if current_user.guest.id == true %>
+        <%= link_to 'Back', hostels_search_path %><br>
+      <%# end %>
+    <% end %>
