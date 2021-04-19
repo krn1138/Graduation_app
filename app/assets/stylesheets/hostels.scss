@@ -37,7 +37,20 @@
     //画像を丸くする
     object-fit: cover;
     //タテヨコ比を変えないままトリミング
+    margin-bottom: 20px;
+}
 
+.hostel_show_icon{
+  width: 400px;
+  height: 400px;
+  //サイズ指定
+  // border-radius: 100px;
+  //画像を丸くする
+  object-fit: cover;
+  //タテヨコ比を変えないままトリミング
+  // display: flex;
+  // justify-content: center;
+  margin-left: 20px;
 }
 
 .hostel_show {
@@ -56,10 +69,14 @@
   margin-left: 450px;
 }
 
-// .hostel_show_images {
-//   text-align: center;
-//   margin-right: 400px;
-// }
+.hostel_show_images {
+  // text-align: center;
+  margin-right: 400px;
+  // margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+
+}
 
 .hostel_index {
   text-align: center;
@@ -82,6 +99,7 @@
 }
 .search_count {
   text-align: center;
+
 }
 // tbody tr:first-child {
 //   // background-color:red;
@@ -106,10 +124,17 @@ table {
 //   margin-left: 100px;
 // }
 
+.icon_margin {
+  margin-bottom: 20px;
+}
+
 .hostel_box {
   display: flex;
   justify-content: space-around;
   flex-direction: row-reverse;
+  // flex-direction: column;
+  text-align: center;
+
 }
 
 #header {
@@ -126,8 +151,13 @@ height: 500px;
 z-index: 3;
 
 }
-.text_index{
+tr {
+  border: solid 2px rgb(49, 96, 207);
+  margin-bottom: 20px;
 
+}
+tr:hover {
+  background-color: rgba(189, 196, 200, 0.8);
 }
 
 input[type=text_index] {

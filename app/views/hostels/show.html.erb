@@ -3,10 +3,11 @@
 <h3>宿詳細情報</h3>
 <div class="hostel_show">
   <div class="hostel__inner_show">
-    <div class="hostel_show_images">
       宿の写真<i class="fa fa-picture-o" aria-hidden="true"></i>:<br>
+      <br>
+    <div class="hostel_show_images">
       <% @hostel.images.each do |img| %>
-        <span><%= image_tag img.thumb.url, class: "hostel_icon" %>　　　</span>
+        <%= image_tag img.url, class: "hostel_show_icon" %>
       <% end %>
     </div>
     <br>
@@ -36,14 +37,14 @@
     <br>
     <%# byebug%>
 
-    <% if current_user.host.id == @hostel.host.id %>
+    <% #if current_user.host.id == @hostel.host.id %>
     <%# byebug%>
       <%= link_to 'edit', edit_hostel_path %><br>
       <%= link_to 'delete', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
-      <%= link_to 'Back', hostels_search_path %><br>
-    <% else %>
-      <%= link_to 'Back', hostels_search_path %><br>
-    <% end %>
+      <%= link_to 'Back', hostels_path %><br>
+    <%# else %>
+      <%#= link_to 'Back', hostels_search_path %><br>
+    <%# end %>
     <%current_user.id == @hostel.host.id%>
 
     <% if current_user.present? %>
@@ -56,13 +57,13 @@
     <%# byebug%>
       <%#= link_to 'edit', edit_hostel_path if current_user.host.id == @hostel.host.id %><br>
       <%#= link_to 'delete', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.host.id == @hostel.host.id %>
-      <%= link_to 'Back', hostels_search_path %><br>
-      <%= link_to 'edit', edit_hostel_path if current_user.host.id == @hostel.host.id %><br>
-      <%= link_to 'delete', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.host.id == @hostel.host.id %>
+      <%#= link_to 'Back', hostels_search_path %><br>
+      <%#= link_to 'edit', edit_hostel_path if current_user.host.id == @hostel.host.id %><br>
+      <%#= link_to 'delete', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.host.id == @hostel.host.id %>
 
-    <% else %>
+    <%# else %>
 
       <%# if current_user.guest.id == true %>
-        <%= link_to 'Back', hostels_search_path %><br>
+        <%= link_to 'Back', hostels_path %><br>
       <%# end %>
     <% end %>

@@ -8,51 +8,41 @@
 <% end %>
 </div>
 <p class="search_count"><%= @hostels.count %>軒の宿が見つかりました</p>
+
 <div class="hostel_box">
-<table class="sample">
-<% if @hostels.present? %>
-<tbody>
-  <% @hostels.each do |hostel| %>
-  <%# byebug %>
+  <table class="sample">
+    <% if @hostels.present? %>
+      <tbody>
+        <% @hostels.each do |hostel| %>
+      <%# byebug %>
+          <tr>
+            <td></td>
+          <%# hostel.images.each do |image| %>
+            <td><%#= image_tag image.url, class: "hostel_icon"%></td>
+            <td><%#= image_tag image[0].to_s %></td>
+          <%# end %>
+            <td><%= image_tag hostel.images[0].to_s, class: "hostel_icon" %></td>
+          <%# hostel.images.each do |image| %>
+            <%# if image.count > 0 %>
+              <%#= image_tag hostel.image_url %>
+            <%# end %>
+          <%# end %>
+            <br>
+            <td>　<i class="fa fa-home fa-2x" aria-hidden="true" ></i><%= link_to hostel.name, hostel_path(hostel.id) %></td>
+            <br>
+            <td><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i><%= truncate(hostel.address, length: 15) %><td>
+            <br>
+            <td><i class="fa fa-globe fa-2x" aria-hidden="true"></i><%= hostel.country %></td>
+            <br>
+          <tr>
 
-
-    <tr>
-      <td></td>
-      <%# hostel.images.each do |image| %>
-        <td><%#= image_tag image.url, class: "hostel_icon"%></td>
-        <td><%#= image_tag image[0].to_s %></td>
-      <%# end %>
-      <td><%= image_tag hostel.images[0].to_s, class: "hostel_icon" %></td>
-      <%# hostel.images.each do |image| %>
-        <%# if image.count > 0 %>
-          <%#= image_tag hostel.image_url %>
-        <%# end %>
-      <%# end %>
-      <br>
-      <td><%= link_to hostel.name, hostel_path(hostel.id) %></td>
-      <br>
-      <td><%= truncate(hostel.address, length: 15) %><td>
-      <br>
-      <td><%= hostel.country %></td>
-      <br>
-    <tr>
-      <td></td>
-
-    </tr>
-    <tr>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-    <br>
-    </tr>
+        <% end %>
+      </tbody>
+    <% else %>
+      <div class="not_search">
+        <p>一致する宿がありません。条件を変えて検索してみよう！</p>
+      </div>
   <% end %>
-  </tbody>
-<% else %>
-  <div class="not_search">
-    <p>一致する宿がありません。条件を変えて検索してみよう！</p>
-  </div>
-<% end %>
 
 
 </table>
