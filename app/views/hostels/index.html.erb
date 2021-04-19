@@ -1,11 +1,13 @@
+<%= render "border" %>
+
 <div class="hostel_index">
 <%= form_with(model: @q, url: hostels_path, method: :get, local: true) do |f| %>
-  <%#= f.label :name, "国名か宿名で検索" %>
+  <%= f.label :name, "国名か宿名で検索" %><br>
   <%= f.text_field :name_or_country_cont_any, class: "textbox_two", placeholder: "Search", autocomplete: "off", maxlength: "60" %>
   <%#= f.submit %>
 <% end %>
 </div>
-<p><%= @hostels.count %>軒の宿が見つかりました</p>
+<p class="search_count"><%= @hostels.count %>軒の宿が見つかりました</p>
 <div class="hostel_box">
 <table class="sample">
 <% if @hostels.present? %>

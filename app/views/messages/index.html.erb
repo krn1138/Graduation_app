@@ -1,4 +1,6 @@
 <%#= image_tag @host.image.url, class: "icon_image"%>
+<%= render "border" %>
+
 <div class="message_top">
 
 <i class="fa fa-comments-o" aria-hidden="true"></i> <%= @message_room.sender == current_user ? @message_room.recipient.name : @message_room.sender.name %><br>
