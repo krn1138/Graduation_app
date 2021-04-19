@@ -1,5 +1,17 @@
 <%= render "header" %>
 
+<div class="top_header">
+  <% if user_signed_in? || current_user == 'host' %>
+    <div class="header_coler">
+      <%= link_to "hostel registration", new_hostel_path %>　　
+      <%= link_to "Log out", destroy_user_session_path, method: :delete %>　　
+      <%= link_to "DM", message_rooms_path(@message_rooms) %>　　
+      <%= link_to "Account", user_path(current_user.id) %>　　
+      <%= link_to 'top_page', root_path %>　　
+    </div>
+  <% end %>
+</div>
+
 <div class="top_page">
 <h1>enjoy trip!!</h1>
 <h2><%= current_user.name %>さん、どこへ行きますか？</h2>
@@ -13,8 +25,7 @@
 
 
 
-
-
+</div>
 
 <p>あなたの現在地</p>
 

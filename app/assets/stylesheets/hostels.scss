@@ -93,7 +93,7 @@
 
 .top_page {
   text-align: center;
-  // margin-top: 50px;
+  margin-top: 30px;
 
 
 }
@@ -157,7 +157,8 @@ tr {
 
 }
 tr:hover {
-  background-color: rgba(189, 196, 200, 0.8);
+  opacity: 0.7;
+　color: white;
 }
 
 input[type=text_index] {
@@ -285,3 +286,8 @@ input[type=text_index]:focus {
 //       outline:0;
 //       }
 // }
+.hostel_show_back {
+  text-align: center;
+  margin-top: 30px;
+  font-size: x-large;
+}
