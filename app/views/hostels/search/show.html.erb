@@ -1,4 +1,5 @@
 <%= render "header" %>
+<p id="notice"><%= notice %></p>
 
 <div class="top_header">
   <% if user_signed_in? || current_user == 'host' %>
@@ -13,7 +14,7 @@
 </div>
 
 <div class="top_page">
-<h1>enjoy trip!!</h1>
+<div class="toppage_font">enjoy trip!!</div>
 <h2><%= current_user.name %>さん、どこへ行きますか？</h2>
 <div id="containter">
 <%= form_with(model: @q, url: hostels_path, method: :get, local: true) do |f| %>
@@ -86,7 +87,7 @@
     }
   </script>
 
-  <div id="map" style="width:600px; height:400px"></div>
+  <div id="map" style="width:800px; height:400px;"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap"></script>
 
 </div>
