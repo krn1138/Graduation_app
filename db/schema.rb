@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2021_04_09_054711) do
     t.string "address"
     t.integer "kind"
     t.integer "walk_city_time"
-    t.integer "price"
+    t.float "price"
     t.string "images", default: [], array: true
     t.string "phone_number"
     t.text "details"

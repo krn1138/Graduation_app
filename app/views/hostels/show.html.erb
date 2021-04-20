@@ -33,12 +33,13 @@
     <p> <i class="fa fa-street-view" aria-hidden="true"></i>宿周辺の情報:　<%= @hostel.around_information %></p>
 
     <i class="fa fa-check" aria-hidden="true"></i>
+    <%# binding.irb%>
     <%= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.id), method: :post %>
     <br>
     <%# byebug%>
 
     <% #if current_user.host.id == @hostel.host.id %>
-    <%# byebug%>
+    <%# byebug %>
       <%= link_to 'edit', edit_hostel_path %><br>
       <%= link_to 'delete', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
       <%= link_to 'Back', hostels_path %><br>
