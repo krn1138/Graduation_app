@@ -2,7 +2,7 @@
 
 <h3>宿詳細情報</h3>
 <div class="hostel_show">
-  <div class="hostel__inner_show">
+  <div class="hostel_inner_show">
       宿の写真<i class="fa fa-picture-o" aria-hidden="true"></i>:<br>
       <br>
     <div class="hostel_show_images">
@@ -38,33 +38,8 @@
     <br>
     <%# byebug%>
 
-    <% #if current_user.host.id == @hostel.host.id %>
-    <%# byebug %>
       <%= link_to 'edit', edit_hostel_path %><br>
       <%= link_to 'delete', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
       <%= link_to 'Back', hostels_path %><br>
-    <%# else %>
-      <%#= link_to 'Back', hostels_search_path %><br>
-    <%# end %>
-    <%current_user.id == @hostel.host.id%>
-
-    <% if current_user.present? %>
-      <%#= @host.name %><br>
-    <% end %>
   </div>
 </div>
-
-<% if user_signed_in? %>
-    <%# byebug%>
-      <%#= link_to 'edit', edit_hostel_path if current_user.host.id == @hostel.host.id %><br>
-      <%#= link_to 'delete', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.host.id == @hostel.host.id %>
-      <%#= link_to 'Back', hostels_search_path %><br>
-      <%#= link_to 'edit', edit_hostel_path if current_user.host.id == @hostel.host.id %><br>
-      <%#= link_to 'delete', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.host.id == @hostel.host.id %>
-
-    <%# else %>
-
-      <%# if current_user.guest.id == true %>
-        <%= link_to 'Back', hostels_path %><br>
-      <%# end %>
-    <% end %>
