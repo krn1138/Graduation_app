@@ -4,8 +4,9 @@ class HostelsController < ApplicationController
   before_action :hostel_registration, only: [:new, :create]
   # before_action :not_movie
   # before_action :check_not_hostel_edit, only: [:edit, :update, :destroy]
-
+  PER = 7
   def index
+    @hostels = Hostel.page(params[:page]).per(PER)
     # @users = current_user
     # @guest = current_user.guest
     # @host = current_user.host

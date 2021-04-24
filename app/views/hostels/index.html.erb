@@ -28,7 +28,7 @@
             <%# end %>
           <%# end %>
             <br>
-            <td>　<i class="fa fa-home fa-2x" aria-hidden="true" ></i><%= link_to hostel.name, hostel_path(hostel.id) %></td>
+            <td><i class="fa fa-home fa-2x" aria-hidden="true" >　</i><%= link_to hostel.name, hostel_path(hostel.id), class: "hostel_font" %></td>
             <br>
             <td><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i><%= truncate(hostel.address, length: 15) %><td>
             <br>
@@ -57,6 +57,6 @@
   </div>
 
 </div>
-
+<%= paginate @hostels %>
 <div class="hostel_show_back"><%= link_to 'Back', hostels_search_path %></div>
 

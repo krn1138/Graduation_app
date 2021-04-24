@@ -335,3 +335,19 @@ input[type=text_index]:focus {
 .hostel_form_submit {
   margin-right: 210px;
 }
+.pagination {
+  margin-left: 700px;
+}
+
+.hostel_font {
+  display: inline-block;
+  transition: .3s;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  // margin-right: 10px;
+  // font-size: 1.4vw;
+  &:hover {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+  }
+}
