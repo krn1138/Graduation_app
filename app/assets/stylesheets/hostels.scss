@@ -236,30 +236,44 @@ input[type=text_index]:focus {
     // }
 }
 
-.edit_new_form_name, .edit_new_form_address, .edit_new_form_country, .edit_new_form_phone_number {
+.edit_new_form_name, .edit_new_form_address, .edit_new_form_country, .edit_new_form_phone_number, .edit_new_form_capacity {
   width:calc(300px);
-  // border:2px solid #EAE4DA;
+  border:2px solid #EAE4DA;
+  border-radius: 10px;
+  color: #868283;
+  text-align: center;
   // border:2px solid #999696;
 }
 
-.edit_new_form_price, .edit_new_form_walk_city_time, .edit_new_form_capacity {
+.edit_new_form_walk_city_time, .edit_new_form_price {
   width:calc(300px);
+  height: 50px;
   border:2px solid #EAE4DA;
-  // border:2px solid #999696;
+  border-radius: 10px;
+  color: #868283;
+  text-align: center;
+// .edit_new_form_price, .edit_new_form_walk_city_time, .edit_new_form_capacity {
+//   width:calc(300px);
+//   border:2px solid #EAE4DA;
+//   border-radius: 10px;
+//   // border:2px solid #999696;
 }
 
 .edit_new_form_details {
   width:calc(400px);
   height: 150px;
   border:2px solid #EAE4DA;
+  border-radius: 10px;
   // border:2px solid #999696;
 
 }
 
 .edit_new_form_around_information {
   width:calc(400px);
-  height: 100px;
+  height: 150px;
   border:2px solid #EAE4DA;
+  border-radius: 10px;
+  // float: left;
   // border:2px solid #999696;
 
 }
@@ -312,7 +326,12 @@ input[type=text_index]:focus {
 }
 
 .hostel_show_left {
-  float: left;
-  margin-left: 500px;
+  // float: left;
+  text-align: center;
+  // margin-left: 350px;
+  text-align: center;
 }
 
+.hostel_form_submit {
+  margin-right: 210px;
+}
