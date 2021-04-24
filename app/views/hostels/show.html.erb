@@ -12,34 +12,43 @@
     </div>
     <br>
     <br>
-    <p> <i class="fa fa-home" aria-hidden="true"></i>宿名:　<%= @hostel.name %></p>
+    <span class="hostel_show_left">宿名:　<%= @hostel.name %></span>
+    <br>
+    <br>
+    <span class="hostel_show_left">住所:　<%= @hostel.address %></span>
+    <br>
+    <br>
+    <span class="hostel_show_left">電話番号:　<%= @hostel.phone_number %></span>
+    <br>
+    <br>
+    <span class="hostel_show_left">部屋タイプ:　<%= @hostel.kind %></span>
+    <br>
+    <br>
+    <span class="hostel_show_left">国:　<%= @hostel.country %></span>
+    <br>
+    <br>
+    <span class="hostel_show_left">部屋数:　<%= @hostel.capacity %></span>
+    <br>
+    <br>
+    <span class="hostel_show_left">１泊の値段:　<%= @hostel.price %> 〜 </span>
+    <br>
+    <br>
+    <span class="hostel_show_left">市内までの距離:　<%= @hostel.walk_city_time %></span>
+    <br>
+    <br>
+    <span class="hostel_show_left">詳細情報:　<%= @hostel.details %></span>
+    <br>
+    <br>
+    <span class="hostel_show_left">宿周辺の情報:　<%= @hostel.around_information %></span>
+    <br>
+    <br>
 
-    <p> <i class="fa fa-map-o" aria-hidden="true"></i>住所:　<%= @hostel.address %></p>
-
-    <p> <i class="fa fa-phone" aria-hidden="true"></i>電話番号:　<%= @hostel.phone_number %></p>
-
-    <p> <i class="fa fa-bed" aria-hidden="true"></i>部屋タイプ:　<%= @hostel.kind %></p>
-
-    <p> <i class="fa fa-globe" aria-hidden="true"></i>国:　<%= @hostel.country %></p>
-
-    <p> <i class="fa fa-star" aria-hidden="true"></i>部屋数:　<%= @hostel.capacity %></p>
-
-    <p> <i class="fa fa-money" aria-hidden="true"></i>１泊の値段:　<%= @hostel.price %> 〜 </p>
-
-    <p> <i class="fa fa-car" aria-hidden="true"></i>市内までの距離:　<%= @hostel.walk_city_time %></p>
-
-    <p> <i class="fa fa-commenting-o" aria-hidden="true"></i>詳細情報:　<%= @hostel.details %></p>
-
-    <p> <i class="fa fa-street-view" aria-hidden="true"></i>宿周辺の情報:　<%= @hostel.around_information %></p>
-
-    <i class="fa fa-check" aria-hidden="true"></i>
     <%# binding.irb%>
-    <%= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.id), method: :post %>
+    <span class="hostel_show_left"><i class="fa fa-check" aria-hidden="true"></i><%= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.id), method: :post %></span>
     <br>
     <%# byebug%>
-
-      <%= link_to 'edit', edit_hostel_path %><br>
-      <%= link_to 'delete', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
-      <%= link_to 'Back', hostels_path %><br>
+      <span class="hostel_show_left"><%= link_to 'edit', edit_hostel_path %></span><br>
+      <span class="hostel_show_left"><%= link_to 'delete', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></span>
+      <span class="hostel_show_left"><%= link_to 'Back', hostels_path %></span><br>
   </div>
 </div>

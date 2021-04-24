@@ -63,11 +63,12 @@
   // padding:40px 10px 0px 40px;
   width:70%;
   margin-left:250px;
+  // text-align: center;
 }
 
 .hostel_inner_show {
   text-align: center;
-  margin-left: 0px;
+  // margin-left: 0px;
 }
 
 .hostel_show_images {
@@ -309,3 +310,9 @@ input[type=text_index]:focus {
 #search, #clear {
   font-size: 13px;
 }
+
+.hostel_show_left {
+  float: left;
+  margin-left: 500px;
+}
+
