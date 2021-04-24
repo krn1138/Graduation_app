@@ -4,7 +4,7 @@ FactoryBot.define do
       address { 'fukuoka' }
       kind { 'twin' }
       walk_city_time { 10 }
-      price { '2000' }
+      price { 000 }
       phone_number { '08017958335' }
       details { '安いです' }
       country { '日本' }

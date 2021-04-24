@@ -11,13 +11,13 @@ class Hostel < ApplicationRecord
 
   mount_uploaders :images, ImageUploader
 
-  validate :validate_images
-  private
-  def validate_images
-    num = images.count
-    return if  num >= 1 && num <= 5
-    errors.add(:images, ‘は1ファイル以上5ファイル以下でアップロードしてください’)
-  end
+  # validate :validate_images
+  # private
+  # def validate_images
+  #   num = images.count
+  #   return if  num >= 1 && num <= 5
+  #   errors.add(:images, ‘は1ファイル以上5ファイル以下でアップロードしてください’)
+  # end
   # geocoded_by :address
   # after_validation :geocode
   # before_action do
