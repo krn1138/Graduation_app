@@ -32,8 +32,8 @@
 
 }
 .header_coler:hover {
-  opacity: 0.3;
-  color: white;
+  // opacity: 0.3;
+  // color: white;
 }
 
 @font-face {
@@ -68,8 +68,6 @@
   font-size: 20px;
   margin-top: 0px;
   font-family: "aa";
-
-
 }
 .catchphrase {
   margin-top: 220px;
@@ -92,7 +90,18 @@
 //   // margin-left: 300px;
 //   color: white;
 // }
-
+.header_font {
+  display: inline-block;
+  transition: .3s;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  // margin-right: 10px;
+  font-size: 1.4vw;
+  &:hover {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+  }
+}
 
 
 // @import url('https://fonts.googleapis.com/css?family=Varela+Round');

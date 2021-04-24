@@ -150,6 +150,7 @@ input{
     width:calc(300px);
     margin-bottom:30px;
     border:2px solid #EAE4DA;
+    text-align: center;
     &:placeholder-shown{
       border:2px solid #EAE4DA;
     }
@@ -188,4 +189,8 @@ input{
 
 .edit_checkbox {
   text-align: center !important;
+}
+.edit_submit {
+  margin-right: 250px;
+  margin-top: 30px;
 }
