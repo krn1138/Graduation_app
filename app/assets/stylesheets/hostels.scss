@@ -56,7 +56,7 @@
 
 .hostel_show {
 
-  margin-top: 70px;
+  margin-top: 30px;
   font-size: 20px;
   border:2px solid #eeae55;
   border-radius:20px;
@@ -337,6 +337,7 @@ input[type=text_index]:focus {
 }
 .pagination {
   margin-left: 700px;
+  margin-top: 30px;
 }
 
 .hostel_font {
@@ -347,7 +348,12 @@ input[type=text_index]:focus {
   // margin-right: 10px;
   // font-size: 1.4vw;
   &:hover {
-      -webkit-transform: scale(1.1);
-      transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    text-decoration:none;
   }
+}
+
+.badge {
+  color: red;
 }
