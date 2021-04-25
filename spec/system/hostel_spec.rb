@@ -1,11 +1,12 @@
 require 'rails_helper'
-describe 'タスク管理機能', type: :system do
-  user = FactoryBot.create(:user)
-  # user_host = FactoryBot.create(:user_host, user_id: user.id)
-  user_two = FactoryBot.create(:user_two)
-
-  host = FactoryBot.create(:user_host, user_id: user.id)
-  hostel = FactoryBot.create(:hostel, host_id: host.id)
+describe 'hostel機能', type: :system do
+  # before do
+    user = FactoryBot.create(:user)
+    # user_host = FactoryBot.create(:user_host, user_id: user.id)
+    user_two = FactoryBot.create(:user_two)
+    host = FactoryBot.create(:user_host, user_id: user.id)
+    hostel = FactoryBot.create(:hostel, host_id: host.id)
+  # end
 
   def login(user)
     visit new_user_session_path
@@ -48,6 +49,7 @@ describe 'タスク管理機能', type: :system do
         expect(page).to have_content 'Signed in successfully.'
         fill_in('q[name_or_country_cont_any]', with: "h" + "\n")
         click_on 'hostel1'
+        # binding.pry
         click_on '予約する'
         # visit message_rooms_path
         fill_in 'message[content]', with: '予約したい'

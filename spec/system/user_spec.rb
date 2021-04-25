@@ -5,14 +5,13 @@ describe 'user機能', type: :system do
   # user_two = FactoryBot.create(:user_two)
   # user_guest = FactoryBot.create(:user_guest, user_id: user.id)
   # user_guest2 = FactoryBot.create(:user_guest2, user_id: user.id)
-
-  user = FactoryBot.create(:user)
   # user_host = FactoryBot.create(:user_host, user_id: user.id)
-  user_two = FactoryBot.create(:user_two)
-
-  host = FactoryBot.create(:user_host, user_id: user.id)
-  hostel = FactoryBot.create(:hostel, host_id: host.id)
-
+  before do
+    @user = FactoryBot.create(:user)
+    @user_two = FactoryBot.create(:user_two)
+    @host = FactoryBot.create(:user_host, user_id: @user.id)
+    @hostel = FactoryBot.create(:hostel, host_id: @host.id)
+  end
 
   def login(user)
     visit new_user_session_path
@@ -77,36 +76,36 @@ describe 'user機能', type: :system do
   describe 'セッション機能のテスト' do
     context 'ユーザーがログイン,ログアウトした場合' do
       it 'guestが正常にログインできる' do
-        login(user)
+        login(@user)
 
         # binding.pry
       end
     end
 
     it 'guestが正常にログアウトできる' do
-      login(user)
+      login(@user)
       # binding.pry
       click_on 'Log out'
     end
 
 
     it 'hostが正常にログインできる' do
-      login(user_two)
+      login(@user_two)
       # binding.pry
     end
 
     it 'hostが正常にログアウトできる' do
-      login(user_two)
+      login(@user_two)
       # binding.pry
       click_on 'Log out'
     end
 
     context 'ユーザが他人の詳細画面に飛ぶ場合' do
       it 'toppageに遷移すること' do
-        login(user)
+        login(@user)
         # binding.pry
         click_on 'Account'
-        visit user_path(user_two.id)
+        visit user_path(@user_two.id)
         expect(page).to have_content 'あなたのページはここです'
         # expect(page).not_to have_content 'host1さんのページ'
       end
