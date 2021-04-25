@@ -19,7 +19,7 @@ users.each do |user|
   hosts << Host.create(name: "host_#{host_name += 1}", phone_number: "00000000000", profile: "#{host_name}です", country: "Japan", birthday: "6月17日", user_id: user.id)
 end
 
-Hostel.create!(name: 'あっとホームY&Y',address: 'Warren Street, Jackson Heights, NY 11372, United States', kind: rand(0..2), phone_number: '00000', price: '11111', capacity: 3, details: 'xxxxxx', country: 'アメリカ', walk_city_time: 12, around_information: "アメリカの横です", host_id: hosts[0].id)
+Hostel.create!(name: 'あっとホームY&Y',address: 'Warren Street, Jackson Heights, NY 11372, United States', kind: rand(0..2), phone_number: '00000', price: '11111', capacity: 3, details: 'xxxxxx', country: 'アメリカ', walk_city_time: 12, around_information: "アメリカの横です", images: [open("#{Rails.root}/db/fixtures/fra.png")], host_id: hosts[0].id)
 Hostel.create!(name: 'ロングラックゲストハウス',address: 'ซอย บ้านพานถม Ban Phan Thom, Phra Nakhon, Bangkok 10200', kind: rand(0..2), phone_number: '00000', price: '2992', capacity: 3, details: 'xxxxxx', country: 'タイ', walk_city_time: 12, around_information: "アメリカの横です", host_id: hosts[1].id)
 Hostel.create!(name: 'Boutique Dormitory 高知家',address: 'Artisan d’angkor Angkor Night St, Krong Siem Reap', kind: rand(0..2), phone_number: '855 90 609 060', price: '3333', capacity: 3, details: 'xxxxxx', country: 'カンボジア', walk_city_time: 12, around_information: "アメリカの横です", host_id: hosts[2].id)
 Hostel.create!(name: 'okmisay2 Guest House',address: 'Ban Hoxieng 03 / 46 Luangprabang Laos', kind: rand(0..2), phone_number: '856-20-5911-1028', price: '55555', capacity: 3, details: 'xxxxxx', country: 'ラオス', walk_city_time: 12, around_information: "アメリカの横です", host_id: hosts[3].id)

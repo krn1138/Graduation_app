@@ -1,10 +1,18 @@
 require 'rails_helper'
 describe 'user機能', type: :system do
   # binding.irb
-  user = FactoryBot.create(:user)
-  user_two = FactoryBot.create(:user_two)
+  # user = FactoryBot.create(:user)
+  # user_two = FactoryBot.create(:user_two)
   # user_guest = FactoryBot.create(:user_guest, user_id: user.id)
   # user_guest2 = FactoryBot.create(:user_guest2, user_id: user.id)
+
+  user = FactoryBot.create(:user)
+  # user_host = FactoryBot.create(:user_host, user_id: user.id)
+  user_two = FactoryBot.create(:user_two)
+
+  host = FactoryBot.create(:user_host, user_id: user.id)
+  hostel = FactoryBot.create(:hostel, host_id: host.id)
+
 
   def login(user)
     visit new_user_session_path
@@ -60,6 +68,7 @@ describe 'user機能', type: :system do
     context 'ユーザがログインせずtoppageに飛ぼうとした場合' do
       it 'ログイン画面に遷移すること' do
         visit new_user_session_path
+        expect(page).to have_current_path new_user_session_path
         # binding.pry
       end
     end
@@ -92,16 +101,16 @@ describe 'user機能', type: :system do
       click_on 'Log out'
     end
 
-    # context 'ユーザが他人の詳細画面に飛ぶ場合' do
-    #   it 'toppageに遷移すること' do
-    #     login(user)
-    #     # binding.pry
-    #     click_on 'Account'
-    #     visit user_path(user_two.id)
-    #     expect(page).to have_content 'あなたのページはここです'
-    #     expect(page).not_to have_content 'host1さんのページ'
-    #   end
-    # end
+    context 'ユーザが他人の詳細画面に飛ぶ場合' do
+      it 'toppageに遷移すること' do
+        login(user)
+        # binding.pry
+        click_on 'Account'
+        visit user_path(user_two.id)
+        expect(page).to have_content 'あなたのページはここです'
+        # expect(page).not_to have_content 'host1さんのページ'
+      end
+    end
   end
 end
 

@@ -57,8 +57,11 @@
     <span class="hostel_show_left"><%= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.id), method: :post if current_user.guest? %></span>
     <br>
     <%# byebug%>
-      <span class="hostel_show_left"><%= link_to 'edit', edit_hostel_path if current_user.host? && @hostel.host.id %></span><br>
-      <span class="hostel_show_left"><%= link_to 'delete', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.host? %></span>
+    <% if current_user.host == @hostel.host %>
+      <span class="hostel_show_left"><%= link_to 'edit', edit_hostel_path %></span><br>
+      <span class="hostel_show_left"><%= link_to 'delete', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></span>
+      <% else %>
       <span class="hostel_show_left"><%= link_to 'Back', hostels_path %></span><br>
+      <% end %>
   </div>
 </div>
