@@ -1,25 +1,25 @@
 require 'rails_helper'
 describe 'hostel機能', type: :system do
   # before do
-    user = FactoryBot.create(:user)
+    user_three = FactoryBot.create(:user_three)
     # user_host = FactoryBot.create(:user_host, user_id: user.id)
-    user_two = FactoryBot.create(:user_two)
-    host = FactoryBot.create(:user_host, user_id: user.id)
-    hostel = FactoryBot.create(:hostel, host_id: host.id)
+    user_four = FactoryBot.create(:user_four)
+    host_two = FactoryBot.create(:user_host, user_id: user_three.id)
+    hostel = FactoryBot.create(:hostel, host_id: host_two.id)
   # end
 
-  def login(user)
+  def login(user_three)
     visit new_user_session_path
-    fill_in 'user[email]', with: user.email
-    fill_in 'user[password]', with: user.password
+    fill_in 'user[email]', with: user_three.email
+    fill_in 'user[password]', with: user_three.password
     click_button 'Log in'
     puts 'user logged in.'
   end
 
-  def login(user_two)
+  def login(user_four)
     visit new_user_session_path
-    fill_in 'user[email]', with: user_two.email
-    fill_in 'user[password]', with: user_two.password
+    fill_in 'user[email]', with: user_four.email
+    fill_in 'user[password]', with: user_four.password
     click_button 'Log in'
     puts 'user logged in.'
   end
@@ -34,7 +34,7 @@ describe 'hostel機能', type: :system do
   describe '宿検索機能,宿登録機能' do
     context 'ransackで宿を検索した場合' do
       it '該当の宿が表示される' do
-        login(user_two)
+        login(user_four)
         # binding.pry
         fill_in('q[name_or_country_cont_any]', with: "h" + "\n")
         click_on 'hostel1'
@@ -44,7 +44,7 @@ describe 'hostel機能', type: :system do
 
     context '予約をする場合' do
       it '宿詳細画面の予約するボタンを押してホストとDMをする' do
-        login(user_two)
+        login(user_four)
         # binding.pry
         expect(page).to have_content 'Signed in successfully.'
         fill_in('q[name_or_country_cont_any]', with: "h" + "\n")
@@ -67,7 +67,7 @@ describe 'hostel機能', type: :system do
         # fill_in 'user[password_confirmation]', with: 'kkk1138'
         # select 'host', from: 'user[role]'
         # click_button 'Sign up'
-        login(user)
+        login(user_three)
         # binding.pry
         click_on 'hostel registration'
         attach_file "hostel[images][]", "#{Rails.root}/spec/files/BackPacker.jpg"
