@@ -28,11 +28,11 @@
             <%# end %>
           <%# end %>
             <br>
-            <td>　<i class="fa fa-home fa-2x" aria-hidden="true" ></i><%= link_to hostel.name, hostel_path(hostel.id) %>　　</td>
+            <td><i class="fa fa-home" aria-hidden="true" >　</i><%= link_to hostel.name, hostel_path(hostel.id), class: "hostel_font" %></td>
             <br>
-            <td><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i><%= truncate(hostel.address, length: 15) %>　　<td>
+            <td><i class="fa fa-map-marker" aria-hidden="true"></i><%= truncate(hostel.address, length: 15) %><td>
             <br>
-            <td><i class="fa fa-globe fa-2x" aria-hidden="true"></i><%= hostel.country %></td>
+            <td><i class="fa fa-globe" aria-hidden="true"></i><%= hostel.country %></td>
             <br>
           <tr>
 
@@ -49,17 +49,14 @@
 
 
   <div class="address_point">
-
-    <%= select_tag "keyword", options_from_collection_for_select(@hostels, :address, :name), {prompt: "行きたい宿の場所を検索"}  %>
-    <%#= select_tag "country_key", options_from_collection_for_select(@hostels, :country, :country), {prompt: "行きたい宿の場所をみる！"}  %>
-    <%#= text_field "country_key", placeholder: "検索" %>
-    <input type="text_index" id="country_key" >
+      <%= select_tag "keyword", options_from_collection_for_select(@hostels, :address, :name), {prompt: "行きたい宿の場所を検索"} %>
+    <input type="text_index" id="country_key">
     <button id="search">検索実行</button><button id="clear">結果クリア</button>
     <div id="target"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
   </div>
 
 </div>
-
+<%= paginate @hostels %>
 <div class="hostel_show_back"><%= link_to 'Back', hostels_search_path %></div>
 
