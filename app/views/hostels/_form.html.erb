@@ -16,51 +16,53 @@
     <%#= f.file_field :images, id: :hostel_img %><br/>
     <%# binding.irb%>
     <%#= f.check_box :remove_image %>
-    <%= form.label :写真 %><br/>
+    <span class="badge">＊</span>　<%= form.label :写真 %><br/>
     <%= form.file_field :images, multiple: true %><br/>
     <br/>
     <br/>
-    <%= form.label :宿名 %>
-    <%= form.text_field :name, placeholder: "宿名", class: "edit_new_form_name" %>
+    <span class="badge">＊</span>　<%= form.label :宿名 %><br>
+    <%= form.text_area :name, placeholder: "宿名", class: "edit_new_form_name" %>
     <br>
     <br>
-    <%= form.label :address %>
-    <%= form.text_field :address, placeholder: "住所", class: "edit_new_form_address" %>
+    <span class="badge">＊</span>　<%= form.label :住所 %><br>
+    <%= form.text_area :address, placeholder: "住所", class: "edit_new_form_address" %>
     <br>
     <br>
-    <%= form.label :部屋種類 %>
+    <span class="badge">＊</span>　<%= form.label :部屋種類 %>
     <%= form.select :kind, Hostel.kinds.keys, {prompt: "選択"} %>
     <br>
     <br>
-    <%= form.label :市内までの距離 %>
-    <%= form.number_field :walk_city_time, placeholder: "市内までの距離", class: "edit_new_form_walk_city_time" %>
+    <span class="badge">＊</span>　<%= form.label :市内までの距離 %><br>
+    <%= form.text_area :walk_city_time, placeholder: "市内までの距離", class: "edit_new_form_walk_city_time" %>
     <br>
     <br>
-    <%= form.label :１泊の値段 %>
-    <%= form.number_field :price, class: "edit_new_form_price" %>〜  から
+    <span class="badge">＊</span>　<%= form.label :１泊の値段 %><br>
+    <%= form.text_area :price, class: "edit_new_form_price" %>
     <br>
     <br>
-    <%= form.label :国 %>
-    <%= form.text_field :country, placeholder: "国", class: "edit_new_form_country" %>
+    <span class="badge">＊</span>　<%= form.label :国 %><br>
+    <%= form.text_area :country, placeholder: "国", class: "edit_new_form_country" %>
     <br>
     <br>
-    <%= form.label :部屋数 %>:
-    <%= form.number_field :capacity, class: "edit_new_form_capacity" %>部屋
+    <span class="badge">＊</span>　<%= form.label :部屋数 %><br>
+    <%= form.text_area :capacity, class: "edit_new_form_capacity" %>
     <br>
     <br>
-    <%= form.label :電話番号 %>
-    <%= form.text_field :phone_number, placeholder: "電話番号", class: "edit_new_form_phone_number" %>
+    <span class="badge">＊</span>　<%= form.label :電話番号 %><br>
+    <%= form.text_area :phone_number, placeholder: "電話番号", class: "edit_new_form_phone_number" %>
     <br>
     <br>
-    <%= form.label :宿周辺情報 %>
+    <span class="badge">＊</span>　<%= form.label :宿周辺情報 %><br>
     <%= form.text_area :around_information, placeholder: "宿周辺情報", class: "edit_new_form_around_information" %>
     <br>
     <br>
-    <%= form.label :詳細 %>
+    <span class="badge">＊</span>　<%= form.label :詳細 %><br>
     <%= form.text_area :details, placeholder: "詳細", class: "edit_new_form_details" %>
     <br>
     <br>
-    <%= form.submit %>
+    <div class="hostel_form_submit">
+      <%= form.submit %>
+    </div>
   <% end %>
   </div>
 

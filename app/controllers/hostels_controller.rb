@@ -3,9 +3,10 @@ class HostelsController < ApplicationController
   before_action :set_search_hostel
   before_action :hostel_registration, only: [:new, :create]
   # before_action :not_movie
-  # before_action :check_not_hostel_edit, only: [:edit, :update, :destroy]
-
+  before_action :check_not_hostel_edit, only: [:edit, :update, :destroy]
+  PER = 7
   def index
+    @hostels = Hostel.page(params[:page]).per(PER)
     # @users = current_user
     # @guest = current_user.guest
     # @host = current_user.host
@@ -116,9 +117,9 @@ class HostelsController < ApplicationController
   end
 
   def check_not_hostel_edit
-    # @host = Host.find(params[:id])
-    # if @host.id != @hostel.host.id
-    #   redirect_to  root_path, notice:"編集できません"
-    # end
+    @host = Host.find(params[:id])
+    if @host != current_user.host
+      redirect_to  root_path, notice:"編集できません"
+    end
   end
 end

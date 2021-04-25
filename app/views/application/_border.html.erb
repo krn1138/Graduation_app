@@ -4,10 +4,10 @@
 <div class="boder_header">
   <% if user_signed_in? || current_user == 'host' %>
     <div class="boder_header_coler">
-      <%= link_to "Account", user_path(current_user.id) %>
-      <%= link_to "hostel registration", new_hostel_path if current_user.host? %>
-      <%= link_to "DM", message_rooms_path(@message_rooms) %>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      <%= link_to "Account", user_path(current_user.id), class: "header_font" %>
+      <%= link_to "hostel registration", new_hostel_path, class: "header_font" if current_user.host? %>
+      <%= link_to "DM", message_rooms_path(@message_rooms), class: "header_font" %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "header_font" %>
     </div>
   <% end %>
 </div>
