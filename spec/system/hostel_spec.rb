@@ -46,7 +46,7 @@ describe 'hostel機能', type: :system do
       it '宿詳細画面の予約するボタンを押してホストとDMをする' do
         login(user_four)
         # binding.pry
-        expect(page).to have_content 'Signed in successfully.'
+        # expect(page).to have_content 'ログインしました。'
         fill_in('q[name_or_country_cont_any]', with: "h" + "\n")
         click_on 'hostel1'
         # binding.pry

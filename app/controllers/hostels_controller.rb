@@ -118,7 +118,7 @@ class HostelsController < ApplicationController
   end
 
   def check_not_hostel_edit
-    @host = Host.find(params[:id])
+    # @host = Host.find(params[:id])
     if current_user.host != @hostel.host
       redirect_to  root_path, notice:"編集できません"
     end
