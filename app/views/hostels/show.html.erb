@@ -7,7 +7,9 @@
       <br>
     <div class="hostel_show_images">
       <% @hostel.images.each do |img| %>
+        <%=  link_to img.url, 'data-lightbox': img do %>
         <%= image_tag img.url, class: "hostel_show_icon" %>
+        <% end %>
       <% end %>
     </div>
     <br>
