@@ -2,6 +2,8 @@
 
 <div class="hostel_form">
 <h3>以下の内容で、送信する。</h3>
+<br>
+<br>
 <%= form_with(model: @hostel, url: hostels_path, local: true) do |form| %>
   <%= form.hidden_field :name %>
   <%= form.hidden_field :address %>
@@ -17,14 +19,14 @@
 
 
 
-  <p> 宿名: <%= @hostel.name %></p><br>
+  <p> 宿名: <%= @hostel.name %></p>
   <p> 住所: <%= @hostel.address %></p><br>
   <p> 部屋タイプ: <%= @hostel.kind %></p><br>
   <p> 市内までの距離: <%= @hostel.walk_city_time %></p><br>
   <p> １泊の値段: <%= @hostel.price %> 〜 </p><br>
-  宿の写真:
+  宿の写真:<br>
   <% @hostel.images.each do |img| %>
-    <%= image_tag img.thumb.url %>
+    <%= image_tag img.thumb.url, class: "hostel_show_icon" %>
   <% end %>
 <br>
   <p> 詳細情報: <%= @hostel.details %></p><br>
@@ -33,7 +35,8 @@
   <p> 部屋数: <%= @hostel.capacity %></p><br>
   <p> 電話番号: <%= @hostel.phone_number %></p><br>
 
-  <%= form.submit  "登録する" %>
-  <%= form.submit "戻る", name: 'back' %>
+  <div class="hostel_comfirm_submit"><%= form.submit  "登録する" %></div>
+  <div class="hostel_comfirm_submit2"><%= form.submit "戻る", name: 'back' %></div>
+
 <% end %>
 </div>

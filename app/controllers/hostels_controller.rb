@@ -80,7 +80,7 @@ class HostelsController < ApplicationController
   def update
     # binding.irb
     if @hostel.update(hostel_params)
-      redirect_to hostels_path, notice: "編集しました"
+      redirect_to hostel_path(@hostel.id), notice: "編集しました"
     else
       render :edit
     end
