@@ -94,6 +94,7 @@ class HostelsController < ApplicationController
   private
   # http://localhost:3000/hostels/1 => params[:id] => 1
   # R -> C -> @ -> V -> form, url -> R -> params -> C -> V
+
   def set_hostel
     # binding.irb
     @hostel = Hostel.find(params[:id])

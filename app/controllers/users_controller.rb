@@ -6,11 +6,15 @@ class UsersController < ApplicationController
     # @guests = current_user.guest
     # @hosts = current_user.host
   end
+
   def show
     # binding.irb
     @user = current_user
     @guest = current_user.guest
     @host = current_user.host
+    @hostel = Hostel.pluck(:host_id, :id)
+    # @hostel = Hostel.where(host_id: current_user.id)
+    # @hostel = Hostel.find(hostel)
   end
 
   private
