@@ -17,5 +17,10 @@
 
 <%= link_to 'edit', edit_user_registration_path	%>
 <%= link_to 'Back', root_path %>
-<%= link_to 'hostel', hostel_path(@hostel) %>
+
+<% if @hostel.present? && current_user.host? %>
+  <%= link_to 'hostel', hostel_path(@hostel) %>
+<% else %>
+  <%= link_to 'hostel', new_hostel_path unless current_user.guest? %>
+<% end%>
 </div>

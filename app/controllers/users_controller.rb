@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @user = current_user
     @guest = current_user.guest
     @host = current_user.host
+    # binding.pry
     @hostel = Hostel.pluck(:host_id)
     # @hostel = Hostel.where(host_id: current_user.id).pluck(:host_id)
     # @hostel = Hostel.find(hostel)
