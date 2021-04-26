@@ -3,13 +3,14 @@ class ApplicationController < ActionController::Base
   # before_action :configure_permitted_parameters, if: :devise_controller?
 
   # before_action :configure_account_update_params, if: :devise_controller?
-  PER = 7
+  # PER = 7
   def set_search_hostel
     if params[:q] != nil
         # binding.irb
         params[:q]['name_or_country_cont_any'] = params[:q]['name_or_country_cont_any'].to_s.split(/[\p{blank}\s]+/)
         @q = Hostel.ransack(params[:q])
-        @hostels = @q.result(distinct: true).page(params[:page]).per(PER)
+        @hostels = @q.result(distinct: true)
+        # @hostels = @q.result(distinct: true).page(params[:page]).per(PER)
         # @hostels = Hostel.page(params[:page]).per(PER)
       else
         @q = Hostel.ransack(params[:q])
