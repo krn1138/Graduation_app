@@ -23,7 +23,6 @@ class ApplicationController < ActionController::Base
   def not_movie
     render layout: false unless "hostels/search#show"
   end
-
   # def set_hostel
   #   # binding.irb
   #   @hostel = Hostel.find(params[:id])

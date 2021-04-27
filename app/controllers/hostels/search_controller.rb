@@ -5,10 +5,12 @@ class Hostels::SearchController < ApplicationController
 def new
 end
     def show
-    @message_rooms = MessageRoom.all
-    # @hostels = Hostel.all
+      # @host = current_user.host
+      # @hostel = @host.hostel if current_user.host?
 
-    @hostel = Hostel.new
-    @q = Hostel.ransack(params[:q])
+      @message_rooms = MessageRoom.all
+
+      @hostel = Hostel.new
+      @q = Hostel.ransack(params[:q])
     end
 end

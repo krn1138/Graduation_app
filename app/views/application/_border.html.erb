@@ -1,20 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to image_tag(src= "air.png", class: "header_icon"), root_path %>
+<%= link_to image_tag(src= "air.png", class: "header_icon"), root_path, 'data-turbolinks': false %>
 <div class="boder_header">
-  <% if user_signed_in? || current_user == 'host' %>
+  <%# if user_signed_in? || current_user == 'host' %>
     <div class="boder_header_coler">
       <%= link_to "Account", user_path(current_user.id), class: "header_font" %>
-      <%# if @hostel.present? %>
+
+      <%# if @hostel.present? && current_user.host? %>
         <%#= link_to "hostel registration", hostel_path(@hostel), class: "header_font" if current_user.host? %>
       <%# else %>
         <%#= link_to "hostel registration", new_hostel_path, class: "header_font" if current_user.host? %>
       <%# end %>
+
       <%= link_to "Message", message_rooms_path(@message_rooms), class: "header_font" %>
       <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "header_font" %>
-      <%= link_to "hostel registration", new_hostel_path, class: "header_font" if current_user.host? %>
+      <%#= link_to "hostel registration", new_hostel_path, class: "header_font" if current_user.host? %>
     </div>
-  <% end %>
+  <%# end %>
 </div>
 
 <div class="border"></div>
