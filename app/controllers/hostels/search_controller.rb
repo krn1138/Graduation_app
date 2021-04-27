@@ -6,6 +6,7 @@ def new
 end
     def show
     @message_rooms = MessageRoom.all
+    # @hostels = Hostel.all
 
     @hostel = Hostel.new
     @q = Hostel.ransack(params[:q])

@@ -7,7 +7,9 @@
       <br>
     <div class="hostel_show_images">
       <% @hostel.images.each do |img| %>
+        <%=  link_to img.url, 'data-lightbox': img do %>
         <%= image_tag img.url, class: "hostel_show_icon" %>
+        <% end %>
       <% end %>
     </div>
     <br>
@@ -60,6 +62,7 @@
     <% if current_user.host == @hostel.host %>
       <span class="hostel_show_left"><%= link_to 'edit', edit_hostel_path %></span><br>
       <span class="hostel_show_left"><%= link_to 'delete', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></span>
+      <span class="hostel_show_left"><%= link_to 'Back', hostels_path %></span><br>
       <% else %>
       <span class="hostel_show_left"><%= link_to 'Back', hostels_path %></span><br>
       <% end %>

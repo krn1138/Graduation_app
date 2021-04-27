@@ -46,7 +46,7 @@ describe 'hostel機能', type: :system do
       it '宿詳細画面の予約するボタンを押してホストとDMをする' do
         login(user_four)
         # binding.pry
-        expect(page).to have_content 'Signed in successfully.'
+        # expect(page).to have_content 'ログインしました。'
         fill_in('q[name_or_country_cont_any]', with: "h" + "\n")
         click_on 'hostel1'
         # binding.pry
@@ -81,7 +81,9 @@ describe 'hostel機能', type: :system do
         fill_in 'hostel[phone_number]', with: '08017958335'
         fill_in 'hostel_around_information', with: 'なんでもある'
         fill_in 'hostel_details', with: 'なんでもある'
-        click_button 'Create Hostel'
+        # binding.pry
+        # click_button 'Create Hostel'
+        click_button '登録する'
         click_button '登録する'
         expect(page).to have_content 'edit'
         expect(page).to have_content 'delete'

@@ -8,6 +8,11 @@
       <%= link_to "Account", user_path(current_user.id), class: "header_font" %>　　
       <%= link_to "Message", message_rooms_path(@message_rooms), class: "header_font" %>　　
       <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "header_font" %>　　
+      <%# if @hostel.present? %>
+        <%#= link_to "hostel registration", hostels_path, class: "header_font" if current_user.host? %>
+      <%# else %>
+        <%#= link_to "hostel registration", new_hostel_path, class: "header_font" if current_user.host? %>
+      <%# end %>　
       <%= link_to "hostel registration", new_hostel_path, class: "header_font" if current_user.host? %>
     </div>
   <% end %>

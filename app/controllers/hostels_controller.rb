@@ -4,9 +4,9 @@ class HostelsController < ApplicationController
   before_action :hostel_registration, only: [:new, :create]
   # before_action :not_movie
   before_action :check_not_hostel_edit, only: [:edit, :update, :destroy]
-  PER = 7
+  # PER = 7
   def index
-    @hostels = Hostel.page(params[:page]).per(PER)
+    # @hostels = Hostel.page(params[:page]).per(PER)
     # @users = current_user
     # @guest = current_user.guest
     # @host = current_user.host
@@ -80,7 +80,7 @@ class HostelsController < ApplicationController
   def update
     # binding.irb
     if @hostel.update(hostel_params)
-      redirect_to hostels_path, notice: "編集しました"
+      redirect_to hostel_path(@hostel.id), notice: "編集しました"
     else
       render :edit
     end
@@ -94,6 +94,7 @@ class HostelsController < ApplicationController
   private
   # http://localhost:3000/hostels/1 => params[:id] => 1
   # R -> C -> @ -> V -> form, url -> R -> params -> C -> V
+
   def set_hostel
     # binding.irb
     @hostel = Hostel.find(params[:id])
@@ -117,8 +118,8 @@ class HostelsController < ApplicationController
   end
 
   def check_not_hostel_edit
-    @host = Host.find(params[:id])
-    if @host != current_user.host
+    # @host = Host.find(params[:id])
+    if current_user.host != @hostel.host
       redirect_to  root_path, notice:"編集できません"
     end
   end

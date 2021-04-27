@@ -160,3 +160,18 @@
 //   padding: 4px;
 // }
 
+#error_explanation {
+  color: rgb(255, 255, 255);
+  position: relative;
+  z-index: 50px;
+  margin-left: 440px;
+  margin-top: 150px;
+}
+
+#error_explanation_msg {
+  color: rgb(255, 255, 255);
+  // position: relative;
+  z-index: 50px;
+  margin-left: 400px;
+  // margin-top: 100px;
+}

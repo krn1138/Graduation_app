@@ -17,5 +17,11 @@
 
 <%= link_to 'edit', edit_user_registration_path	%>
 <%= link_to 'Back', root_path %>
+<br>
 
+<% if @hostel.present? && current_user.host? %>
+  <%= link_to '登録した宿を確認', hostel_path(@hostel) %>
+<% else %>
+  <%= link_to '宿を登録する', new_hostel_path unless current_user.guest? %>
+<% end%>
 </div>
