@@ -2,34 +2,23 @@
 <p id="notice"><%= notice %></p>
 
 <div class="top_header">
-  <% if user_signed_in? %>
-    <div class="header_coler">
-      <%= link_to 'top_page', root_path, class: "header_font" %>　　
-      <%= link_to "Account", user_path(current_user.id), class: "header_font" %>　　
-      <%= link_to "Message", message_rooms_path(@message_rooms), class: "header_font" %>　　
-      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "header_font" %>　　
-      <%# if @hostel.present? %>
-        <%#= link_to "hostel registration", hostels_path, class: "header_font" if current_user.host? %>
-      <%# else %>
-        <%#= link_to "hostel registration", new_hostel_path, class: "header_font" if current_user.host? %>
-      <%# end %>　
-      <%= link_to "hostel registration", new_hostel_path, class: "header_font" if current_user.host? %>
-    </div>
-  <% end %>
+  <div class="header_coler">
+    <%= link_to "Account", user_path(current_user.id), class: "header_font" %>　　
+    <%= link_to "Message", message_rooms_path(@message_rooms), class: "header_font" %>　　
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "header_font" %>　
+    <%= link_to "hostel registration", new_hostel_path, class: "header_font" if current_user.host? %>
+  </div>
 </div>
 
 <div class="top_page">
 <div class="toppage_font">enjoy trip!!</div>
 <h2><%= current_user.name %>さん、どこへ行きますか？</h2>
 <div id="containter">
-<%= form_with(model: @q, url: hostels_path, method: :get, local: true) do |f| %>
-  <%= f.label :name, "国名か宿名で検索" %><br>
-  <%= f.text_field :name_or_country_cont_any, class: "textbox_two", placeholder: "Search", autocomplete: "off", maxlength: "60"%>
-  <%#= f.submit %>
-<% end %>
+  <%= form_with(model: @q, url: hostels_path, method: :get, local: true) do |f| %>
+    <%= f.label :name, "国名か宿名で検索" %><br>
+    <%= f.text_field :name_or_country_cont_any, class: "textbox_two", placeholder: "Search", autocomplete: "off", maxlength: "60"%>
+  <% end %>
 </div>
-
-
 
 </div>
 

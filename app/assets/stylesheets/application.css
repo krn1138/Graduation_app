@@ -23,7 +23,6 @@
 }
 body {
     font-family: "kkk";
-    /* font-family: "aa"; */
 }
 
 .google_map {
@@ -31,25 +30,11 @@ body {
     margin-bottom: 50px;
 
 }
-/*
-
-
-/* // .border_two {
-//     position:fixed;
-//     border-bottom: 1px solid rgb(190, 188, 188);
-//     margin-top: 200px;
-// } */
 
 .covid_19_message {
     text-align: center;
     font-size: medium;
-
  }
-
-/* .your_name {
-    margin-left: 1400px;
-
-} */
 
 h3 {
     text-align: center;
@@ -66,7 +51,3 @@ h3 {
     text-align: center;
     margin-bottom: 30px;
 }
-/* .alert_error {
-    color: white;
-    z-index: 50px;
-} */

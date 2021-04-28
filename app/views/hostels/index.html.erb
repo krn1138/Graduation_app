@@ -4,9 +4,9 @@
 <%= form_with(model: @q, url: hostels_path, method: :get, local: true) do |f| %>
   <%= f.label :name, "国名か宿名で検索" %><br>
   <%= f.text_field :name_or_country_cont_any, class: "textbox_two", placeholder: "Search", autocomplete: "off", maxlength: "60" %>
-  <%#= f.submit %>
 <% end %>
 </div>
+
 <p class="search_count"><%= @hostels.count %>軒の宿が見つかりました</p>
 
 <div class="hostel_box">
@@ -14,19 +14,8 @@
     <% if @hostels.present? %>
       <tbody>
         <% @hostels.each do |hostel| %>
-      <%# byebug %>
           <tr>
-            <td></td>
-          <%# hostel.images.each do |image| %>
-            <td><%#= image_tag image.url, class: "hostel_icon"%></td>
-            <td><%#= image_tag image[0].to_s %></td>
-          <%# end %>
             <td><%= image_tag hostel.images[0].to_s, class: "hostel_icon" %></td>
-          <%# hostel.images.each do |image| %>
-            <%# if image.count > 0 %>
-              <%#= image_tag hostel.image_url %>
-            <%# end %>
-          <%# end %>
             <br>
             <td><i class="fa fa-home" aria-hidden="true" >　</i><%= link_to hostel.name, hostel_path(hostel.id), class: "hostel_font" %></td>
             <br>
@@ -34,29 +23,25 @@
             <br>
             <td><i class="fa fa-globe" aria-hidden="true"></i><%= hostel.country %></td>
             <br>
-          <tr>
-
+          </tr>
         <% end %>
       </tbody>
     <% else %>
       <div class="not_search">
         <p>一致する宿がありません。条件を変えて検索してみよう！</p>
       </div>
-  <% end %>
-
-
-</table>
+    <% end %>
+  </table>
 
 
   <div class="address_point">
       <%= select_tag "keyword", options_from_collection_for_select(@hostels, :address, :name), {prompt: "行きたい宿の場所を検索"} %>
     <input type="text_index" id="country_key">
-    <button id="search">検索実行</button><button id="clear">結果クリア</button>
+    <button id="search", class="btn btn-outline-dark">検索</button><button id="clear", class="btn btn-outline-dark">クリア</button>
     <div id="target"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
   </div>
 
 </div>
-<%#= paginate @hostels %>
 <div class="hostel_show_back"><%= link_to 'Back', hostels_search_path %></div>
 

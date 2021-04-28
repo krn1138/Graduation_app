@@ -6,7 +6,6 @@ class GuestsController < ApplicationController
   end
 
   def create
-    #アソシエーション組まないと
     @guest = current_user.build_guest(guest_params)
 
     if @guest.save
@@ -24,12 +23,10 @@ class GuestsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_guest
       @guest = Guest.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def guest_params
       params.require(:guest).permit(:name, :address, :country)
     end

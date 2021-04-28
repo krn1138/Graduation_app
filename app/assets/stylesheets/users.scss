@@ -4,24 +4,37 @@
 .icon_image {
     width: 300px;
     height: 300px;
-    //サイズ指定
     border-radius: 200px;
-    //画像を丸くする
     object-fit: cover;
-    //タテヨコ比を変えないままトリミング
   }
 
   .icon {
     width: 200px;
     height: 200px;
-    //サイズ指定
     border-radius: 100px;
-    //画像を丸くする
     object-fit: cover;
-    //タテヨコ比を変えないままトリミング
   }
 
   .profile {
-    text-align: center;
+    margin-left: 700px;
   }
 
+.profile_button_position {
+  margin-left: 60px;
+}
+
+.btn-outline-info {
+  margin-top: -20px;
+}
+.back_button_position {
+  margin-left: 130px;
+  margin-top: 20px;
+}
+
+.user_show_page {
+  margin-left: 50px;
+}
+
+.user_hostel_btn {
+  margin-left: 90px;
+}

@@ -12,11 +12,11 @@
     </div>
   <% end %>
 
-<%#= image_tag @hostel.images.url, class: "icon", id: :img_prev if @hostel.images? %><br/>
-    <%#= f.file_field :images, id: :hostel_img %><br/>
-    <%# binding.irb%>
-    <%#= f.check_box :remove_image %>
-    <span class="badge">＊</span>　<%= form.label :写真 %><br/>
+  <span class="badge">＊</span>　<%= form.label :写真 %><br/>
+    <% @hostel.images.each do |image| %>
+      <li><%= image_tag image.url, class: "header_icon" %></li>
+    <%= hidden_field :images, :images, multiple: true, value: image.identifier %>
+  <% end %>
     <%= form.file_field :images, multiple: true %><br/>
     <br/>
     <br/>
