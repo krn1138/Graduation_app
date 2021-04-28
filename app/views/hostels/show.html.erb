@@ -86,18 +86,17 @@
 </div>
 
 
+  <span class="reservation_btn"><%= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.id), method: :post, class: "btn btn-outline-info" if current_user.guest? %></span>
+  <br>
 
-    <span class="reservation_btn"><%= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.id), method: :post, class: "btn btn-outline-info" if current_user.guest? %></span>
+  <% if current_user.host == @hostel.host %>
+    <div class="hostel_btn">
+      <%= link_to '編集する', edit_hostel_path, class: "btn btn-outline-dark" %>
+      <%= link_to '削除する', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "btn btn-outline-dark" %>
+    </div>
     <br>
-
-    <% if current_user.host == @hostel.host %>
-      <div class="hostel_btn">
-        <%= link_to '編集する', edit_hostel_path, class: "btn btn-outline-dark" %>
-        <%= link_to '削除する', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "btn btn-outline-dark" %>
-      </div>
-      <br>
-      <br>
-      <span class="hostel_show_left"><%= link_to 'Back', hostels_path %></span><br>
-    <% else %>
-      <span class="hostel_show_left"><%= link_to 'Back', hostels_path %></span><br>
-    <% end %>
+    <br>
+    <span class="hostel_show_left"><%= link_to 'Back', hostels_path %></span><br>
+  <% else %>
+    <span class="hostel_show_left"><%= link_to 'Back', hostels_path %></span><br>
+  <% end %>

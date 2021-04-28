@@ -68,6 +68,78 @@
 
 
 
+#hostel/form
+
+<div class="hostel_form">
+<%= form_with(model: @hostel, local: true, url: choose_new_or_edit) do |form| %>
+  <% if @hostel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(hostel.errors.count, "error") %> prohibited this hostel from being saved:</h2>
+
+      <ul>
+      <% hostel.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <span class="badge">＊</span>　<%= form.label :写真 %><br/>
+    <% @hostel.images.each do |image| %>
+      <li><%= image_tag image.url, class: "header_icon" %></li>
+    <%= hidden_field :images, :images, multiple: true, value: image.identifier %>
+  <% end %>
+    <%= form.file_field :images, multiple: true %><br/>
+    <br/>
+    <br/>
+    <span class="badge">＊</span>　<%= form.label :宿名 %><br>
+    <%= form.text_area :name, placeholder: "宿名", class: "edit_new_form_name" %>
+    <br>
+    <br>
+    <span class="badge">＊</span>　<%= form.label :住所 %><br>
+    <%= form.text_area :address, placeholder: "住所", class: "edit_new_form_address" %>
+    <br>
+    <br>
+    <span class="badge">＊</span>　<%= form.label :部屋種類 %><br>
+    <%= form.text_area :kind, placeholder: "種類", class: "edit_new_form_address" %>
+    <br>
+    <br>
+    <span class="badge">＊</span>　<%= form.label :市内までの距離 %><br>
+    <%= form.text_area :walk_city_time, placeholder: "例)徒歩10分", class: "edit_new_form_walk_city_time" %>
+    <br>
+    <br>
+    <span class="badge">＊</span>　<%= form.label :１泊の値段 %><br>
+    <%= form.text_area :price, class: "edit_new_form_price" %>
+    <br>
+    <br>
+    <span class="badge">＊</span>　<%= form.label :国 %><br>
+    <%= form.text_area :country, placeholder: "例)日本", class: "edit_new_form_country" %>
+    <br>
+    <br>
+    <span class="badge">＊</span>　<%= form.label :全部屋数 %><br>
+    <%= form.text_area :capacity, placeholder: "例)3部屋", class: "edit_new_form_capacity" %>
+    <br>
+    <br>
+    <span class="badge">＊</span>　<%= form.label :電話番号 %><br>
+    <%= form.number_field :phone_number, placeholder: "例)0947-44-8811", class: "edit_new_form_phone_number" %>
+    <br>
+    <br>
+    <span class="badge">＊</span>　<%= form.label :宿周辺情報 %><br>
+    <%= form.text_area :around_information, placeholder: "例)コンビニがあります", class: "edit_new_form_around_information" %>
+    <br>
+    <br>
+    <span class="badge">＊</span>　<%= form.label :詳細 %><br>
+    <%= form.text_area :details, placeholder: "例)アメニティーは、ドライヤー、タオルがあります", class: "edit_new_form_details" %>
+    <br>
+    <br>
+    <div class="hostel_form_submit">
+      <%= form.submit %>
+    </div>
+  <% end %>
+  </div>
+
+
+
 
 <%= render "border" %>
 

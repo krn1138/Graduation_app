@@ -2,7 +2,8 @@
 <%= render "border" %>
 
 <div class="message_top">
-<% unless current_user.host %>
+<%= "メッセージをして予約を完了させましょう" %>
+<% if current_user.guest == true %>
   メッセージをやり取りするには、<%= @message_room.sender.name%> さんからの予約が必要です
 <% end %>
 <br>
