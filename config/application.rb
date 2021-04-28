@@ -11,6 +11,7 @@ Dotenv::Railtie.load
 module GraduationApp
   class Application < Rails::Application
     config.generators do |g|
+      config.time_zone = 'Asia/Tokyo'
       g.test_framework :rspec,
         fixtures: true,
         view_specs: false,
@@ -20,6 +21,7 @@ module GraduationApp
         request_specs: false
       g.fixture_replacement :factory_bot, dir: "spec/factories"
     end
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
     config.i18n.default_locale = :ja

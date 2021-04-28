@@ -144,11 +144,12 @@
 }
 
 #error_explanation {
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   position: relative;
   z-index: 50px;
-  margin-left: 440px;
-  margin-top: 150px;
+  margin-left: 100px;
+  margin-top: 100px;
+  font-size: medium;
 }
 
 #error_explanation_msg {

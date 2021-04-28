@@ -1,0 +1,189 @@
+<%= render "border" %>
+
+<h3>宿詳細情報</h3>
+<div class="hostel_show">
+  <div class="hostel_inner_show">
+      宿の写真<i class="fa fa-picture-o" aria-hidden="true"></i>:<br>
+      <br>
+    <div class="hostel_show_images">
+      <% @hostel.images.each do |img| %>
+        <%=  link_to img.url, 'data-lightbox': img do %>
+        <%= image_tag img.url, 'data-turbolinks': false, class: "hostel_show_icon" %>
+        <% end %>
+      <% end %>
+    </div>
+    <br>
+    <br>
+    <span class="hostel_show_left">宿名:
+    <br><%= @hostel.name %></span>
+    <br>
+    <br>
+    <span class="hostel_show_left">住所:
+    <br><%= @hostel.phone_number %></span>
+    <br>
+    <br>
+    <span class="hostel_show_left">部屋タイプ:
+    <br><%= @hostel.kind %></span>
+    <br>
+    <br>
+    <span class="hostel_show_left">国:
+    <br><%= @hostel.country %></span>
+    <br>
+    <br>
+    <span class="hostel_show_left">部屋数:
+    <br><%= @hostel.capacity %>部屋</span>
+    <br>
+    <br>
+    <span class="hostel_show_left">１泊の値段:
+    <br><%= @hostel.price %> 〜 </span>
+    <br>
+    <br>
+    <span class="hostel_show_left">市内までの距離:
+    <br>約<%= @hostel.walk_city_time %></span>
+    <br>
+    <br>
+    <span class="hostel_show_left">詳細情報:
+    <br><%= @hostel.details %></span>
+    <br>
+    <br>
+    <span class="hostel_show_left">宿周辺の情報:
+    <br><%= @hostel.around_information %></span>
+    <br>
+    <br>
+
+    <span class="hostel_show_left"><%= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.id), method: :post, class: "btn btn-outline-info" if current_user.guest? %></span>
+    <br>
+
+    <% if current_user.host == @hostel.host %>
+      <span class="hostel_show_edit"><%= link_to '編集する', edit_hostel_path, class: "btn btn-outline-dark" %></span><span class="hostel_show_delete"><%= link_to '削除する', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "btn btn-outline-dark" %></span>
+      <br>
+      <br>
+      <span class="hostel_show_left"><%= link_to 'Back', hostels_path %></span><br>
+    <% else %>
+      <span class="hostel_show_left"><%= link_to 'Back', hostels_path %></span><br>
+    <% end %>
+  </div>
+
+</div>
+
+
+
+#hostel/form
+
+<div class="hostel_form">
+<%= form_with(model: @hostel, local: true, url: choose_new_or_edit) do |form| %>
+  <% if @hostel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(hostel.errors.count, "error") %> prohibited this hostel from being saved:</h2>
+
+      <ul>
+      <% hostel.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <span class="badge">＊</span>　<%= form.label :写真 %><br/>
+    <% @hostel.images.each do |image| %>
+      <li><%= image_tag image.url, class: "header_icon" %></li>
+    <%= hidden_field :images, :images, multiple: true, value: image.identifier %>
+  <% end %>
+    <%= form.file_field :images, multiple: true %><br/>
+    <br/>
+    <br/>
+    <span class="badge">＊</span>　<%= form.label :宿名 %><br>
+    <%= form.text_area :name, placeholder: "宿名", class: "edit_new_form_name" %>
+    <br>
+    <br>
+    <span class="badge">＊</span>　<%= form.label :住所 %><br>
+    <%= form.text_area :address, placeholder: "住所", class: "edit_new_form_address" %>
+    <br>
+    <br>
+    <span class="badge">＊</span>　<%= form.label :部屋種類 %><br>
+    <%= form.text_area :kind, placeholder: "種類", class: "edit_new_form_address" %>
+    <br>
+    <br>
+    <span class="badge">＊</span>　<%= form.label :市内までの距離 %><br>
+    <%= form.text_area :walk_city_time, placeholder: "例)徒歩10分", class: "edit_new_form_walk_city_time" %>
+    <br>
+    <br>
+    <span class="badge">＊</span>　<%= form.label :１泊の値段 %><br>
+    <%= form.text_area :price, class: "edit_new_form_price" %>
+    <br>
+    <br>
+    <span class="badge">＊</span>　<%= form.label :国 %><br>
+    <%= form.text_area :country, placeholder: "例)日本", class: "edit_new_form_country" %>
+    <br>
+    <br>
+    <span class="badge">＊</span>　<%= form.label :全部屋数 %><br>
+    <%= form.text_area :capacity, placeholder: "例)3部屋", class: "edit_new_form_capacity" %>
+    <br>
+    <br>
+    <span class="badge">＊</span>　<%= form.label :電話番号 %><br>
+    <%= form.number_field :phone_number, placeholder: "例)0947-44-8811", class: "edit_new_form_phone_number" %>
+    <br>
+    <br>
+    <span class="badge">＊</span>　<%= form.label :宿周辺情報 %><br>
+    <%= form.text_area :around_information, placeholder: "例)コンビニがあります", class: "edit_new_form_around_information" %>
+    <br>
+    <br>
+    <span class="badge">＊</span>　<%= form.label :詳細 %><br>
+    <%= form.text_area :details, placeholder: "例)アメニティーは、ドライヤー、タオルがあります", class: "edit_new_form_details" %>
+    <br>
+    <br>
+    <div class="hostel_form_submit">
+      <%= form.submit %>
+    </div>
+  <% end %>
+  </div>
+
+
+
+
+<%= render "border" %>
+
+<div class="hostel_form">
+<h3>以下の内容で、送信する。</h3>
+<br>
+<br>
+<%= form_with(model: @hostel, url: hostels_path, local: true) do |form| %>
+  <%= form.hidden_field :name %>
+  <%= form.hidden_field :address %>
+  <%= form.hidden_field :kind %>
+  <%= form.hidden_field :walk_city_time %>
+  <%= form.hidden_field :price %>
+  <%= form.hidden_field :images_cache %>
+  <%= form.hidden_field :details %>
+  <%= form.hidden_field :around_information %>
+  <%= form.hidden_field :country %>
+  <%= form.hidden_field :capacity %>
+  <%= form.hidden_field :phone_number %>
+
+  <p> 宿名: <%= @hostel.name %></p>
+  <p> 住所: <%= @hostel.address %></p><br>
+  <p> 部屋タイプ: <%= @hostel.kind %></p><br>
+  <p> 市内までの距離: <%= @hostel.walk_city_time %></p><br>
+  <p> １泊の値段: <%= @hostel.price %> 〜 </p><br>
+  宿の写真:<br>
+  <% @hostel.images.each do |image| %>
+    <li><%= image_tag image.url, class: "header_icon" %></li>
+    <%= hidden_field :images, :images, multiple: true, value: image.identifier %>
+  <% end %>
+
+  <%# @hostel.images.each do |img| %>
+    <%#= image_tag img.thumb.url, class: "header_icon" %>
+  <%# end %>
+  <br>
+  <br>
+  <p> 詳細情報: <%= @hostel.details %></p><br>
+  <p> 宿周辺の情報: <%= @hostel.around_information %></p><br>
+  <p> 国: <%= @hostel.country %></p><br>
+  <p> 部屋数: <%= @hostel.capacity %></p><br>
+  <p> 電話番号: <%= @hostel.phone_number %></p><br>
+
+  <div class="hostel_comfirm_submit"><%= form.submit  "登録する" %></div>
+  <div class="hostel_comfirm_submit2"><%= form.submit "戻る", name: 'back' %></div>
+
+<% end %>
+</div>

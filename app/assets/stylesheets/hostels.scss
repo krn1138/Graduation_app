@@ -8,7 +8,7 @@
 .hostel_form {
   margin-left: 500px;
   text-align: center;
-  border:2px solid #D09B52;
+  // border:2px solid #D09B52;
   padding:40px 10px 0px 40px;
   width:70%;
   max-width:700px;
@@ -100,7 +100,7 @@ z-index: 3;
 }
 
 tr {
-  border: solid 2px rgb(49, 96, 207);
+  // border: solid 2px rgb(49, 96, 207);
   margin-bottom: 20px;
 }
 
@@ -187,8 +187,9 @@ input[type=text_index]:focus {
 }
 
 .hostel_show_left {
-  text-align: center;
-  text-align: center;
+margin-left: 820px;
+  // text-align: center;
+  // text-align: center;
 }
 
 .hostel_show_delete, .hostel_show_edit {
@@ -196,16 +197,25 @@ input[type=text_index]:focus {
 }
 
 .hostel_form_submit {
-  margin-right: 250px;
+  margin-right: 240px;
+  margin-bottom: 60px;
 }
 
 .hostel_comfirm_submit {
-  margin-right: 200px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  margin-left: 70px;
+  // padding: 30px;
+  // margin-right: 600px;
 }
 
-.hostel_comfirm_submit2 {
-  margin-right: 250px;
-}
+// .hostel_comfirm_submit2 {
+//   display: flex;
+//   justify-content: center;
+//   padding: 30px;
+//   // margin-right: 100px;
+// }
 .pagination {
   margin-left: 700px;
   margin-top: 30px;

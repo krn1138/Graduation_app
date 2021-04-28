@@ -23,9 +23,9 @@
 <br>
     <%#= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "password confimation" %><br />
-<div class="sign_up_role">
+  <div class="sign_up_role">
     <%= f.select :role, User.roles.keys, {prompt: "role:選択"} %><br />
-</div>
+  </div>
     <%= f.submit "Sign up" %><br />
 
 <% end %>

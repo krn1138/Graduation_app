@@ -6,7 +6,7 @@ class CreateHosts < ActiveRecord::Migration[5.2]
       t.text :profile
       t.string :image
       t.string :country
-      t.integer :birthday
+      t.string :birthday
       t.references :user, foreign_key: true
 
       t.timestamps

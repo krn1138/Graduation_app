@@ -7,7 +7,7 @@ function initMap() {
 
   //マップ初期表示の位置設定
   var target = document.getElementById('target');
-  var centerp = {lat: 37.67229496806523, lng: 137.88838989062504};
+  var centerp = {lat: 10.185688, lng: 156.899084};
 
   //マップ表示
   map = new google.maps.Map(target, {

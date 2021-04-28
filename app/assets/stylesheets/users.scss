@@ -15,26 +15,66 @@
     object-fit: cover;
   }
 
-  .profile {
-    margin-left: 700px;
+//   .profile {
+//     margin-left: 700px;
+//   }
+
+// .profile_button_position {
+//   margin-left: 60px;
+// }
+
+// .btn-outline-info {
+//   margin-top: -20px;
+// }
+// .back_button_position {
+//   margin-left: 130px;
+//   margin-top: 20px;
+// }
+
+// .user_show_page {
+//   margin-left: 50px;
+// }
+
+// .user_hostel_btn {
+//   margin-left: 90px;
+// }
+
+.user_show {
+  display: flex;
+  justify-content: center;
+  .user_main {
+    // display: flex;
+    // justify-content: center;
+    .image {
+      margin: 0 auto;
+    }
+    table {
+      width: 100%;
+      text-align: left;
+      border-collapse: collapse;
+      td {
+          border: solid 1px #BCB6B3;
+          padding: 15px;
+      }
+      tr td:nth-of-type(1) {
+          background-color: #F7F5F2;
+      }
+      tr:hover {
+          opacity: 1.0;
+          color: black;
+      }
+    }
   }
-
-.profile_button_position {
-  margin-left: 60px;
 }
-
-.btn-outline-info {
-  margin-top: -20px;
-}
-.back_button_position {
-  margin-left: 130px;
-  margin-top: 20px;
-}
-
-.user_show_page {
-  margin-left: 50px;
-}
-
-.user_hostel_btn {
-  margin-left: 90px;
-}
+.icon_image {
+    width: 300px;
+    height: 300px;
+    border-radius: 200px;
+    object-fit: cover;
+  }
+  .icon {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    object-fit: cover;
+  }

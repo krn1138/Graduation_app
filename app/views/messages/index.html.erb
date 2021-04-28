@@ -2,27 +2,32 @@
 <%= render "border" %>
 
 <div class="message_top">
-
-<i class="fa fa-comments-o" aria-hidden="true"></i> <%= @message_room.sender == current_user ? @message_room.recipient.name : @message_room.sender.name %><br>
+<%= "メッセージをして予約を完了させましょう" %>
+<% if current_user.guest == true %>
+  メッセージをやり取りするには、<%= @message_room.sender.name%> さんからの予約が必要です
+<% end %>
+<br>
+<br>
+<%# binding.irb %>
+<i class="fa fa-comments-o" aria-hidden="true"></i><%= @message_room.sender == current_user ? @message_room.recipient.name : @message_room.sender.name %><br>
   <% if @over_ten %>
     <%= link_to '以前のメッセージ', '?m=all' %>を表示する
-    <%# byebug%>
   <% end %>
 
       <% @messages.each do |message| %>
         <% if message.user_id == current_user.id %>
           <div class="left-message">
-            <%= message.user.name %>(自分)<br>
+            <%= message.user.name %>(自分)　<%= l message.created_at, format: :short %><br>
             <% if message.user == current_user %>
               <%= message.content %>／
-              <%= message.read ? '既読' : '未読' %>　　<%= message.message_time %>
+              <%= message.read ? '既読' : '未読' %>
           </div>
             <% end %>
           <%#= l message.created_at, format: :short %>
         <% else %>
           <div class="right-message">
-              <%= message.user.name %><br>
-              <%= message.content %>　　<%= message.message_time %>
+              <%= message.user.name %>　<%= l message.created_at, format: :short %><br>
+              <%= message.content %>　　
           </div>
           <%#= l message.created_at, format: :short %>
           <%# byebug %>

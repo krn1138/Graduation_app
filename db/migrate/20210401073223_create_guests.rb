@@ -4,11 +4,11 @@ class CreateGuests < ActiveRecord::Migration[5.2]
       t.string :address
       t.string :phone_number
       t.integer :gender
-      t.integer :country
+      t.string :country
       t.float :latitude
       t.float :longitude
       t.string :image
-      t.integer :birthday
+      t.string :birthday
       t.references :user, foreign_key: true
 
       t.timestamps

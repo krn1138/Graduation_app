@@ -4,7 +4,14 @@
 .message_index {
   text-align: center;
 }
-.message_index_two {
-  text-align: center;
-  margin-left: 800px;
+.message_two{
+  display: flex;
+  justify-content: center;
+  .message_index_two {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
 }
+
