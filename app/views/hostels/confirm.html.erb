@@ -1,9 +1,5 @@
-<%= render "border" %>
 
-<div class="hostel_form">
-<h3>以下の内容で、送信する。</h3>
-<br>
-<br>
+
 <%= form_with(model: @hostel, url: hostels_path, local: true) do |form| %>
   <%= form.hidden_field :name %>
   <%= form.hidden_field :address %>
@@ -17,30 +13,106 @@
   <%= form.hidden_field :capacity %>
   <%= form.hidden_field :phone_number %>
 
-  <p> 宿名: <%= @hostel.name %></p>
-  <p> 住所: <%= @hostel.address %></p><br>
-  <p> 部屋タイプ: <%= @hostel.kind %></p><br>
-  <p> 市内までの距離: <%= @hostel.walk_city_time %></p><br>
-  <p> １泊の値段: <%= @hostel.price %> 〜 </p><br>
-  宿の写真:<br>
-  <% @hostel.images.each do |image| %>
-    <li><%= image_tag image.url, class: "header_icon" %></li>
-    <%= hidden_field :images, :images, multiple: true, value: image.identifier %>
-  <% end %>
+<% end %>
 
-  <%# @hostel.images.each do |img| %>
-    <%#= image_tag img.thumb.url, class: "header_icon" %>
-  <%# end %>
-  <br>
-  <br>
-  <p> 詳細情報: <%= @hostel.details %></p><br>
-  <p> 宿周辺の情報: <%= @hostel.around_information %></p><br>
-  <p> 国: <%= @hostel.country %></p><br>
-  <p> 部屋数: <%= @hostel.capacity %></p><br>
-  <p> 電話番号: <%= @hostel.phone_number %></p><br>
+<%= render "border" %>
+<h3>以下の内容で、送信する。</h3>
+<br>
+<br>
+<%= form_with(model: @hostel, url: hostels_path, local: true) do |form| %>
+<div class="row hostel-show">
+  <div class="col-sm-7">
+    <div class="aaa">
+      <div class="photo_box">
+        <% @hostel.images.each do |image| %>
+          <li><%= image_tag image.url, class: "header_icon" %></li>
+          <%= hidden_field :images, :images, multiple: true, value: image.identifier %>
+          <%= form.hidden_field :images_cache %>
+        <% end %>
+      </div>
+        <h4>宿情報</h4>
+        <table>
+          <colgroup>
+            <col width="30%">
+            <col width="70%">
+          </colgroup>
+          <tbody>
+            <tr>
+              <td>宿名</td>
+              <td><%= @hostel.name %></td>
+              <%= form.hidden_field :name %>
+            </tr>
+            <tr>
+              <td>住所</td>
+              <td><%= @hostel.address %></td>
+              <%= form.hidden_field :address %>
+            </tr>
+            <tr>
+              <td>電話番号</td>
+              <td><%= @hostel.phone_number %></td>
+              <%= form.hidden_field :phone_number %>
+            </tr>
+            <tr>
+              <td>値段</td>
+              <td><%= @hostel.price %></td>
+              <%= form.hidden_field :price %>
+            </tr>
+            <tr>
+              <td>国</td>
+              <td><%= @hostel.country %></td>
+              <%= form.hidden_field :country %>
+            </tr>
+          </tbody>
+        </table>
 
-  <div class="hostel_comfirm_submit"><%= form.submit  "登録する" %></div>
-  <div class="hostel_comfirm_submit2"><%= form.submit "戻る", name: 'back' %></div>
+        <h4>部屋情報</h4>
+        <table>
+          <colgroup>
+            <col width="30%">
+            <col width="70%">
+          </colgroup>
+          <tbody>
+            <tr>
+              <td>部屋タイプ</td>
+              <td><%= @hostel.kind %></td>
+              <%= form.hidden_field :kind %>
+            </tr>
+            <tr>
+              <td>部屋数</td>
+              <td><%= @hostel.capacity %></td>
+              <%= form.hidden_field :capacity %>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>その他の情報</h4>
+        <table>
+          <colgroup>
+            <col width="30%">
+            <col width="70%">
+          </colgroup>
+          <tbody>
+            <tr>
+              <td>市内までの距離</td>
+              <td><%= @hostel.walk_city_time %></td>
+              <%= form.hidden_field :walk_city_time %>
+            </tr>
+            <tr>
+              <td>詳細情報</td>
+              <td><%= @hostel.details %></td>
+              <%= form.hidden_field :details %>
+            </tr>
+            <tr>
+              <td>宿周辺の情報</td>
+              <td><%= @hostel.around_information %></td>
+              <%= form.hidden_field :around_information %>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+<div class="hostel_comfirm_submit"><%= form.submit  "登録する" %></div>
+<div class="hostel_comfirm_submit2"><%= form.submit "戻る", name: 'back' %></div>
 
 <% end %>
-</div>

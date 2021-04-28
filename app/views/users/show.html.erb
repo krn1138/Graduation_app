@@ -1,40 +1,35 @@
 <%= render "border" %>
-<h3><%= current_user.name %>さんのプロフィール</h3>
-<div class="profile">
-<br>
-<%= image_tag @user.image.url, class: "icon_image" %>
-<br>
-<br>
-<span class='profile_button_position'><%= link_to 'プロフィールを編集する', edit_user_registration_path, class: "btn btn-outline-dark"%></span>
-
-<br>
-<br>
-
-<div class='user_show_page'>
-<table>
-  <tr>
-    名前 : <%= @user.name %>
-    <br>
-    <br>
-    メールアドレス : <%= @user.email %>
-    <br>
-    <br>
-    <% if @user.role == "guest" %>
-      <%= render 'users/guest', guest: @guest if @guest.present? %>
-    <% else %>
-      <%= render 'users/host', host: @host if @host.present? %>
-    <% end %>
-  </tr>
-  <tr>
-</table>
-</div>
-
-    <% if @hostel.present? && current_user.host? %>
-      <div class='user_hostel_btn'><%= link_to '登録した宿を確認', hostel_path(@hostel), class: "btn btn-outline-info" %></div>
-    <% else %>
-      <div class='user_hostel_btn'><%= link_to '宿を登録する', new_hostel_path, class: "btn btn-outline-info" unless current_user.guest? %></div>
-    <% end%>
-
-  </tr>
-    <div class='back_button_position'><%= link_to 'Back', root_path, 'data-turbolinks': false %></div>
+<div class="row user_show">
+  <div class="col-sm-5">
+    <div class="user_main">
+      <h3><%= current_user.name %>さんのプロフィール</h3>
+      <div class="image text-center">
+        <div><%= image_tag @user.image.url, class: "icon_image mt-4" %></div>
+        <div><%= link_to 'プロフィールを編集する', edit_user_registration_path, class: "btn btn-outline-dark my-4"%></div>
+      </div>
+      <table>
+        <tr>
+          <td>名前</td>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @user.email %></td>
+        </tr>
+          <% if @user.role == "guest" %>
+            <%= render 'users/guest', guest: @guest if @guest.present? %>
+          <% else %>
+            <%= render 'users/host', host: @host if @host.present? %>
+          <% end %>
+      </table>
+      <div class="text-center">
+      <% if @hostel.present? && current_user.host? %>
+        <div class='user_hostel_btn'><%= link_to '登録した宿を確認', hostel_path(@hostel), class: "btn btn-outline-info mt-4" %></div>
+      <% else %>
+        <div class='user_hostel_btn'><%= link_to '宿を登録する', new_hostel_path, class: "btn btn-outline-info mt-4" unless current_user.guest? %></div>
+      <% end%>
+      <div class='back_button_position my-4'><%= link_to 'Back', root_path, 'data-turbolinks': false %></div>
+      </div>
+    </div>
+  </div>
 </div>
