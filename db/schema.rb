@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 2021_04_09_054711) do
     t.string "address"
     t.string "phone_number"
     t.integer "gender"
-    t.integer "country"
+    t.string "country"
     t.float "latitude"
     t.float "longitude"
     t.string "image"
-    t.integer "birthday"
+    t.string "birthday"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -34,13 +34,13 @@ ActiveRecord::Schema.define(version: 2021_04_09_054711) do
     t.string "name", null: false
     t.string "address"
     t.integer "kind"
-    t.integer "walk_city_time"
+    t.string "walk_city_time"
     t.float "price"
     t.string "images", default: [], array: true
     t.string "phone_number"
     t.text "details"
     t.string "country"
-    t.integer "capacity"
+    t.string "capacity"
     t.float "latitude"
     t.float "longitude"
     t.text "around_information"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2021_04_09_054711) do
     t.text "profile"
     t.string "image"
     t.string "country"
-    t.integer "birthday"
+    t.string "birthday"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

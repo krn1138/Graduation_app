@@ -1,22 +1,22 @@
 <%= form.fields_for :guest do |g| %>
 
   <div class="field">
-    <%= g.label :address %><br />
+    <%= g.label :住所 %><br />
     <%= g.text_field :address, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= g.label :phone_number %><br />
+    <%= g.label :電話番号 %><br />
     <%= g.text_field :phone_number, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= g.label :country %><br />
+    <%= g.label :出身国 %><br />
     <%= g.text_field :country, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= g.label :birthday %><br />
+    <%= g.label :誕生日 %><br />
     <%= g.text_field :birthday, autofocus: true %>
   </div>
 
@@ -26,7 +26,7 @@
   </div>
 
   <div class="field">
-    <%= g.label :gender %><br />
+    <%= g.label :性別 %><br />
     <%= g.select :gender, Guest.genders.keys, {prompt: "選択"} %>
   </div>
 <% end %>

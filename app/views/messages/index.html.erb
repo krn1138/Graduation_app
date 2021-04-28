@@ -3,10 +3,9 @@
 
 <div class="message_top">
 
-<i class="fa fa-comments-o" aria-hidden="true"></i> <%= @message_room.sender == current_user ? @message_room.recipient.name : @message_room.sender.name %><br>
+<i class="fa fa-comments-o" aria-hidden="true"></i><%= @message_room.sender == current_user ? @message_room.recipient.name : @message_room.sender.name %><br>
   <% if @over_ten %>
     <%= link_to '以前のメッセージ', '?m=all' %>を表示する
-    <%# byebug%>
   <% end %>
 
       <% @messages.each do |message| %>

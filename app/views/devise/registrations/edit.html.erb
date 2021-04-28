@@ -7,7 +7,7 @@
 
 <h1>Your info</h1>
   <div class="field">
-  <%= f.label :image %><br/>
+  <%= f.label :プロフィール画像 %><br/>
   <%= image_tag @user.image.url, class: "icon", id: :img_prev if @user.image? %><br/>
     <%= f.file_field :image, id: :user_img %><br/>
     <%# binding.irb%>
@@ -18,12 +18,12 @@
 
 
   <div class="account_margin_top">
-    <%= f.label :name %><br />
+    <%= f.label :名前 %><br />
     <%= f.text_field :name, autofocus: true %>
 
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :メールアドレス %><br />
     <%= f.text_field :email, autofocus: true %>
   </div>
 
