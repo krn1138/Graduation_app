@@ -1,7 +1,8 @@
 <%= form.fields_for :host do |h| %>
 
   <div class="field">
-    <span class="badge">＊</span>　<%= h.label :representative %><br />
+    <div style="color: red;"><%= resource.errors.full_messages_for(:"account.last_name").first %></div>
+    <%= h.label :representative %><br />
     <%= h.text_field :name, autofocus: true %>
   </div>
 

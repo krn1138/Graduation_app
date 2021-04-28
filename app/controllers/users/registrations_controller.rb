@@ -51,6 +51,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # # PUT /resource
   def update
+    # resource.build_host
+    # resource.save
+    # binding.pry
     super
     # @user = current_user.host
     # if @user.save

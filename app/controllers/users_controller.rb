@@ -8,7 +8,8 @@ class UsersController < ApplicationController
     @user = current_user
     @guest = current_user.guest
     @host = current_user.host
-    @hostel = @host.hostel if current_user.host?
+    # binding.irb
+    @hostel = @host.hostel if current_user.host
   end
 
   private
