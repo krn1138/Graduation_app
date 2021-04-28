@@ -16,11 +16,14 @@ describe 'hostel機能', type: :system do
     context 'hostが宿を登録した場合' do
       it '１件のみ宿を登録ができる' do
         login(user_three)
-        click_on 'hostel registration'
+        # binding.pry
+        click_on 'Account'
+        sleep 2
+        click_on '宿を登録する'
         attach_file "hostel_images", "#{Rails.root}/spec/files/BackPacker.jpg"
         fill_in 'hostel[name]', with: 'ホテル１'
         fill_in 'hostel[address]', with: '福岡県博多区冷泉町９−１１'
-        select 'twin', from: 'hostel[kind]'
+        fill_in 'hostel[kind]', with: 'twin'
         fill_in 'hostel_walk_city_time', with: '1'
         fill_in 'hostel[price]', with: '2000'
         fill_in 'hostel[country]', with: 'japan'

@@ -27,6 +27,7 @@ describe 'user機能', type: :system do
     context 'guestが新規登録した場合' do
       it '作成したguestが表示される' do
         visit new_user_registration_path
+        # binding.pry
         fill_in 'user[name]', with: 'jennie'
         fill_in 'user[email]', with: 'jennie@example.com'
         fill_in 'user[password]', with: 'kkk1138'
@@ -35,6 +36,7 @@ describe 'user機能', type: :system do
         click_button 'Sign up'
         fill_in 'user[guest_attributes][address]', with: '福岡'
         fill_in 'user[guest_attributes][country]', with: '日本'
+        fill_in 'user[guest_attributes][phone_number]', with: '0000'
         click_button 'Update'
         expect(page).to have_content 'jennieさんのプロフィール'
       end
