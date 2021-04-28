@@ -6,29 +6,13 @@ class UsersController < ApplicationController
     # @guests = current_user.guest
     # @hosts = current_user.host
   end
-
   def show
     # binding.irb
     @user = current_user
     @guest = current_user.guest
+
     @host = current_user.host
-    # binding.pry
-
     @hostel = @host.hostel if current_user.host?
-    # @hostel = Hostel.pluck(:host_id)
-    # @hostel = Hostel.where(host_id: current_user.id).pluck(:host_id)
-    # @hostel = Hostel.find(hostel)
-    # urlにcategory_id(params)がある場合
-    # if params[:hostel_id]
-    #   # Categoryのデータベースのテーブルから一致するidを取得
-    #   @hostel = Hostel.find(params[:hostel_id])
-
-    #   # category_idと紐づく投稿を取得
-    #   @hostels = @hostel.hosts.order(created_at: :desc).all
-    # else
-    #   # 投稿すべてを取得
-    #   @hostels = Hostel.order(created_at: :desc).all
-    # end
   end
 
   private

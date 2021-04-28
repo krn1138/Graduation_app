@@ -1,5 +1,6 @@
 class MessageRoomsController < ApplicationController
   before_action :authenticate_user!
+  # before_action :hostel_confirmation
   def index
     @message_rooms = MessageRoom.all
   end

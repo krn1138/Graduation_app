@@ -4,6 +4,7 @@ class HostelsController < ApplicationController
   before_action :hostel_registration, only: [:new, :create]
   # before_action :not_movie
   before_action :check_not_hostel_edit, only: [:edit, :update, :destroy]
+  # before_action :hostel_confirmation
   # PER = 7
   def index
     # @hostels = Hostel.page(params[:page]).per(PER)
@@ -57,6 +58,7 @@ class HostelsController < ApplicationController
   end
 
   def edit
+    # @hostel.images_cache unless @hostel.images.blank?
   end
 
   def confirm

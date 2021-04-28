@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  # before_action :hostel_confirmation
   # before_action :configure_permitted_parameters, if: :devise_controller?
 
   # before_action :configure_account_update_params, if: :devise_controller?
@@ -12,9 +13,9 @@ class ApplicationController < ActionController::Base
         @hostels = @q.result(distinct: true)
         # @hostels = @q.result(distinct: true).page(params[:page]).per(PER)
         # @hostels = Hostel.page(params[:page]).per(PER)
-      else
-        @q = Hostel.ransack(params[:q])
-        @hostels = @q.result(distinct: true)
+      # else
+      #   @q = Hostel.ransack(params[:q])
+      #   @hostels = @q.result(distinct: true)
     end
       # @q = Hostel.ransack(params[:q])
       # @hostels = @q.result(distinct: true)
@@ -31,6 +32,11 @@ class ApplicationController < ActionController::Base
   # def configure_permitted_parameters
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:role, :name, :image])
   # end
+
+# def hostel_confirmation
+#   @host = current_user.host
+#   @hostel_confirmation = @host.hostel if current_user.host?
+# end
 
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [

@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  # before_action :hostel_confirmation
   before_action do
     @message_room = MessageRoom.find(params[:message_room_id])
   end
