@@ -2,8 +2,12 @@
 <%= render "border" %>
 
 <div class="message_top">
-<%%>
-<%= @hostel %>
+  <% if current_user.guest %>
+  メッセージをやり取りするには、<%= @message_room.recipient.name %>さんからの予約が必要です
+<% end %>
+<br>
+<br>
+<%# binding.irb %>
 <i class="fa fa-comments-o" aria-hidden="true"></i><%= @message_room.sender == current_user ? @message_room.recipient.name : @message_room.sender.name %><br>
   <% if @over_ten %>
     <%= link_to '以前のメッセージ', '?m=all' %>を表示する
