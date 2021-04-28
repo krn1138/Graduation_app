@@ -17,8 +17,6 @@
   <%= form.hidden_field :capacity %>
   <%= form.hidden_field :phone_number %>
 
-
-
   <p> 宿名: <%= @hostel.name %></p>
   <p> 住所: <%= @hostel.address %></p><br>
   <p> 部屋タイプ: <%= @hostel.kind %></p><br>
@@ -26,9 +24,10 @@
   <p> １泊の値段: <%= @hostel.price %> 〜 </p><br>
   宿の写真:<br>
   <% @hostel.images.each do |img| %>
-    <%= image_tag img.thumb.url, class: "hostel_show_icon" %>
+    <%= image_tag img.thumb.url, class: "header_icon" %>
   <% end %>
-<br>
+  <br>
+  <br>
   <p> 詳細情報: <%= @hostel.details %></p><br>
   <p> 宿周辺の情報: <%= @hostel.around_information %></p><br>
   <p> 国: <%= @hostel.country %></p><br>

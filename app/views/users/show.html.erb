@@ -30,9 +30,9 @@
 </div>
 
     <% if @hostel.present? && current_user.host? %>
-      <%= link_to '登録した宿を確認', hostel_path(@hostel), class: "btn btn-outline-info" %>
+      <div class='user_hostel_btn'><%= link_to '登録した宿を確認', hostel_path(@hostel), class: "btn btn-outline-info" %></div>
     <% else %>
-      <%= link_to '宿を登録する', new_hostel_path, class: "btn btn-outline-info" unless current_user.guest? %>
+      <div class='user_hostel_btn'><%= link_to '宿を登録する', new_hostel_path, class: "btn btn-outline-info" unless current_user.guest? %></div>
     <% end%>
 
   </tr>

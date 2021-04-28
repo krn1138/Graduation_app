@@ -9,10 +9,9 @@
       $(document).ready(function(){
         $("#photo").vegas({
           animation: "random",
-          // overlay: '/js/vegas/dist/overlays/08.png', //フォルダ『overlays』の中からオーバーレイのパターン画像を選択
-          transition: 'fade', //スライドを遷移させる際のアニメーション
-          transitionDuration: 4000, //スライドの遷移アニメーションの時間
-          delay: 10000, //スライド切り替え時の遅延時間
+          transition: 'fade',
+          transitionDuration: 4000,
+          delay: 10000,
           animationDuration: 20000,
           slides: [
             { src: "<%= image_path "amerika.jpg" %>" },
@@ -39,9 +38,4 @@
 
 </div>
 
-<%# else %>
-          <%#= link_to "新規登録", new_user_registration_path %>
-          <%#= link_to "ログイン", new_user_session_path %>
-
 <div class="covid_19_message">
-<%#= "新型コロナウイルス(COVID-19)に気をつけてください​​" %>

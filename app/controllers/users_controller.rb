@@ -2,15 +2,11 @@ class UsersController < ApplicationController
   before_action :different_user_check, only: [:show]
 
   def index
-    # @users = User.all
-    # @guests = current_user.guest
-    # @hosts = current_user.host
   end
+
   def show
-    # binding.irb
     @user = current_user
     @guest = current_user.guest
-
     @host = current_user.host
     @hostel = @host.hostel if current_user.host?
   end

@@ -1,11 +1,5 @@
 require 'rails_helper'
 describe 'user機能', type: :system do
-  # binding.irb
-  # user = FactoryBot.create(:user)
-  # user_two = FactoryBot.create(:user_two)
-  # user_guest = FactoryBot.create(:user_guest, user_id: user.id)
-  # user_guest2 = FactoryBot.create(:user_guest2, user_id: user.id)
-  # user_host = FactoryBot.create(:user_host, user_id: user.id)
   before do
     @user = FactoryBot.create(:user)
     @user_two = FactoryBot.create(:user_two)
@@ -32,7 +26,6 @@ describe 'user機能', type: :system do
   describe 'ユーザー登録' do
     context 'guestが新規登録した場合' do
       it '作成したguestが表示される' do
-        # binding.pry
         visit new_user_registration_path
         fill_in 'user[name]', with: 'jennie'
         fill_in 'user[email]', with: 'jennie@example.com'
@@ -49,7 +42,6 @@ describe 'user機能', type: :system do
 
     context 'hostが新規登録した場合' do
       it '作成したhostが表示される' do
-        # binding.pry
         visit new_user_registration_path
         fill_in 'user[name]', with: 'host_jennie'
         fill_in 'user[email]', with: 'host_jennie@example.com'
@@ -68,7 +60,6 @@ describe 'user機能', type: :system do
       it 'ログイン画面に遷移すること' do
         visit new_user_session_path
         expect(page).to have_current_path new_user_session_path
-        # binding.pry
       end
     end
   end
@@ -77,37 +68,29 @@ describe 'user機能', type: :system do
     context 'ユーザーがログイン,ログアウトした場合' do
       it 'guestが正常にログインできる' do
         login(@user)
-
-        # binding.pry
       end
     end
 
     it 'guestが正常にログアウトできる' do
       login(@user)
-      # binding.pry
       click_on 'Log out'
     end
 
-
     it 'hostが正常にログインできる' do
       login(@user_two)
-      # binding.pry
     end
 
     it 'hostが正常にログアウトできる' do
       login(@user_two)
-      # binding.pry
       click_on 'Log out'
     end
 
     context 'ユーザが他人の詳細画面に飛ぶ場合' do
       it 'toppageに遷移すること' do
         login(@user)
-        # binding.pry
         click_on 'Account'
         visit user_path(@user_two.id)
         expect(page).to have_content 'あなたのページはここです'
-        # expect(page).not_to have_content 'host1さんのページ'
       end
     end
   end
