@@ -30,6 +30,11 @@ class MessagesController < ApplicationController
     end
   end
 
+  def show
+
+    @hostel = @host.hostel.name
+  end
+
   private
   def message_params
     params.require(:message).permit(:content, :user_id, :read)

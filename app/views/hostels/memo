@@ -1,0 +1,67 @@
+<%= render "border" %>
+
+<h3>宿詳細情報</h3>
+<div class="hostel_show">
+  <div class="hostel_inner_show">
+      宿の写真<i class="fa fa-picture-o" aria-hidden="true"></i>:<br>
+      <br>
+    <div class="hostel_show_images">
+      <% @hostel.images.each do |img| %>
+        <%=  link_to img.url, 'data-lightbox': img do %>
+        <%= image_tag img.url, 'data-turbolinks': false, class: "hostel_show_icon" %>
+        <% end %>
+      <% end %>
+    </div>
+    <br>
+    <br>
+    <span class="hostel_show_left">宿名:
+    <br><%= @hostel.name %></span>
+    <br>
+    <br>
+    <span class="hostel_show_left">住所:
+    <br><%= @hostel.phone_number %></span>
+    <br>
+    <br>
+    <span class="hostel_show_left">部屋タイプ:
+    <br><%= @hostel.kind %></span>
+    <br>
+    <br>
+    <span class="hostel_show_left">国:
+    <br><%= @hostel.country %></span>
+    <br>
+    <br>
+    <span class="hostel_show_left">部屋数:
+    <br><%= @hostel.capacity %>部屋</span>
+    <br>
+    <br>
+    <span class="hostel_show_left">１泊の値段:
+    <br><%= @hostel.price %> 〜 </span>
+    <br>
+    <br>
+    <span class="hostel_show_left">市内までの距離:
+    <br>約<%= @hostel.walk_city_time %></span>
+    <br>
+    <br>
+    <span class="hostel_show_left">詳細情報:
+    <br><%= @hostel.details %></span>
+    <br>
+    <br>
+    <span class="hostel_show_left">宿周辺の情報:
+    <br><%= @hostel.around_information %></span>
+    <br>
+    <br>
+
+    <span class="hostel_show_left"><%= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.id), method: :post, class: "btn btn-outline-info" if current_user.guest? %></span>
+    <br>
+
+    <% if current_user.host == @hostel.host %>
+      <span class="hostel_show_edit"><%= link_to '編集する', edit_hostel_path, class: "btn btn-outline-dark" %></span><span class="hostel_show_delete"><%= link_to '削除する', hostel_path(@hostel.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "btn btn-outline-dark" %></span>
+      <br>
+      <br>
+      <span class="hostel_show_left"><%= link_to 'Back', hostels_path %></span><br>
+    <% else %>
+      <span class="hostel_show_left"><%= link_to 'Back', hostels_path %></span><br>
+    <% end %>
+  </div>
+
+</div>

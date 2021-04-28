@@ -1,59 +1,89 @@
 <%= render "border" %>
 
-<h3>宿詳細情報</h3>
-<div class="hostel_show">
-  <div class="hostel_inner_show">
-      宿の写真<i class="fa fa-picture-o" aria-hidden="true"></i>:<br>
-      <br>
-    <div class="hostel_show_images">
-      <% @hostel.images.each do |img| %>
-        <%=  link_to img.url, 'data-lightbox': img do %>
-        <%= image_tag img.url, 'data-turbolinks': false, class: "hostel_show_icon" %>
-        <% end %>
-      <% end %>
+<div class="row hostel-show">
+  <div class="col-sm-7">
+    <div class="aaa">
+      <div class="photo_box">
+          <% @hostel.images.each do |image| %>
+            <%=  link_to image.url, 'data-lightbox': image do %>
+            <div><%= image_tag image.url, class: "image_list" %></div>
+            <% end %>
+          <% end %>
+      </div>
+        <h4>宿情報</h4>
+        <table>
+          <colgroup>
+            <col width="30%">
+            <col width="70%">
+          </colgroup>
+          <tbody>
+            <tr>
+              <td>宿名</td>
+              <td><%= @hostel.name %></td>
+            </tr>
+            <tr>
+              <td>住所</td>
+              <td><%= @hostel.address %></td>
+            </tr>
+            <tr>
+              <td>電話番号</td>
+              <td><%= @hostel.phone_number %></td>
+            </tr>
+            <tr>
+              <td>値段</td>
+              <td><%= @hostel.price %></td>
+            </tr>
+            <tr>
+              <td>国</td>
+              <td><%= @hostel.phone_number %></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>部屋情報</h4>
+        <table>
+          <colgroup>
+            <col width="30%">
+            <col width="70%">
+          </colgroup>
+          <tbody>
+            <tr>
+              <td>部屋タイプ</td>
+              <td><%= @hostel.kind %></td>
+            </tr>
+            <tr>
+              <td>部屋数</td>
+              <td><%= @hostel.capacity %></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>その他の情報</h4>
+        <table>
+          <colgroup>
+            <col width="30%">
+            <col width="70%">
+          </colgroup>
+          <tbody>
+            <tr>
+              <td>市内までの距離</td>
+              <td><%= @hostel.walk_city_time %></td>
+            </tr>
+            <tr>
+              <td>詳細情報</td>
+              <td><%= @hostel.details %></td>
+            </tr>
+            <tr>
+              <td>宿周辺の情報</td>
+              <td><%= @hostel.around_information %></td>
+            </tr>
+          </tbody>
+        </table>
     </div>
-    <br>
-    <br>
-    <span class="hostel_show_left">宿名:
-    <br><%= @hostel.name %></span>
-    <br>
-    <br>
-    <span class="hostel_show_left">住所:
-    <br><%= @hostel.address %></span>
-    <br>
-    <br>
-    <span class="hostel_show_left">電話番号:
-    <br><%= @hostel.phone_number %></span>
-    <br>
-    <br>
-    <span class="hostel_show_left">部屋タイプ:
-    <br><%= @hostel.kind %></span>
-    <br>
-    <br>
-    <span class="hostel_show_left">国:
-    <br><%= @hostel.country %></span>
-    <br>
-    <br>
-    <span class="hostel_show_left">部屋数:
-    <br><%= @hostel.capacity %>部屋</span>
-    <br>
-    <br>
-    <span class="hostel_show_left">１泊の値段:
-    <br><%= @hostel.price %> 〜 </span>
-    <br>
-    <br>
-    <span class="hostel_show_left">市内までの距離:
-    <br>約<%= @hostel.walk_city_time %></span>
-    <br>
-    <br>
-    <span class="hostel_show_left">詳細情報:
-    <br><%= @hostel.details %></span>
-    <br>
-    <br>
-    <span class="hostel_show_left">宿周辺の情報:
-    <br><%= @hostel.around_information %></span>
-    <br>
-    <br>
+  </div>
+</div>
+
+
 
     <span class="hostel_show_left"><%= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.id), method: :post, class: "btn btn-outline-info" if current_user.guest? %></span>
     <br>
@@ -66,6 +96,3 @@
     <% else %>
       <span class="hostel_show_left"><%= link_to 'Back', hostels_path %></span><br>
     <% end %>
-  </div>
-
-</div>

@@ -1,0 +1,46 @@
+.hostel-show {
+    display: flex;
+    justify-content: center;
+    .aaa {
+        // display: flex;
+        // justify-content: center;
+        // justify-items: left;
+        width: 100%;
+        .photo_box {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            .image_list {
+                width: 200px;
+            }
+            // .image_list {
+            //     width: 200px;
+            // }
+            // .image_list:first-child {
+            //     width: 500px;
+            // }
+        }
+        h4 {
+            border-left: solid 4px rgb(214, 118, 39);
+            border-radius: 2px;
+            padding-left: 8px;
+            margin-top: 30px;
+        }
+        table {
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+            td {
+                border: solid 1px #bcb6b3;
+                padding: 15px;
+            }
+            tr td:nth-of-type(1) {
+                background-color: #f7f5f2;
+            }
+            tr:hover {
+                opacity: 1.0;
+                color: black;
+            }
+        }
+    }
+}
