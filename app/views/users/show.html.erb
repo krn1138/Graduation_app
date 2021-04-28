@@ -20,9 +20,9 @@
     <br>
     <br>
     <% if @user.role == "guest" %>
-      <%= render 'users/guest', guest: @guest %>
+      <%= render 'users/guest', guest: @guest if @guest.present? %>
     <% else %>
-      <%= render 'users/host', host: @host %>
+      <%= render 'users/host', host: @host if @host.present? %>
     <% end %>
   </tr>
   <tr>
