@@ -2,8 +2,8 @@
 <%= render "border" %>
 
 <div class="message_top">
-  <% unless current_user.host %>
-  メッセージをやり取りするには、<%= @message_room.recipient.name %>さんからの予約が必要です
+<% unless current_user.host %>
+  メッセージをやり取りするには、<%= @message_room.sender.name%> さんからの予約が必要です
 <% end %>
 <br>
 <br>
@@ -16,17 +16,17 @@
       <% @messages.each do |message| %>
         <% if message.user_id == current_user.id %>
           <div class="left-message">
-            <%= message.user.name %>(自分)<br>
+            <%= message.user.name %>(自分)　<%= l message.created_at, format: :short %><br>
             <% if message.user == current_user %>
               <%= message.content %>／
-              <%= message.read ? '既読' : '未読' %>　　<%= message.message_time %>
+              <%= message.read ? '既読' : '未読' %>
           </div>
             <% end %>
           <%#= l message.created_at, format: :short %>
         <% else %>
           <div class="right-message">
-              <%= message.user.name %><br>
-              <%= message.content %>　　<%= message.message_time %>
+              <%= message.user.name %>　<%= l message.created_at, format: :short %><br>
+              <%= message.content %>　　
           </div>
           <%#= l message.created_at, format: :short %>
           <%# byebug %>
