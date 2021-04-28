@@ -23,9 +23,14 @@
   <p> 市内までの距離: <%= @hostel.walk_city_time %></p><br>
   <p> １泊の値段: <%= @hostel.price %> 〜 </p><br>
   宿の写真:<br>
-  <% @hostel.images.each do |img| %>
-    <%= image_tag img.thumb.url, class: "header_icon" %>
+  <% @hostel.images.each do |image| %>
+    <li><%= image_tag image.url, class: "header_icon" %></li>
+    <%= hidden_field :images, :images, multiple: true, value: image.identifier %>
   <% end %>
+
+  <%# @hostel.images.each do |img| %>
+    <%#= image_tag img.thumb.url, class: "header_icon" %>
+  <%# end %>
   <br>
   <br>
   <p> 詳細情報: <%= @hostel.details %></p><br>

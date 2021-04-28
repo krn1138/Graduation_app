@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_04_09_054711) do
   create_table "hostels", force: :cascade do |t|
     t.string "name", null: false
     t.string "address"
-    t.integer "kind"
+    t.string "kind"
     t.string "walk_city_time"
     t.float "price"
     t.string "images", default: [], array: true

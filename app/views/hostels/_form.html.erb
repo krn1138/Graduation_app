@@ -28,8 +28,8 @@
     <%= form.text_area :address, placeholder: "住所", class: "edit_new_form_address" %>
     <br>
     <br>
-    <span class="badge">＊</span>　<%= form.label :部屋種類 %>
-    <%= form.select :kind, Hostel.kinds.keys, {prompt: "選択"} %>
+    <span class="badge">＊</span>　<%= form.label :部屋種類 %><br>
+    <%= form.text_area :kind, placeholder: "種類", class: "edit_new_form_address" %>
     <br>
     <br>
     <span class="badge">＊</span>　<%= form.label :市内までの距離 %><br>

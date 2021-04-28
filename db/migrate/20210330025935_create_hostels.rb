@@ -3,7 +3,7 @@ class CreateHostels < ActiveRecord::Migration[5.2]
     create_table :hostels do |t|
       t.string :name, null: false
       t.string :address
-      t.integer :kind
+      t.string :kind
       t.string :walk_city_time
       t.float :price
       t.string :images, default: [], array: true
