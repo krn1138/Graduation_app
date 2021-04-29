@@ -7,8 +7,8 @@
   </div>
 
   <div class="field">
-    <%= h.label :電話番号 %><br />
-    <%= h.text_area :phone_number, autofocus: true, class: "phone_text" %>
+    <span class="badge">＊</span><%= h.label :電話番号 %>(半角)<br />
+    <%= h.text_field :phone_number, autofocus: true %>
   </div>
 
   <div class="field">

@@ -10,12 +10,16 @@
   margin-left: 350px;
   margin-top: 30px;
   word-wrap:break-word;
+  height: 700px;
+  position: relative;
 }
 
 .field_two {
   margin-left: 280px;
   margin-top: 20px;
   width: 500px;
+  position: absolute;
+  bottom: 0;
 }
 
 .right-message {
@@ -32,7 +36,9 @@ margin-right: 600px;
 }
 
 .message_submit {
-  margin-right: 370px !important;
+  margin-right: 140px !important;
+  margin-bottom: 55px;
+
 }
 
 .message_index {

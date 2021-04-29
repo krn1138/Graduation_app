@@ -1,7 +1,7 @@
 <%#= image_tag @host.image.url, class: "icon_image"%>
 <%= render "border" %>
 
-<div class="message_top">
+<div class="message_top mb-5">
 <%= "メッセージをして予約を完了させましょう" %>
 <%# if current_user.guest == true %>
   <%#= @message_room.sender.name%>
@@ -9,7 +9,7 @@
 <br>
 <br>
 <%# binding.irb %>
-<i class="fa fa-comments-o" aria-hidden="true"></i><%= @message_room.sender == current_user ? @message_room.recipient.name : @message_room.sender.name %><br>
+<i class="fa fa-comments-o" aria-hidden="true"></i><%= @message_room.sender == current_user ? @message_room.recipient.name : @message_room.sender.name %>(相手)<br>
   <% if @over_ten %>
     <%= link_to '以前のメッセージ', '?m=all' %>を表示する
   <% end %>
@@ -34,14 +34,15 @@
         <% end %>
       <% end %>
 
-  <%= form_with(model: [@message_room, @message]) do |f| %>
+<%= form_with(model: [@message_room, @message]) do |f| %>
+<%# binding.pry %>
   <div class="field_two">
     <%= f.text_area :content, class: "form-control" %>
-  </div>
-    <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
   <div class="message_submit">
     <%= f.submit "メッセージを送る" %>
   </div>
+  </div>
+    <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
 <% end %>
 </div>
 
