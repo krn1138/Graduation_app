@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2021_04_09_054711) do
   end
 
   create_table "hosts", force: :cascade do |t|
-    t.string "name"
+    t.string "name", default: "No name"
     t.string "phone_number"
     t.text "profile"
     t.string "image"
