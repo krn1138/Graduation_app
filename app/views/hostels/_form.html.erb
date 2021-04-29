@@ -1,25 +1,22 @@
 
-<div class="hostel_form">
-<%= form_with(model: @hostel, local: true, url: choose_new_or_edit) do |form| %>
-  <% if @hostel.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(hostel.errors.count, "件のerror") %> により宿の保存ができません:</h2>
-
-      <ul>
-      <% hostel.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
 <div class="row hostel-show">
-  <div class="col-sm-12">
+  <div class="col-sm-5">
     <div class="aaa">
+    <%= form_with(model: @hostel, local: true, url: choose_new_or_edit) do |form| %>
+      <% if @hostel.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(hostel.errors.count, "件のerror") %> により宿の保存ができません:</h2>
+
+          <ul>
+          <% hostel.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
       <div class="photo_box">
       </div>
-        <h4>宿情報</h4>
+        <h4 class="text-left pl-3">宿情報</h4>
         <table>
           <colgroup>
             <col width="30%">
@@ -36,7 +33,8 @@
             </tr>
             <tr>
               <td><span class="badge">＊</span>　<%= form.label :宿名 %></td>
-              <td><%= form.text_area :name, placeholder: "宿名", class: "edit_new_form_name" %></td>
+              <td>例)11111111<br>
+              <%= form.text_area :name, placeholder: "宿名", class: "edit_new_form_name" %></td>
             </tr>
             <tr>
               <td><span class="badge">＊</span>　<%= form.label :住所 %></td>
@@ -57,7 +55,7 @@
           </tbody>
         </table>
 
-        <h4>部屋情報</h4>
+        <h4 class="text-left pl-3">部屋情報</h4>
         <table>
           <colgroup>
             <col width="30%">
@@ -75,7 +73,7 @@
           </tbody>
         </table>
 
-        <h4>その他の情報</h4>
+        <h4 class="text-left pl-3">その他の情報</h4>
         <table>
           <colgroup>
             <col width="30%">
@@ -96,15 +94,13 @@
             </tr>
           </tbody>
         </table>
+        <div class="hostel_form_submit mt-4">
+          <%= form.submit %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
-    <br>
-    <br>
-    <div class="hostel_form_submit">
-      <%= form.submit %>
-    </div>
-  <% end %>
 
 
 

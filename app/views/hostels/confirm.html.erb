@@ -9,7 +9,7 @@
     <div class="aaa">
       <div class="photo_box">
         <% @hostel.images.each do |image| %>
-          <li><%= image_tag image.url, class: "header_icon" %></li>
+          <li><%= image_tag image.url, class: "confirm_icon" %></li>
           <%= hidden_field :images, :images, multiple: true, value: image.identifier %>
           <%= form.hidden_field :images_cache %>
         <% end %>
@@ -96,7 +96,7 @@
     </div>
   </div>
 </div>
-<div class="hostel_comfirm_submit">
+<div class="hostel_comfirm_submit mt-5">
   <%= form.submit  "登録する" %>
   <%#= form.submit "戻る", name: 'back' %>
 </div>
