@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_04_09_054711) do
   create_table "guests", force: :cascade do |t|
     t.string "address"
     t.string "phone_number"
-    t.integer "gender"
+    t.integer "gender", default: 2
     t.string "country"
     t.float "latitude"
     t.float "longitude"

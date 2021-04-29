@@ -85,8 +85,8 @@
   </div>
 </div>
 
-
-  <span class="reservation_btn"><%= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.id), method: :post, class: "btn btn-outline-info" if current_user.guest? %></span>
+<%# binding.pry %>
+  <span class="reservation_btn"><%= link_to '予約する', message_rooms_path(sender_id: current_user.id, recipient_id: @hostel.host.user.id), method: :post, class: "btn btn-outline-info" if current_user.guest? %></span>
   <br>
 
   <% if current_user.host == @hostel.host %>
