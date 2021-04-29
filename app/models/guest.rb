@@ -2,7 +2,9 @@ class Guest < ApplicationRecord
     belongs_to :user
     # validates :address, presence: true
     # validates :phone_number, presence: true
-    validates :phone_number,  presence: true, length: { maximum: 11 }
+    validates :phone_number,  presence: true, length: { maximum: 11 },
+                            format: { with: /\A[0-9]+\z/ }
+
     enum gender: {
         女性: 0, 男性: 1, 答えない: 2
     }
