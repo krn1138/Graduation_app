@@ -3,7 +3,7 @@ class CreateGuests < ActiveRecord::Migration[5.2]
     create_table :guests do |t|
       t.string :address
       t.string :phone_number
-      t.integer :gender
+      t.integer :gender, default: 2
       t.string :country
       t.float :latitude
       t.float :longitude

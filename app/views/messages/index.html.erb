@@ -3,9 +3,9 @@
 
 <div class="message_top">
 <%= "メッセージをして予約を完了させましょう" %>
-<% if current_user.guest == true %>
-  メッセージをやり取りするには、<%= @message_room.sender.name%> さんからの予約が必要です
-<% end %>
+<%# if current_user.guest == true %>
+  <%#= @message_room.sender.name%>
+<%# end %>
 <br>
 <br>
 <%# binding.irb %>
