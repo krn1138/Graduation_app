@@ -5,7 +5,7 @@
     <%= form_with(model: @hostel, local: true, url: choose_new_or_edit) do |form| %>
       <% if @hostel.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(hostel.errors.count, "件のerror") %> により宿の保存ができません:</h2>
+          <h2><%= pluralize(hostel.errors.count, "error!") %> 宿の保存ができません</h2>
 
           <ul>
           <% hostel.errors.full_messages.each do |message| %>
@@ -29,12 +29,12 @@
               <li><%= image_tag image.url, class: "header_icon" %></li>
               <%= hidden_field :images, :images, multiple: true, value: image.identifier %>
               <% end %>
+              <div class="form_inf">※1枚以上5枚まで</div>
               <%= form.file_field :images, multiple: true %></td>
             </tr>
             <tr>
               <td><span class="badge">＊</span>　<%= form.label :宿名 %></td>
-              <td>例)11111111<br>
-              <%= form.text_area :name, placeholder: "宿名", class: "edit_new_form_name" %></td>
+              <td><%= form.text_area :name, placeholder: "宿名", class: "edit_new_form_name" %></td>
             </tr>
             <tr>
               <td><span class="badge">＊</span>　<%= form.label :住所 %></td>
@@ -42,15 +42,15 @@
             </tr>
             <tr>
               <td><span class="badge">＊</span>　<%= form.label :電話番号 %></td>
-              <td><%= form.text_area :phone_number, placeholder: "例)0947-44-8811", class: "edit_new_form_phone_number" %></td>
+              <td><div class="form_inf">例)12345678900(半角のみ)</div><%= form.text_area :phone_number, class: "edit_new_form_phone_number" %></td>
             </tr>
             <tr>
               <td><span class="badge">＊</span>　<%= form.label :料金 %></td>
-              <td><%= form.text_area :price, placeholder: "例)日本", class: "edit_new_form_country" %></td>
+              <td><div class="form_inf">例)日本円で1泊約2000円〜</div><%= form.text_area :price, class: "edit_new_form_country" %></td>
             </tr>
             <tr>
               <td><span class="badge">＊</span>　<%= form.label :国 %></td>
-              <td><%= form.text_area :country, placeholder: "例)日本", class: "edit_new_form_country" %></td>
+              <td><div class="form_inf">例)アメリカ</div><%= form.text_area :country, class: "edit_new_form_country" %></td>
             </tr>
           </tbody>
         </table>
@@ -64,11 +64,11 @@
           <tbody>
             <tr>
               <td><span class="badge">＊</span>　<%= form.label :部屋種類 %></td>
-              <td><%= form.text_area :kind, placeholder: "種類", class: "edit_new_form_address" %></td>
+              <td><div class="form_inf">例)ドミトリー◯室,ツイン◯室</div><%= form.text_area :kind, class: "edit_new_form_address" %></td>
             </tr>
             <tr>
               <td><span class="badge">＊</span>　<%= form.label :全部屋数 %></td>
-              <td><%= form.text_area :capacity, placeholder: "例)3部屋", class: "edit_new_form_capacity" %></td>
+              <td><div class="form_inf">例)◯室</div><%= form.text_area :capacity, class: "edit_new_form_capacity" %></td>
             </tr>
           </tbody>
         </table>
@@ -82,15 +82,15 @@
           <tbody>
             <tr>
               <td><span class="badge">＊</span>　<%= form.label :市内までの距離 %></td>
-              <td><%= form.text_area :walk_city_time, placeholder: "例)徒歩10分", class: "edit_new_form_walk_city_time" %></td>
+              <td><div class="form_inf">例)徒歩約10分</div><%= form.text_area :walk_city_time, class: "edit_new_form_walk_city_time" %></td>
             </tr>
             <tr>
               <td><span class="badge">＊</span>　<%= form.label :詳細 %><br></td>
-              <td><%= form.text_area :details, placeholder: "例)アメニティーは、ドライヤー、タオルがあります", class: "edit_new_form_details" %></td>
+              <td><div class="form_inf">例)アメニティーは、◯◯◯があります</div><%= form.text_area :details, class: "edit_new_form_details" %></td>
             </tr>
             <tr>
               <td><span class="badge">＊</span>　<%= form.label :宿周辺情報 %><br></td>
-              <td><%= form.text_area :around_information, placeholder: "例)コンビニがあります", class: "edit_new_form_around_information" %></td>
+              <td><div class="form_inf">例)コンビニがあります</div><%= form.text_area :around_information, class: "edit_new_form_around_information" %></td>
             </tr>
           </tbody>
         </table>
