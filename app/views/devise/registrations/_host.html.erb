@@ -1,8 +1,8 @@
 <%= form.fields_for :host do |h| %>
 
   <div class="field">
-    <div style="color: red;"><%= resource.errors.full_messages_for(:"account.last_name").first %></div>
-    <%= h.label :代表者 %><br />
+    <div style="color: red;"><%= resource.errors.full_messages_for(:"guest.name").first %></div>
+    <div class ="badge">*</div><%= h.label :代表者 %><br />
     <%= h.text_field :name, autofocus: true %>
   </div>
 
