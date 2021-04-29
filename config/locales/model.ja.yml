@@ -2,6 +2,8 @@ ja:
   activerecord:
     models:
       hostel: ホステル
+      host: ホスト
+      guest: ゲスト
     attributes:
       hostel:
         name: 名前
@@ -14,4 +16,16 @@ ja:
         walk_city_time: 市内までの距離
         details: 詳細
         around_information: 宿周辺情報
+      host:
+        name: 代表者
+        profile: プロフィール
+        address: 住所
+        phone_number: 電話番号
+        country: 出身国
+      guest:
+        address: 住所
+        phone_number: 電話番号
+        birthday: 誕生日
+        country: 出身国
+        gender: 性別
 
