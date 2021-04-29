@@ -7,12 +7,12 @@ function initMap() {
 
   //マップ初期表示の位置設定
   var target = document.getElementById('target');
-  var centerp = {lat: 10.185688, lng: 156.899084};
+  var centerp = {lat: 13.185688, lng: 130.899084};
 
   //マップ表示
   map = new google.maps.Map(target, {
     center: centerp,
-    zoom: 6,
+    zoom: 2,
   });
 
   // 検索実行ボタンが押下されたとき
