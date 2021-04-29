@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      hostel: ホステル
+    attributes:
+      hostel:
+        name: 名前
+        address: 住所
+        phone_number: 電話番号
+        price: 料金
+        country: 国
+        capacity: 部屋数
+        kind: 部屋種類
+        walk_city_time: 市内までの距離
+        details: 詳細
+        around_information: 宿周辺情報
+
