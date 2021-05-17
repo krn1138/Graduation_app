@@ -18,4 +18,11 @@ class User < ApplicationRecord
   enum role: {
     guest: 0, host: 1
   }
+
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+    user.password = SecureRandom.urlsafe_base64
+    user.name = "ゲスト"
+    end
+  end
 end
