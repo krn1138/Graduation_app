@@ -23,11 +23,15 @@
 }
 
 .right-message {
-margin-right: 600px;
+// margin-right: 600px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .left-message {
-  margin-left: 600px;
+  // margin-left: 600px;
+  display: flex;
+  justify-content: flex-end;
   margin-top: 20px;
 }
 

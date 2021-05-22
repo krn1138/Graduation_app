@@ -26,11 +26,15 @@ body {
 }
 
 .google_map {
-    margin-left: 450px;
+    display: flex;
+    justify-content: center;
+    /* margin-left: 450px; */
     margin-bottom: 50px;
 
 }
+.top_center {
 
+}
 .covid_19_message {
     text-align: center;
     font-size: medium;

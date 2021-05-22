@@ -38,9 +38,9 @@
 <%# binding.pry %>
   <div class="field_two">
     <%= f.text_area :content, class: "form-control" %>
-  <div class="message_submit">
-    <%= f.submit "メッセージを送る" %>
-  </div>
+      <div class="message_submit">
+        <%= f.submit "メッセージを送る" %>
+      </div>
   </div>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
 <% end %>
