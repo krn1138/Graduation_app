@@ -35,8 +35,7 @@
 
 
   <div class="address_point">
-      <%= select_tag "keyword", options_from_collection_for_select(@hostels, :address, :name), {prompt: "行きたい宿の場所を検索"} %>
-    <input type="text_index" id="country_key">
+      <%= select_tag "keyword", options_from_collection_for_select(@hostels, :address, :name), {prompt: "ここから行きたい宿の場所を検索"} %>
     <button id="search", class="btn btn-outline-dark">検索</button><button id="clear", class="btn btn-outline-dark">クリア</button>
     <div id="target"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>

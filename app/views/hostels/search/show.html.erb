@@ -1,6 +1,7 @@
 <%= render "header" %>
 <p id="notice"><%= notice %></p>
 
+<div class="top_center">
 <div class="top_header">
   <div class="header_coler">
     <%= link_to "Account", user_path(current_user.id), class: "header_font" %>　　
@@ -82,5 +83,7 @@
 
 <div id="map" style="width:800px; height:400px;"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap"></script>
+
+</div>
 
 </div>
